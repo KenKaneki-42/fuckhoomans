@@ -1,24 +1,33 @@
+<% # user infos:  rank, level by category, pseudo etc... %>
+<%= @user_infos.pseudo %>
+<%= @user_infos.rank_category %>
+<%= @user_infos.transport_level %>
+<%= @user_infos.home_level %>
+<%= @user_infos.numeric_level %>
+<%= @user_infos.food_level %>
+
+<% ### actions by category %>
 
 <% @transport_actions.each do |action| %>
   <%= link_to user_action_path(action) do %>
-    <p><%= action.title  %> <%= action.action_id  %></p>
+    <p><%= action.title  %> <%= action.action.level %></p>
   <% end %>
 <% end %>
 <hr>
 <% @food_actions.each do |action| %>
   <%= link_to user_action_path(action) do %>
-    <p><%= action.title  %> <%= action.action_id  %></p>
+    <p><%= action.title  %> <%= action.action.level  %></p>
   <% end %>
 <% end %>
 <hr>
 <% @digital_actions.each do |action| %>
   <%= link_to user_action_path(action) do %>
-    <p><%= action.title  %> <%= action.action_id  %></p>
+    <p><%= action.title  %> <%= action.action.level  %></p>
   <% end %>
 <% end %>
 <hr>
 <% @household_actions.each do |action| %>
   <%= link_to user_action_path(action) do %>
-    <p><%= action.title  %> <%= action.action_id  %></p>
+    <p><%= action.title  %> <%= action.action.level  %></p>
   <% end %>
 <% end %>
