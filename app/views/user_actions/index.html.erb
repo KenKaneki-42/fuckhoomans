@@ -1,7 +1,24 @@
-<p><%= @transport_actions.status  %> <%= @transport_actions.action_id  %></p>
+
+<% @transport_actions.each do |action| %>
+  <%= link_to user_action_path(action) do %>
+    <p><%= action.title  %> <%= action.action_id  %></p>
+  <% end %>
+<% end %>
 <hr>
-<p><%= @food_actions.status  %> <%= @food_actions.action_id  %></p>
+<% @food_actions.each do |action| %>
+  <%= link_to user_action_path(action) do %>
+    <p><%= action.title  %> <%= action.action_id  %></p>
+  <% end %>
+<% end %>
 <hr>
-<p><%= @digital_actions.status  %> <%= @digital_actions.action_id  %></p>
+<% @digital_actions.each do |action| %>
+  <%= link_to user_action_path(action) do %>
+    <p><%= action.title  %> <%= action.action_id  %></p>
+  <% end %>
+<% end %>
 <hr>
-<p><%= @household_actions.status  %> <%= @household_actions.action_id  %></p>
+<% @household_actions.each do |action| %>
+  <%= link_to user_action_path(action) do %>
+    <p><%= action.title  %> <%= action.action_id  %></p>
+  <% end %>
+<% end %>
