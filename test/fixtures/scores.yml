@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  transport_score: 1
+  food_score: 1
+  household_score: 1
+  digital_score: 1
+  total_score: 1
+
+two:
+  user: two
+  transport_score: 1
+  food_score: 1
+  household_score: 1
+  digital_score: 1
+  total_score: 1
