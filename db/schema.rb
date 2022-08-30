@@ -71,7 +71,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_100458) do
     t.string "first_name"
     t.string "last_name"
     t.string "pseudo"
-    t.string "rank_category" # rate of categories levels
+    t.string "rank_category"
     t.string "transport_level"
     t.string "home_level"
     t.string "numeric_level"
