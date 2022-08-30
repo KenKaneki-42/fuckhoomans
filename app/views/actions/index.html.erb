@@ -1,0 +1,27 @@
+<h1>transport actions</h1>
+<% @transport_actions.each do |action| %>
+  <%= link_to action_path(action) do %>
+    <p><%= action.title %></p>
+  <% end %>
+<% end %>
+
+<h1>food actions</h1>
+<% @food_actions.each do |action| %>
+  <%= link_to action_path(action) do %>
+    <p><%= action.title %></p>
+  <% end %>
+<% end %>
+
+<h1>digital actions</h1>
+<% @digital_actions.each do |action| %>
+  <%= link_to action_path(action) do %>
+    <p><%= action.title %></p>
+  <% end %>
+<% end %>
+
+<h1>household actions</h1>
+<% @household_actions.each do |action| %>
+  <%= link_to action_path(action) do %>
+    <p><%= action.title %></p>
+  <% end %>
+<% end %>
