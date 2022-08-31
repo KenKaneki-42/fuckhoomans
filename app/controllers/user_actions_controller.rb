@@ -8,12 +8,12 @@ class UserActionsController < ApplicationController
   end
 
   def show
-    @action = UserAction.joins(:action).find(params[:id])
+    @user_action = UserAction.includes(:action).find(params[:id])
   end
 
   def create
     @new_user_action = UserAction.new(get_params)
-    @new_user_action.status = 'unvalidated'
+    @new_user_action.status = 'selected'
     @new_user_action.user_occurences = 0
     @new_user_action.user = current_user #.valid?       } if not saving
     if @new_user_action.save             #.errors       }
@@ -23,8 +23,26 @@ class UserActionsController < ApplicationController
     end
   end
 
+  def update
+    user_action = UserAction.includes(:action).find(params[:id])
+    user_action.user_occurences = user_action.user_occurences + 1
+    if user_action.action.occurences == user_action.user_occurences
+      user_action.status = "validated"
+    else
+      user_action.status = "in_progress"
+    end
+
+    if user_action.save
+      redirect_to actions_path
+    else
+      render :show, status: :unprocessable_entity
+    end
+  end
+
+  private
 
   def get_params
     params.require(:user_action).permit(:action_id, :score, :category, :title, :status, :user_occurences)
   end
+
 end
