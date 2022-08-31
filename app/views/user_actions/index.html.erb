@@ -8,6 +8,8 @@
 
 <% ### actions by category %>
 
+<%= link_to "take an action", actions_path %>
+
 <% @transport_actions.each do |action| %>
   <%= link_to user_action_path(action) do %>
     <p><%= action.title  %> <%= action.action.level %></p>
