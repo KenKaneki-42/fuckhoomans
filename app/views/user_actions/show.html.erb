@@ -1,15 +1,20 @@
-<%= @action.title %>
+<%= @user_action.title %>
 <hr>
-<%= @action.category %>
+<%= @user_action.category %>
 <hr>
-<%= @action.action.description %>
+<%= @user_action.action.description %>
 <hr>
-<%= @action.action.level %>
+<%= @user_action.action.level %>
 <hr>
-<%= @action.status %>
+<%= @user_action.status %>
 <hr>
-<%= @action.action.occurences %>
+<%= @user_action.action.occurences %>
 <hr>
-<%= @action.user_occurences %>
+<%= @user_action.user_occurences %>
 <hr>
-<%= @action.score %>
+<%= @user_action.score %>
+
+
+<%= simple_form_for @user_action, :url => user_action_path(@user_action), method: :patch do |f| %>
+  <%= f.submit "Valider", class: "btn btn-success rounded-4 " %>
+<% end %>

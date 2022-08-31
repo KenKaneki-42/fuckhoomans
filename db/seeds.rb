@@ -30,15 +30,15 @@ user1 = User.create!({email: 'jean.jordan@gmail.com', password: '123456', first_
 #######################    USER-ACTIONS ###############################################################
 
 
-  user_action1 = UserAction.create({
-                                      title: 'transport question',
-                                      status: 'unvalidated',
-                                      user_occurences: 0,
-                                      user_id: user1.id,
-                                      action_id: action1.id,
-                                      score: action1.score,
-                                      category: action1.category
-                                    })
+  # user_action1 = UserAction.create({
+  #                                     title: 'transport question',
+  #                                     status: 'unvalidated',
+  #                                     user_occurences: 0,
+  #                                     user_id: user1.id,
+  #                                     action_id: action1.id,
+  #                                     score: action1.score,
+  #                                     category: action1.category
+  #                                   })
 
   user_action2 = UserAction.create({
                                       title: 'household question',

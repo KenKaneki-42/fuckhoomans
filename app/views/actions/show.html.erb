@@ -1,2 +1,12 @@
 <h1>L'action en question </h1>
 <p><%= @action.title %></p>
+
+
+
+<%= simple_form_for ([@action, @user_action]) do |f| %>
+  <%= f.input :action_id, as: :hidden, input_html:{ value: @action.id }%>
+  <%= f.input :category, as: :hidden, input_html:{ value: @action.category }%>
+  <%= f.input :title, as: :hidden, input_html:{ value: @action.title }%>
+  <%= f.input :score, as: :hidden, input_html:{ value: @action.score }%>
+  <%= f.submit "take this action", class: "btn btn-success rounded-4 " %>
+<% end %>
