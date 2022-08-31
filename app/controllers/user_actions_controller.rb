@@ -15,8 +15,8 @@ class UserActionsController < ApplicationController
     @new_user_action = UserAction.new(get_params)
     @new_user_action.status = 'unvalidated'
     @new_user_action.user_occurences = 0
-    @new_user_action.user_id = current_user
-    if @new_user_action.save
+    @new_user_action.user = current_user #.valid?       } if not saving
+    if @new_user_action.save             #.errors       }
       redirect_to user_actions_path
     else
       raise
@@ -25,6 +25,6 @@ class UserActionsController < ApplicationController
 
 
   def get_params
-    params.require(:user_action).permit(:user_id, :action_id, :score, :category, :title, :status, :user_occurences)
+    params.require(:user_action).permit(:action_id, :score, :category, :title, :status, :user_occurences)
   end
 end
