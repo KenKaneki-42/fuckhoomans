@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_30_152604) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_31_140403) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,7 +20,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_152604) do
     t.string "score"
     t.string "category"
     t.string "description"
-    t.integer "occurences"
+    t.integer "occurences", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -66,8 +66,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_152604) do
   end
 
   create_table "user_actions", force: :cascade do |t|
-    t.string "status"
-    t.integer "user_occurences"
+    t.string "status", default: "selected"
+    t.integer "user_occurences", default: 0
     t.integer "score"
     t.bigint "user_id", null: false
     t.bigint "action_id", null: false
