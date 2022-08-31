@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
   get "about", to: "pages#about"
   get "contact", to: "pages#contact"
-  resources :user_actions, only: %i[index show]
+  resources :user_actions, only: %i[index show update]
   resources :actions, only: %i[index show] do
     resources :user_actions, only: %i[create]
   end
