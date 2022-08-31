@@ -10,8 +10,69 @@ Action.delete_all
 User.delete_all
 
 #######################    USERS ###############################################################
-user1 = User.create!({email: 'jean.jordan@gmail.com', password: '123456', first_name: 'jean', last_name: 'jordan', pseudo: 'jjordan47', rank_category: 'iron', transport_level: 'neophyte', home_level: 'neophyte', numeric_level: 'neophyte', food_level: 'neophyte'})
+user1 = User.create!({
+                        email: 'jean.jordan@gmail.com',
+                        password: '123456',
+                        first_name: 'jean',
+                        last_name: 'jordan',
+                        pseudo: 'jjordan47',
+                        rank_category: 'iron',
+                        transport_level: 'neophyte',
+                        home_level: 'neophyte',
+                        numeric_level: 'neophyte',
+                        food_level: 'neophyte'
+                     })
+file1 = URI.open("https://avatars.githubusercontent.com/u/86103386?v=4")
+user1.photo.attach(io: file1, filename: "user1.jpg", content_type: "image/jpeg")
 
+
+user2 = User.create!({
+  email: 'jordan.jean@gmail.com',
+  password: '123456',
+  first_name: 'jordan',
+  last_name: 'jean',
+  pseudo: 'jjean971',
+  rank_category: 'iron',
+  transport_level: 'neophyte',
+  home_level: 'neophyte',
+  numeric_level: 'neophyte',
+  food_level: 'neophyte'
+})
+file2 = URI.open("https://avatars.githubusercontent.com/u/108475328?v=4")
+user2.photo.attach(io: file2, filename: "user2.jpg", content_type: "image/jpeg")
+
+
+
+user3 = User.create!({
+  email: 'rafa.icy@gmail.com',
+  password: '123456',
+  first_name: 'rafa',
+  last_name: 'delavega',
+  pseudo: 'icyaspasta',
+  rank_category: 'iron',
+  transport_level: 'neophyte',
+  home_level: 'neophyte',
+  numeric_level: 'neophyte',
+  food_level: 'neophyte'
+})
+file3 = URI.open("https://avatars.githubusercontent.com/u/107106167?v=4")
+user3.photo.attach(io: file3, filename: "user3.jpg", content_type: "image/jpeg")
+
+
+user4 = User.create!({
+  email: 'lil.witch@gmail.com',
+  password: '123456',
+  first_name: 'sabrina',
+  last_name: 'theWitch',
+  pseudo: 'lilsabrina42',
+  rank_category: 'iron',
+  transport_level: 'neophyte',
+  home_level: 'neophyte',
+  numeric_level: 'neophyte',
+  food_level: 'neophyte'
+})
+file4 = URI.open("https://avatars.githubusercontent.com/u/107299884?v=4")
+user4.photo.attach(io: file4, filename: "user4.jpg", content_type: "image/jpeg")
 
 
 
