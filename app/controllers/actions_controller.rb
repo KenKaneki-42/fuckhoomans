@@ -8,7 +8,6 @@ class ActionsController < ApplicationController
   end
   def show
     @action = Action.find(params[:id])
-    @user = current_user
     @user_action = UserAction.new()
   end
 end
