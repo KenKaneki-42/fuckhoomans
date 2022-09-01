@@ -277,7 +277,7 @@ user1_action6 = UserAction.create({ title: action2l2.title,
 
 user1_action7 = UserAction.create({ title: action4l1.title,
                                     status: 'validated',
-                                    user_occurences: 0,
+                                    user_occurences: 1,
                                     user_id: user1.id,
                                     action_id: action4l1.id,
                                     score: action4l1.score,
