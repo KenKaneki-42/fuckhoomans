@@ -228,7 +228,8 @@ user1_action1 = UserAction.create({ title: action1l1.title,
                                     user_id: user1.id,
                                     action_id: action1l1.id,
                                     score: action1l1.score,
-                                    category: action1l1.category })
+                                    category: action1l1.category
+                                    carbongain: action1l1.carbongain })
 
 user1_action2 = UserAction.create({ title: action2l1.title,
                                     status: 'validated',
@@ -236,7 +237,8 @@ user1_action2 = UserAction.create({ title: action2l1.title,
                                     user_id: user1.id,
                                     action_id: action2l1.id,
                                     score: action2l1.score,
-                                    category: action2l1.category })
+                                    category: action2l1.category
+                                    carbongain: action2l1.carbongain })
 
 user1_action3 = UserAction.create({ title: action3l1.title,
                                     status: 'validated',
@@ -244,7 +246,8 @@ user1_action3 = UserAction.create({ title: action3l1.title,
                                     user_id: user1.id,
                                     action_id: action3l1.id,
                                     score: action3l1.score,
-                                    category: action3l1.category })
+                                    category: action3l1.category
+                                    carbongain: action3l1.carbongain })
 
 # that permit him to unlock silver rank
 # and intermediate actions in transport category
@@ -255,7 +258,8 @@ user1_action4 = UserAction.create({ title: action1l2.title,
                                     user_id: user1.id,
                                     action_id: action1l2.id,
                                     score: action1l2.score,
-                                    category: action1l2.category })
+                                    category: action1l2.category
+                                    carbongain: action1l2.carbongain })
 
 user1_action5 = UserAction.create({ title: action2l2.title,
                                     status: 'selected',
@@ -263,15 +267,17 @@ user1_action5 = UserAction.create({ title: action2l2.title,
                                     user_id: user1.id,
                                     action_id: action2l2.id,
                                     score: action2l2.score,
-                                    category: action2l2.category })
+                                    category: action2l2.category
+                                    carbongain: action2l2.carbongain })
 
-user1_action6 = UserAction.create({ title: action2l2.title,
+user1_action6 = UserAction.create({ title: action3l2.title,
                                     status: 'selected',
                                     user_occurences: 0,
                                     user_id: user1.id,
-                                    action_id: action2l2.id,
-                                    score: action2l2.score,
-                                    category: action2l2.category })
+                                    action_id: action3l2.id,
+                                    score: action3l2.score,
+                                    category: action3l2.category
+                                    carbongain: action3l2.carbongain })
 
 # for the list of all his view we will attribute him an action from food category
 
@@ -281,7 +287,8 @@ user1_action7 = UserAction.create({ title: action4l1.title,
                                     user_id: user1.id,
                                     action_id: action4l1.id,
                                     score: action4l1.score,
-                                    category: action4l1.category })
+                                    category: action4l1.category
+                                    carbongain: action4l1.carbongain })
 
 user1_action8 = UserAction.create({ title: action4l2.title,
                                     status: 'selected',
@@ -289,4 +296,5 @@ user1_action8 = UserAction.create({ title: action4l2.title,
                                     user_id: user1.id,
                                     action_id: action4l2.id,
                                     score: action4l2.score,
-                                    category: action4l2.category })
+                                    category: action4l2.category
+                                    carbongain: action4l2.carbongain })
