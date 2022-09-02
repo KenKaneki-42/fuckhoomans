@@ -1,20 +1,29 @@
-<%= @user_action.title %>
-<hr>
-<%= @user_action.category %>
-<hr>
-<%= @user_action.action.description %>
-<hr>
-<%= @user_action.action.level %>
-<hr>
-<%= @user_action.status %>
-<hr>
-<%= @user_action.action.occurences %>
-<hr>
-<%= @user_action.user_occurences %>
-<hr>
-<%= @user_action.score %>
+<img src="https://picsum.photos/450/300" alt="" class="mb-4" style="width: 100%">
 
+<div class="action-show-card mx-auto position-relative">
+  <div class="d-flex col-12 justify-content-between mt-3 mb-5">
+    <div class="show-icon-container d-flex justify-content-around align-items-center ">
+        <i class="fa-solid fa-plane"></i>
+      </div>
+      <div class="d-flex col-7 justify-content-between">
+        <div class="d-flex justify-content-evenly align-items-center card-show-co2">
+          <i class="fa-solid fa-leaf"></i>
+          <p class="">0kg/ CO2</p>
+        </div>
+        <div class="col-5">
+          <div class="card-show-level d-flex justify-content-around align-items-center mb-2">
+            <p><%= @user_action.action  .level %></p>
+          </div>
+          <p style="font-size: smaller; text-align: end;">Score: <%= @user_action.score %></p>
+        </div>
+      </div>
+  </div>
+  <h1><strong><%= @user_action.title %></strong></h1> <!-- user_action title-->
+  <h4 style="color: rgb(216, 176, 77);" class="mb-3"><%= @user_action.action.occurences %> times / week</h4><!-- action occurences-->
+  <strong><p class=" mb-1"> <%= @user_action.action.description %></p></strong>
+  <p class="mb-4 ml-3" style="color: rgb(102, 102, 102);">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi, eveniet vitae!</p>
+  <%= simple_form_for @user_action, :url => user_action_path(@user_action), method: :patch do |f| %>
+    <%= f.submit "Done", class: "col-10 btn btn-done " %>
+  <% end %>
 
-<%= simple_form_for @user_action, :url => user_action_path(@user_action), method: :patch do |f| %>
-  <%= f.submit "Valider", class: "btn btn-success rounded-4 " %>
-<% end %>
+</div>
