@@ -9,11 +9,11 @@
     <p class="mb-2 ml-3" style="color: rgb(102, 102, 102);">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi, eveniet vitae!</p>
     <div class="card-category-footer d-flex justify-content-between">
 
-      <div class="d-flex justify-content-evenly card-category-co2">
+      <div class="d-flex justify-content-evenly align-items-center card-category-co2">
         <i class="fa-solid fa-leaf"></i>
         <p class="">0kg/ CO2</p>
       </div>
-      <div class="card-category-level d-flex justify-content-around ">
+      <div class="card-category-level d-flex justify-content-around align-items-center ">
         <p >Beginner</p>
       </div>
     </div>
@@ -39,11 +39,11 @@
     <p class="mb-4 ml-3" style="color: rgb(102, 102, 102);">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi, eveniet vitae!</p>
     <div class="card-category-footer d-flex justify-content-between">
 
-      <div class="d-flex justify-content-evenly card-category-co2">
+      <div class="d-flex justify-content-evenly align-items-center card-category-co2">
         <i class="fa-solid fa-leaf"></i>
         <p class="">0kg/ CO2</p>
       </div>
-      <div class="card-category-level d-flex justify-content-around ">
+      <div class="card-category-level d-flex justify-content-around align-items-center ">
         <p >Beginner</p>
       </div>
     </div>
@@ -58,12 +58,57 @@
 
 
 <!-- card action detail (show)-->
-<div class="container">
-  <d-flex>
-    <div class="detail-icon-card">
-      <div class="icon-container d-flex justify-content-around align-items-center ">
+<div class="action-show-card mx-auto position-relative">
+  <div class="d-flex col-12 justify-content-between mt-3 mb-5">
+    <div class="show-icon-container d-flex justify-content-around align-items-center ">
         <i class="fa-solid fa-plane"></i>
       </div>
-    </div>
-  </d-flex>
+      <div class="d-flex col-7 justify-content-between">
+        <div class="d-flex justify-content-evenly align-items-center card-show-co2">
+          <i class="fa-solid fa-leaf"></i>
+          <p class="">0kg/ CO2</p>
+        </div>
+        <div class="col-5">
+          <div class="card-show-level d-flex justify-content-around align-items-center mb-2">
+            <p >Beginner</p>
+          </div>
+          <p style="font-size: smaller; text-align: end;">Score: '7'</p>
+        </div>
+      </div>
+  </div>
+  <h1><strong>Get your bike</strong></h1> <!-- user_action title-->
+  <h4 style="color: rgb(216, 176, 77);" class="mb-3">? times / week</h4><!-- action occurences-->
+  <strong><p class=" mb-1">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi, eveniet vitae !</p></strong>
+  <p class="mb-4 ml-3" style="color: rgb(102, 102, 102);">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi, eveniet vitae!</p>
+  <a href="#" class="col-10 btn btn-done">Done</a>
+</div>
+
+<!-- button down of page : "done", "select category", "back to dashboard"-->
+<a href="#" class="col-10 btn btn-done" style="position: unset">Done</a><!-- need to change the positioning custom ( actual= position: unset )-->
+
+
+<!-- this completion shit -->
+<div class="c-progress-container">
+	<svg class="c-progress-circle" xmlns="http://www.w3.org/2000/svg" viewBox="-1 -1 34 34">
+		<circle cx="16" cy="16" r="15" class="c-progress-bar__background" />
+		<circle cx="16" cy="16" r="15" class="c-progress-bar__progress js-progress-bar" data-percentage="42" style="stroke-dashoffset: 50 ;"/><!--in style put the value of remaining until completion (50 = 50% completed)-->
+	</svg>
+</div>
+
+<hr class="my-4">
+
+<div class="c-progress-container">
+	<svg class="c-progress-circle" xmlns="http://www.w3.org/2000/svg" viewBox="-1 -1 34 34">
+		<circle cx="16" cy="16" r="15" class="c-progress-bar__background" />
+		<circle cx="16" cy="16" r="15" class="c-progress-bar__progress js-progress-bar" data-percentage="42" style="stroke-dashoffset: 10 ;"/><!--in style put the value of remaining until completion (10 = 90% completed)-->
+	</svg>
+</div>
+
+<hr class="my-4">
+
+<div class="c-progress-container">
+	<svg class="c-progress-circle" xmlns="http://www.w3.org/2000/svg" viewBox="-1 -1 34 34">
+		<circle cx="16" cy="16" r="15" class="c-progress-bar__background" />
+		<circle cx="16" cy="16" r="15" class="c-progress-bar__progress js-progress-bar" data-percentage="42" style="stroke-dashoffset: 75 ;"/><!--in style put the value of remaining until completion (75 = 25% completed)-->
+	</svg>
 </div>
