@@ -246,7 +246,7 @@ user1_action3 = UserAction.create({ title: action3l1.title,
                                     user_id: user1.id,
                                     action_id: action3l1.id,
                                     score: action3l1.score,
-                                    category: action3l1.category
+                                    category: action3l1.category,
                                     carbongain: action3l1.carbongain })
 
 # that permit him to unlock silver rank
