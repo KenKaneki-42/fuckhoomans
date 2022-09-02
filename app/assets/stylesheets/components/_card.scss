@@ -1,0 +1,83 @@
+.card-category-card {
+  height: 23vh;
+  border-radius: 8px;
+  background-color: white;
+  position: relative;
+  img {
+    max-height: 30%;
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+  }
+
+  .card-bar-separator {
+    height: 4px ;
+    background-color: rgb(216, 176, 77);
+    width: 100%;
+  }
+
+  h1 {
+    font-size: medium;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  h4 {
+    font-size: smaller;
+    margin-bottom: 3px;
+  }
+
+  p {
+    font-size: xx-small;
+    margin-bottom: 5px;
+  }
+}
+
+.fa-leaf{
+  font-size: 16px;
+}
+
+.card-category-co2 {
+  width: 45%;
+  height: 15%;
+  padding: 2px;
+  color: rgb(216, 176, 77);
+  background-color: rgb(20, 20, 42);
+  border-radius: 12px;
+  p {
+    font-size: x-small;
+  }
+}
+
+.card-category-level {
+  width: 35%;
+  height: 15%;
+  padding: 2px;
+  color: white;
+  background-color: rgb(216, 176, 77);
+  border-radius: 12px;
+  p {
+    font-size: x-small;
+  }
+
+}
+
+.icon-container {
+  background-color: rgb(216, 176, 77);
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  position: absolute;
+  top: 46px;
+  right: 5px;
+  i {
+    font-size: 20px;
+    color: white;
+  }
+}
+
+
+.detail-icon-card {
+  height: 20vh;
+  width: 20vh;
+  background-color: white;
+}
