@@ -1,8 +1,9 @@
 .card-category-card {
-  height: 23vh;
+  height: 24vh;
   border-radius: 8px;
   background-color: white;
   position: relative;
+  margin: 10px;
   img {
     max-height: 30%;
     width: 100%;
@@ -19,6 +20,7 @@
     font-size: medium;
     font-weight: bold;
     margin: 0;
+    color: black;
   }
 
   h4 {

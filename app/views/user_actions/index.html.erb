@@ -1,35 +1,83 @@
 <% # user infos:  rank, level by category, pseudo etc... %>
-<%= @user_infos.pseudo %>
-<%= @user_infos.rank_category %>
-<%= @user_infos.transport_level %>
-<%= @user_infos.home_level %>
-<%= @user_infos.numeric_level %>
-<%= @user_infos.food_level %>
+
+<%# <%= photo %>
+<div class="d-flex container py-4 justify-content-center">
+  <div class="d-flex flex-column align-items-center">
+    <%= image_tag "https://kitt.lewagon.com/placeholder/users/KenKaneki-42", class: "avatar", alt: "avatar" %>
+    <h3><%= @user_infos.pseudo %></h3>
+  </div>
+
+</div>
+<div class="d-flex justify-content-center">
+  <%= link_to "Want to do more?", actions_path, class: "btn btn-domore" %>
+</div>
+
+
+
+<div class="d-grid category-grid">
+  <i class="fa-solid fa-plane"></i>
+  <i class="fa-solid fa-carrot"></i>
+  <i class="fa-solid fa-plane"></i>
+  <i class="fa-solid fa-house"></i>
+  <%# <%= @user_infos.rank_category %>
+  <%# <%= @user_infos.transport_level %>
+  <%# <%= @user_infos.home_level %>
+  <%# <%= @user_infos.numeric_level %>
+  <%# <%= @user_infos.food_level %>
+</div>
 
 <% ### actions by category %>
+<div class="d-flex justify-content-between container-dashboard ">
+  <h3>My last actions</h3>
+  <h4>See all</h4>
+</div>
 
-<%= link_to "take an action", actions_path %>
+<div class="container mt-3">
+  <% @transport_actions.each do |action| %>
+    <div class="card-category-card">
+      <%= link_to user_action_path(action) do %>
+        <img src="https://picsum.photos/500/400" alt="">
+        <div class="card-bar-separator mb-1"></div>
+        <div class="container">
+          <h1><strong><%= action.action.title %></strong></h1> <!-- user_action title-->
+          <h4 style="color: rgb(216, 176, 77);">1 times / week</h4><!-- action occurences-->
+          <div class="max-height-description">
+            <p><%= action.action.description %></p>
+          </div>
+          <div class="card-category-footer d-flex justify-content-between">
+            <div class="d-flex justify-content-evenly card-category-co2">
+              <i class="fa-solid fa-leaf"></i>
+              <p class=""><%= action.action.carbongain.div(100_000) %> <p>kgCO2e</p></p>
+            </div>
+            <div class="card-category-level d-flex justify-content-around isDisabled">
+              <p class="isDisabled"><%= action.action.level %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+  <hr>
 
-<% @transport_actions.each do |action| %>
-  <%= link_to user_action_path(action) do %>
-    <p><%= action.title  %> <%= action.action.level %></p>
-  <% end %>
-<% end %>
-<hr>
-<% @food_actions.each do |action| %>
-  <%= link_to user_action_path(action) do %>
-    <p><%= action.title  %> <%= action.action.level  %></p>
-  <% end %>
-<% end %>
-<hr>
-<% @digital_actions.each do |action| %>
-  <%= link_to user_action_path(action) do %>
-    <p><%= action.title  %> <%= action.action.level  %></p>
-  <% end %>
-<% end %>
-<hr>
-<% @household_actions.each do |action| %>
-  <%= link_to user_action_path(action) do %>
-    <p><%= action.title  %> <%= action.action.level  %></p>
-  <% end %>
-<% end %>
+  <%# <% @food_actions.each do |action| %>
+    <%# <%= link_to user_action_path(action) do %>
+      <%# <p><%= action.title  %>
+      <%# <%= action.action.level  %>
+    <%# <% end %>
+  <%# <% end %>
+  <%# <hr> %>
+  <%# <% @digital_actions.each do |action| %>
+    <%# <%= link_to user_action_path(action) do %>
+      <%# <p><%= action.title  %>
+      <%# <%= action.action.level  %>
+    <%# <% end %>
+  <%# <% end %>
+  <%# <hr> %>
+  <%# <% @household_actions.each do |action| %>
+    <%# <%= link_to user_action_path(action) do %>
+      <%# <p><%= action.title  %>
+      <%# <%= action.action.level  %>
+    <%# <% end %>
+  <%# <% end %>
+<%# </div> %>

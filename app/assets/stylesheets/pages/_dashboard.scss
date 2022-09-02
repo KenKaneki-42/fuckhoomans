@@ -1,0 +1,37 @@
+.category-grid {
+  grid-template-columns: 1fr 1fr;
+    grid-gap: 4rem;
+    text-align: center;
+    padding: 2rem;
+    // column-gap: 2rem;
+    // grid-row-gap: 2rem;
+}
+
+.btn-domore {
+  background-color: white;
+  color: rgb(17, 140, 126);
+  border-radius: 20px !important;
+  text-align: center;
+  width: 100% !important;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+.container-dashboard {
+  width: auto;
+  padding: 1rem;
+}
+
+.max-height-description {
+  height: 30px;
+  margin-bottom: 30px;
+  text-overflow: ellipsis;
+
+  p {
+    color: black;
+  }
+}
+
+a {
+  text-decoration: none !important;
+}
