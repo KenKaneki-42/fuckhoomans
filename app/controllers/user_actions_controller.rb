@@ -56,5 +56,4 @@ class UserActionsController < ApplicationController
   def get_params
     params.require(:user_action).permit(:action_id, :score, :category, :title, :status, :user_occurences)
   end
-
 end
