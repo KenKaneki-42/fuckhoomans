@@ -4,120 +4,30 @@
     <p style="text-align: center; font-size: x-small; line-height: 2.7;">Let's select 2 actions that you want <br> to realize by clicking on em just below </p>
   </div>
 
-  <h1>transport actions</h1>
-  <% @transport_actions.each do |action| %>
-    <%= link_to action_path(action) do %>
-      <div class="card-category-card col-10 mx-auto mb-3">
-        <img src="https://picsum.photos/500/400" alt="">
-        <div class="card-bar-separator mb-1"></div>
-        <div class="container">
-          <h1><strong><%= action.title %></strong></h1> <!-- user_action title-->
-          <h4 style="color: rgb(216, 176, 77);" class="mb-3"><%= action.occurences %> times / week</h4><!-- action occurences-->
-          <strong><p class=" mb-1"><%= action.description %></p></strong>
-          <p class="mb-4 ml-3" style="color: rgb(102, 102, 102);">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi, eveniet vitae!</p>
-
-          <div class="card-category-footer d-flex justify-content-between">
-            <div class="d-flex justify-content-evenly align-items-center card-category-co2">
+  <% @actions.each do |action|%>
+    <div class="card-category-card">
+      <%= link_to user_action_path(action) do %>
+        <div class= "card-img p-2">
+         <div class="card-category-footer d-flex justify-content-between">
+            <div class="d-flex justify-content-evenly card-category-co2">
               <i class="fa-solid fa-leaf"></i>
-              <p class="">0kg/ CO2</p>
+              <p class=""><%= action.carbongain.div(100_000) %> <p>kgCO2e</p></p>
             </div>
-            <div class="card-category-level d-flex justify-content-around align-items-center ">
-              <p > <%= action.level%></p>
+            <div class="card-category-level d-flex justify-content-around isDisabled">
+              <p class="isDisabled"><%= action.level %></p>
             </div>
           </div>
         </div>
-        <div class="icon-container d-flex justify-content-around align-items-center ">
-          <i class="fa-solid fa-plane"></i>
-        </div>
-      </div>
-  <% end %>
-<% end %>
-
-<h1>food actions</h1>
-<% @food_actions.each do |action| %>
-  <%= link_to action_path(action) do %>
-    <div class="card-category-card col-10 mx-auto mb-3">
-        <img src="https://picsum.photos/500/400" alt="">
         <div class="card-bar-separator mb-1"></div>
-        <div class="container">
-          <h1><strong><%= action.title %></strong></h1> <!-- user_action title-->
-          <h4 style="color: rgb(216, 176, 77);" class="mb-3"><%= action.occurences %> times / week</h4><!-- action occurences-->
-          <strong><p class=" mb-1"><%= action.description %></p></strong>
-          <p class="mb-4 ml-3" style="color: rgb(102, 102, 102);">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi, eveniet vitae!</p>
 
-          <div class="card-category-footer d-flex justify-content-between">
-            <div class="d-flex justify-content-evenly align-items-center card-category-co2">
-              <i class="fa-solid fa-leaf"></i>
-              <p class="">0kg/ CO2</p>
-            </div>
-            <div class="card-category-level d-flex justify-content-around align-items-center ">
-              <p > <%= action.level%></p>
-            </div>
+        <div class="container">
+          <h1><strong><%= action.title %></strong></h1> <!-- action title-->
+          <h4 style="color: rgb(216, 176, 77);"><%= action.occurences %> times / week</h4><!-- action occurences-->
+          <div class="">
+            <p><%= action.description[0..90] %> ...</p>
           </div>
         </div>
-        <div class="icon-container d-flex justify-content-around align-items-center ">
-          <i class="fa-solid fa-plane"></i>
-        </div>
-      </div>
+      <% end %>
+    </div>
   <% end %>
-<% end %>
-
-<h1>digital actions</h1>
-<% @digital_actions.each do |action| %>
-  <%= link_to action_path(action) do %>
-    <div class="card-category-card col-10 mx-auto mb-3">
-        <img src="https://picsum.photos/500/400" alt="">
-        <div class="card-bar-separator mb-1"></div>
-        <div class="container">
-          <h1><strong><%= action.title %></strong></h1> <!-- user_action title-->
-          <h4 style="color: rgb(216, 176, 77);" class="mb-3"><%= action.occurences %> times / week</h4><!-- action occurences-->
-          <strong><p class=" mb-1"><%= action.description %></p></strong>
-          <p class="mb-4 ml-3" style="color: rgb(102, 102, 102);">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi, eveniet vitae!</p>
-
-          <div class="card-category-footer d-flex justify-content-between">
-            <div class="d-flex justify-content-evenly align-items-center card-category-co2">
-              <i class="fa-solid fa-leaf"></i>
-              <p class="">0kg/ CO2</p>
-            </div>
-            <div class="card-category-level d-flex justify-content-around align-items-center ">
-              <p > <%= action.level%></p>
-            </div>
-          </div>
-        </div>
-        <div class="icon-container d-flex justify-content-around align-items-center ">
-          <i class="fa-solid fa-plane"></i>
-        </div>
-      </div>
-  <% end %>
-<% end %>
-
-<h1>household actions</h1>
-<% @household_actions.each do |action| %>
-  <%= link_to action_path(action) do %>
-    <div class="card-category-card col-10 mx-auto mb-3">
-        <img src="https://picsum.photos/500/400" alt="">
-        <div class="card-bar-separator mb-1"></div>
-        <div class="container">
-          <h1><strong><%= action.title %></strong></h1> <!-- user_action title-->
-          <h4 style="color: rgb(216, 176, 77);" class="mb-3"><%= action.occurences %> times / week</h4><!-- action occurences-->
-          <strong><p class=" mb-1"><%= action.description %></p></strong>
-          <p class="mb-4 ml-3" style="color: rgb(102, 102, 102);">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi, eveniet vitae!</p>
-
-          <div class="card-category-footer d-flex justify-content-between">
-            <div class="d-flex justify-content-evenly align-items-center card-category-co2">
-              <i class="fa-solid fa-leaf"></i>
-              <p class="">0kg/ CO2</p>
-            </div>
-            <div class="card-category-level d-flex justify-content-around align-items-center ">
-              <p > <%= action.level%></p>
-            </div>
-          </div>
-        </div>
-        <div class="icon-container d-flex justify-content-around align-items-center ">
-          <i class="fa-solid fa-plane"></i>
-        </div>
-      </div>
-  <% end %>
-<% end %>
-
 </div>
