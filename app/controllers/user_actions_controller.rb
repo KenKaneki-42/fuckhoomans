@@ -34,7 +34,7 @@ class UserActionsController < ApplicationController
       if @user_action.status == "validated"
         update_score(@user_action)
       end
-      redirect_to actions_path
+      redirect_to user_actions_path
     else
       render :show, status: :unprocessable_entity
     end
@@ -48,19 +48,51 @@ class UserActionsController < ApplicationController
 
   def update_score(user_action)
     score_table = current_user.score
-    score_table.score_total += user_action.score
+    score_table.total_score += user_action.score
 
-    if user_action.category == "transport"
+    if user_action.category == 'transport'
       score_table.transport_score += user_action.score
-    elsif user_action.category == "food"
+
+      if score_table.transport_score > 20
+        corrent_user.transport_level = 'intermediate'
+      elsif score_table.transport_score > 60
+        current_user.transport_level = 'advanced'
+      else
+        current_user.transport_level = 'beginner'
+      end
+
+    elsif user_action.category == 'food'
       score_table.food_score += user_action.score
-    elsif user_action.category == "numeric"
+
+      if score_table.food_score > 20
+        corrent_user.food_level = 'intermediate'
+      elsif score_table.food_score > 60
+        current_user.food_level = 'advanced'
+      else
+        current_user.food_level = 'beginner'
+      end
+
+    elsif user_action.category == 'digital'
       score_table.digital_score += user_action.score
-    elsif user_action.category  == "home"
+
+      if score_table.digital_score > 20
+        corrent_user.numeric_level = 'intermediate'
+      elsif score_table.digital_score > 60
+        current_user.numeric_level = 'advanced'
+      else
+        current_user.numeric_level = 'beginner'
+      end
+
+    elsif user_action.category == 'home'
       score_table.household_score += user_action.score
     else
       p "the category doesn't exist"
     end
-    raise
   end
 end
+
+
+"transport_level"
+"home_level"
+"numeric_level"
+"food_level"
