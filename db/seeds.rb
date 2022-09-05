@@ -92,6 +92,8 @@ action1l1 = Action.create({ title: 'Get your bike',
                                           of 10km you will also improve your health",
                             occurences: 1,
                             carbongain: 860_000 })
+file1l1bike = URI.open("https://images.unsplash.com/photo-1593341476900-a1cfedc5c489?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1615&q=80")
+user1.photo.attach(io: file1, filename: "bike1.jpg", content_type: "image/jpeg")
 # Sur un an de trajet, à raison de 10 km par jour ouvré, un cycliste sur un vélo conventionnel émettra
 # 224 kg de CO2 de moins qu’un automobiliste au volant d’un véhicule thermique,
 # contre 223,5 kg de moins pour un utilisateur de bicyclette électrique.
@@ -112,6 +114,7 @@ action1l3 = Action.create({ title: 'Get your bike',
                                           of 10km you will also improve your health more and more and become an athlete",
                             occurences: 1,
                             carbongain: 4_300_000 })
+                            # train vs flight
 action2l1 = Action.create({ title: 'Take train VS domestic flight',
                             level: 'beginner',
                             score: '7',
@@ -122,6 +125,8 @@ action2l1 = Action.create({ title: 'Take train VS domestic flight',
                                           for a domestic flight",
                             occurences: 1,
                             carbongain: 59_900_000 })
+file1l1bike = URI.open("https://images.unsplash.com/photo-1527295110-5145f6b148d0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1731&q=80")
+user1.photo.attach(io: file1, filename: "train-intercity.jpg", content_type: "image/jpeg")
 action2l2 = Action.create({ title: 'Take train VS domestic flight',
                             level: 'intermediate',
                             score: '15',
@@ -132,7 +137,6 @@ action2l2 = Action.create({ title: 'Take train VS domestic flight',
                                           for a domestic flight",
                             occurences: 1,
                             carbongain: 77_600_000 })
-
 action2l3 = Action.create({ title: 'Take the sailing boat VS long-haul flight',
                             level: 'advanced',
                             score: '1000',
@@ -142,6 +146,7 @@ action2l3 = Action.create({ title: 'Take the sailing boat VS long-haul flight',
                             you will decrease your carbon impact near infinite",
                             occurences: 1,
                             carbongain: 1_178_000_000 })
+
 action3l1 = Action.create({ title: 'Bus is your friend',
                             level: 'beginner',
                             score: '7',
