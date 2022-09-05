@@ -32,7 +32,9 @@
   <h4>See all</h4>
 </div>
 
-<div class="container mt-3">
+<div class="container mt-3" data-controller="test">
+</div>
+<div class="container mt-3" data-controller="hello">
   <%# Slider %>
   <div class="splide" role="group" aria-label="Splide Basic HTML Example">
     <div class="splide__track">
@@ -40,21 +42,12 @@
         <% @last_actions.each do |user_action|%>
 
           <%# Slides %>
-          <li class="splide__slid d-none">
+          <li class="splide__slide">
             <%# Card %>
-            <div class="card-category-card">
-              <%= link_to user_action_path(user_action) do %>
-                <img class="card-img" src="https://picsum.photos/500/400" alt="">
-                <div class="card-bar-separator mb-1"></div>
-
-                <div class="container">
-                  <h1><strong><%= user_action.action.title %></strong></h1> <!-- user_action title-->
-                  <h4 style="color: rgb(216, 176, 77);"><%= user_action.action.occurences %> times / week</h4><!-- action occurences-->
-                  <div class="">
-                    <p><%= user_action.action.description[0..50] %> ...</p>
-                  </div>
-
-                  <div class="card-category-footer d-flex justify-content-between">
+            <%= link_to user_action_path(user_action) do %>
+              <div class="card-category-card">
+                <div class= "card-img p-2">
+                <div class="card-category-footer d-flex justify-content-between">
                     <div class="d-flex justify-content-evenly card-category-co2">
                       <i class="fa-solid fa-leaf"></i>
                       <p class=""><%= user_action.action.carbongain.div(100_000) %> <p>kgCO2e</p></p>
@@ -64,39 +57,20 @@
                     </div>
                   </div>
                 </div>
-              <% end %>
-            </div>
+                <div class="card-bar-separator mb-1"></div>
+
+                <div class="container">
+                  <h1><strong><%= user_action.action.title %></strong></h1> <!-- user_action title-->
+                  <h4 style="color: rgb(216, 176, 77);"><%= user_action.action.occurences %> times / week</h4><!-- action occurences-->
+                  <div class="">
+                    <p><%= user_action.action.description[0..90] %> ...</p>
+                  </div>
+                </div>
+              </div>
+            <% end %>
           </li>
         <% end %>
       </ul>
     </div>
   </div>
-
-
-  <% @last_actions.each do |user_action|%>
-    <div class="card-category-card">
-      <%= link_to user_action_path(user_action) do %>
-        <div class= "card-img p-2">
-         <div class="card-category-footer d-flex justify-content-between">
-            <div class="d-flex justify-content-evenly card-category-co2">
-              <i class="fa-solid fa-leaf"></i>
-              <p class=""><%= user_action.action.carbongain.div(100_000) %> <p>kgCO2e</p></p>
-            </div>
-            <div class="card-category-level d-flex justify-content-around isDisabled">
-              <p class="isDisabled"><%= user_action.action.level %></p>
-            </div>
-          </div>
-        </div>
-        <div class="card-bar-separator mb-1"></div>
-
-        <div class="container">
-          <h1><strong><%= user_action.action.title %></strong></h1> <!-- user_action title-->
-          <h4 style="color: rgb(216, 176, 77);"><%= user_action.action.occurences %> times / week</h4><!-- action occurences-->
-          <div class="">
-            <p><%= user_action.action.description[0..90] %> ...</p>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
 </div>

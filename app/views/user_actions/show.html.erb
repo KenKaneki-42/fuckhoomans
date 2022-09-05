@@ -26,7 +26,7 @@
   <h4 style="color: rgb(216, 176, 77);" class="mb-3"><%= @user_action.action.occurences %> times / week</h4><!-- action occurences-->
   <strong><p class=" mb-1"> <%= @user_action.action.description %></p></strong>
   <p class="mb-4 ml-3" style="color: rgb(102, 102, 102);">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi, eveniet vitae!</p>
-  <%= simple_form_for @user_action, html: {class: "col-12 d-flex justify-content-between"}, url: user_action_path(@user_action), method: :patch do |f| %>
+  <%= simple_form_for @user_action, html: {class: "col-12 d-flex justify-content-around"}, url: user_action_path(@user_action), method: :patch do |f| %>
     <%= f.submit "Done", class: "col-10 btn btn-done " %>
   <% end %>
 </div>
