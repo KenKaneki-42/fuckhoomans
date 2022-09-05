@@ -1,5 +1,16 @@
 class UserActionsController < ApplicationController
   def index
+    if params[:category] == 'transport'
+      @user_actions = UserAction.joins(:action).where(category: 'transport', user: current_user)
+    elsif params[:category] == 'food'
+      @user_actions = UserAction.joins(:action).where(category: 'food', user: current_user)
+    elsif params[:category] == 'digital'
+      @user_actions = UserAction.joins(:action).where(category: 'digital', user: current_user)
+    elsif params[:category] == 'household'
+      @user_actions = UserAction.joins(:action).where(category: 'household', user: current_user)
+    else
+      @user_actions = UserAction.joins(:action).where(user: current_user)
+    end
     # @transport_actions = UserAction.joins(:action).where(category: 'transport', status: 'selected')
     # @food_actions = UserAction.joins(:action).where({ category: 'food', status: 'selected' })
     # @digital_actions = UserAction.joins(:action).where({ category: 'digital', status: 'selected' })
