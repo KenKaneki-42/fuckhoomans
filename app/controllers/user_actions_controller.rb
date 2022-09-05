@@ -1,5 +1,15 @@
 class UserActionsController < ApplicationController
   def index
+    @transport_actions = UserAction.joins(:action).where(category: 'transport', status: 'selected')
+    @food_actions = UserAction.joins(:action).where({ category: 'food', status: 'selected' })
+    @digital_actions = UserAction.joins(:action).where({ category: 'digital', status: 'selected' })
+    @household_actions = UserAction.joins(:action).where({ category: 'household', status: 'selected' })
+    @user_infos = current_user
+    @last_actions = UserAction.includes(:action).where(user: current_user).last(3)
+  end
+
+
+  def dashboard
     if params[:category] == 'transport'
       @user_actions = UserAction.joins(:action).where(category: 'transport', user: current_user)
     elsif params[:category] == 'food'
@@ -15,7 +25,6 @@ class UserActionsController < ApplicationController
     # @food_actions = UserAction.joins(:action).where({ category: 'food', status: 'selected' })
     # @digital_actions = UserAction.joins(:action).where({ category: 'digital', status: 'selected' })
     # @household_actions = UserAction.joins(:action).where({ category: 'household', status: 'selected' })
-
     @last_actions = UserAction.includes(:action).where(user: current_user).last(3)
     @user_infos = current_user
   end
@@ -68,7 +77,6 @@ class UserActionsController < ApplicationController
 
     if user_action.category == 'transport'
       score_table.transport_score += user_action.score
-
       if score_table.transport_score > 20 && score_table.transport_score < 60
         current_user.transport_level = 'intermediate'
       elsif score_table.transport_score > 60
@@ -76,7 +84,6 @@ class UserActionsController < ApplicationController
       else
         current_user.transport_level = 'beginner'
       end
-
     elsif user_action.category == 'food'
       score_table.food_score += user_action.score
 
