@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get "contact", to: "pages#contact"
   resources :user_actions, only: %i[index show update]
   resources :actions, only: %i[index show] do
-    resources :user_actions, only: %i[create]
+  resources :user_actions, only: %i[create]
+  resources :scores, only: %i[index show create]
   end
 end
