@@ -48,10 +48,14 @@ class UserActionsController < ApplicationController
 
   def update_score(user_action)
     score_table = current_user.score
-    score_table.score_total += user_action.score
+    score_table.total_score += user_action.score
 
     if user_action.category == "transport"
       score_table.transport_score += user_action.score
+      current_user.transport_level = "intermediate" if (score_table.transport_score > 20)?
+      current_user.transport_level = "advanced" if (score_table.transport_score > 60)?
+      
+      # (score_table.transport_score > 20) ? {if-code-block} : {else-code-block}
     elsif user_action.category == "food"
       score_table.food_score += user_action.score
     elsif user_action.category == "numeric"
@@ -61,6 +65,10 @@ class UserActionsController < ApplicationController
     else
       p "the category doesn't exist"
     end
-    raise
   end
 end
+
+"transport_level"
+"home_level"
+"numeric_level"
+"food_level"
