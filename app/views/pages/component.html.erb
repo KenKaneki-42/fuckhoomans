@@ -90,32 +90,71 @@
 <a href="#" class="col-10 btn btn-done" style="position: unset">Done</a><!-- need to change the positioning custom ( actual= position: unset )-->
 
 
-<!-- this completion shit -->
-<div class="c-progress-container">
-	<svg class="c-progress-circle" xmlns="http://www.w3.org/2000/svg" viewBox="-1 -1 34 34">
-		<circle cx="16" cy="16" r="15" class="c-progress-bar__background" />
-		<circle cx="16" cy="16" r="15" class="c-progress-bar__progress js-progress-bar" data-percentage="42" style="stroke-dashoffset: 50 ;"/><!--in style put the value of remaining until completion (50 = 50% completed)-->
-	</svg>
-</div>
-
-<hr class="my-4">
-
-<div class="c-progress-container">
-	<svg class="c-progress-circle" xmlns="http://www.w3.org/2000/svg" viewBox="-1 -1 34 34">
-		<circle cx="16" cy="16" r="15" class="c-progress-bar__background" />
-		<circle cx="16" cy="16" r="15" class="c-progress-bar__progress js-progress-bar" data-percentage="42" style="stroke-dashoffset: 10 ;"/><!--in style put the value of remaining until completion (10 = 90% completed)-->
-	</svg>
-</div>
-
-<hr class="my-4">
-
-<div class="c-progress-container">
-	<svg class="c-progress-circle" xmlns="http://www.w3.org/2000/svg" viewBox="-1 -1 34 34">
-		<circle cx="16" cy="16" r="15" class="c-progress-bar__background" />
-		<circle cx="16" cy="16" r="15" class="c-progress-bar__progress js-progress-bar" data-percentage="42" style="stroke-dashoffset: 75 ;"/><!--in style put the value of remaining until completion (75 = 25% completed)-->
-	</svg>
-</div>
-
-
 <!-- Button (Landing)-->
 <%= link_to "Start now", "#", class: "btn btn-gradient" %>
+
+
+<%# transport %>
+<div class="ko-progress-circle" data-progress="90">
+    <div class="ko-circle">
+        <div class="full ko-progress-circle__slice">
+            <div class="ko-progress-circle__fill"></div>
+        </div>
+        <div class="ko-progress-circle__slice">
+            <div class="ko-progress-circle__fill"></div>
+            <div class="ko-progress-circle__fill ko-progress-circle__bar"></div>
+        </div>
+    </div>
+    <div class="transport-progress-circle__overlay">
+      <i class="fa-solid fa-plane fa-2x circle-icon"></i>
+    </div>
+</div>
+
+
+<%# food %>
+<div class="ko-progress-circle" data-progress="90">
+    <div class="ko-circle">
+        <div class="full ko-progress-circle__slice">
+            <div class="ko-progress-circle__fill"></div>
+        </div>
+        <div class="ko-progress-circle__slice">
+            <div class="ko-progress-circle__fill"></div>
+            <div class="ko-progress-circle__fill ko-progress-circle__bar"></div>
+        </div>
+    </div>
+    <div class="food-progress-circle__overlay">
+      <i class="fa-solid fa-carrot fa-2x circle-icon"></i>
+    </div>
+</div>
+
+<%# digital %>
+<div class="ko-progress-circle" data-progress="90">
+    <div class="ko-circle">
+        <div class="full ko-progress-circle__slice">
+            <div class="ko-progress-circle__fill"></div>
+        </div>
+        <div class="ko-progress-circle__slice">
+            <div class="ko-progress-circle__fill"></div>
+            <div class="ko-progress-circle__fill ko-progress-circle__bar"></div>
+        </div>
+    </div>
+    <div class="digital-progress-circle__overlay">
+      <i class="fa-solid fa-computer fa-2x circle-icon"></i>
+    </div>
+</div>
+
+<%# household %>
+<div class="ko-progress-circle" data-progress="90">
+    <div class="ko-circle">
+        <div class="full ko-progress-circle__slice">
+            <div class="ko-progress-circle__fill"></div>
+        </div>
+        <div class="ko-progress-circle__slice">
+            <div class="ko-progress-circle__fill"></div>
+            <div class="ko-progress-circle__fill ko-progress-circle__bar"></div>
+        </div>
+    </div>
+    <div class="household-progress-circle__overlay">
+      <i class="fa-solid fa-house fa-2x circle-icon"></i>
+    </div>
+</div>
