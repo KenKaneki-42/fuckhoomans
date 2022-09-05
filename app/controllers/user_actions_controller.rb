@@ -1,9 +1,5 @@
 class UserActionsController < ApplicationController
   def index
-    # @transport_actions = UserAction.joins(:action).where(category: 'transport', status: 'selected')
-    # @food_actions = UserAction.joins(:action).where({ category: 'food', status: 'selected' })
-    # @digital_actions = UserAction.joins(:action).where({ category: 'digital', status: 'selected' })
-    # @household_actions = UserAction.joins(:action).where({ category: 'household', status: 'selected' })
     @last_actions = UserAction.includes(:action).where(user: current_user).last(3)
     @user_infos = current_user
   end
@@ -27,6 +23,8 @@ class UserActionsController < ApplicationController
   def update
     @user_action = UserAction.includes(:action).find(params[:id])
     @user_action.user_occurences = @user_action.user_occurences + 1
+    raise
+    @user_action
     if  @user_action.user_occurences >= @user_action.action.occurences
       @user_action.status = "validated"
     else
