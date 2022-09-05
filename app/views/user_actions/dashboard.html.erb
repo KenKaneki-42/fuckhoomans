@@ -1,0 +1,102 @@
+<% # user infos:  rank, level by category, pseudo etc... %>
+
+<%# <%= photo %>
+<div class="d-flex container py-4 justify-content-center">
+  <div class="d-flex flex-column align-items-center">
+    <%= image_tag "https://kitt.lewagon.com/placeholder/users/KenKaneki-42", class: "avatar", alt: "avatar" %>
+    <h3><%= @user_infos.pseudo %></h3>
+  </div>
+
+</div>
+<div class="d-flex justify-content-center">
+  <%= link_to "Want to do more?", actions_path, class: "btn btn-domore" %>
+</div>
+
+
+
+<div class="d-grid category-grid">
+  <i class="fa-solid fa-plane"></i>
+  <i class="fa-solid fa-carrot"></i>
+  <i class="fa-solid fa-computer"></i>
+  <i class="fa-solid fa-house"></i>
+  <%# <%= @user_infos.rank_category %>
+  <%# <%= @user_infos.transport_level %>
+  <%# <%= @user_infos.home_level %>
+  <%# <%= @user_infos.numeric_level %>
+  <%# <%= @user_infos.food_level %>
+</div>
+
+<% ### actions by category %>
+<div class="d-flex justify-content-between container-dashboard ">
+  <h3>My last actions</h3>
+  <h4>See all</h4>
+</div>
+
+<div class="container mt-3">
+  <%# Slider %>
+  <div class="splide" role="group" aria-label="Splide Basic HTML Example">
+    <div class="splide__track">
+      <ul class="splide__list">
+        <% @last_actions.each do |user_action|%>
+
+          <%# Slides %>
+          <li class="splide__slid d-none">
+            <%# Card %>
+            <div class="card-category-card">
+              <%= link_to user_action_path(user_action) do %>
+                <img class="card-img" src="https://picsum.photos/500/400" alt="">
+                <div class="card-bar-separator mb-1"></div>
+
+                <div class="container">
+                  <h1><strong><%= user_action.action.title %></strong></h1> <!-- user_action title-->
+                  <h4 style="color: rgb(216, 176, 77);"><%= user_action.action.occurences %> times / week</h4><!-- action occurences-->
+                  <div class="">
+                    <p><%= user_action.action.description[0..50] %>...</p>
+                  </div>
+
+                  <div class="card-category-footer d-flex justify-content-between">
+                    <div class="d-flex justify-content-evenly card-category-co2">
+                      <i class="fa-solid fa-leaf"></i>
+                      <p class=""><%= user_action.action.carbongain.div(100_000) %> <p>kgCO2e</p></p>
+                    </div>
+                    <div class="card-category-level d-flex justify-content-around isDisabled">
+                      <p class="isDisabled"><%= user_action.action.level %></p>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+
+  <% @last_actions.each do |user_action|%>
+    <div class="card-category-card">
+      <%= link_to user_action_path(user_action) do %>
+        <div class= "card-img p-2">
+         <div class="card-category-footer d-flex justify-content-between">
+            <div class="d-flex justify-content-evenly card-category-co2">
+              <i class="fa-solid fa-leaf"></i>
+              <p class=""><%= user_action.action.carbongain.div(100_000) %> <p>kgCO2e</p></p>
+            </div>
+            <div class="card-category-level d-flex justify-content-around isDisabled">
+              <p class="isDisabled"><%= user_action.action.level %></p>
+            </div>
+          </div>
+        </div>
+        <div class="card-bar-separator mb-1"></div>
+
+        <div class="container">
+          <h1><strong><%= user_action.action.title %></strong></h1> <!-- user_action title-->
+          <h4 style="color: rgb(216, 176, 77);"><%= user_action.action.occurences %> times / week</h4><!-- action occurences-->
+          <div class="">
+            <p><%= user_action.action.description %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

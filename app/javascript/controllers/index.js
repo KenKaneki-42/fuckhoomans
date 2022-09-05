@@ -10,5 +10,5 @@ import { application } from "./application"
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
-import Carousel from '/home/larotka/code/Larotka/fuckhoomans/node_modules/stimulus-carousel/dist/stimulus-carousel'
-application.register('carousel', Carousel)
+import Splide from './splide'
+application.register('splide', Splide)

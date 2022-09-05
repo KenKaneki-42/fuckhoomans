@@ -1,9 +1,14 @@
 class UserActionsController < ApplicationController
   def index
-    # @transport_actions = UserAction.joins(:action).where(category: 'transport', status: 'selected')
-    # @food_actions = UserAction.joins(:action).where({ category: 'food', status: 'selected' })
-    # @digital_actions = UserAction.joins(:action).where({ category: 'digital', status: 'selected' })
-    # @household_actions = UserAction.joins(:action).where({ category: 'household', status: 'selected' })
+    @transport_actions = UserAction.joins(:action).where(category: 'transport', status: 'selected')
+    @food_actions = UserAction.joins(:action).where({ category: 'food', status: 'selected' })
+    @digital_actions = UserAction.joins(:action).where({ category: 'digital', status: 'selected' })
+    @household_actions = UserAction.joins(:action).where({ category: 'household', status: 'selected' })
+    @user_infos = current_user
+  end
+
+
+  def dashboard
     @last_actions = UserAction.includes(:action).where(user: current_user).last(3)
     @user_infos = current_user
   end

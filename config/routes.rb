@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   root to: "pages#home"
   get "component", to: "pages#component"
+  get "dashboard", to: "user_actions#dashboard"
   # get "contact", to: "pages#contact"
   get "about", to: "pages#about"
   get "contact", to: "pages#contact"
