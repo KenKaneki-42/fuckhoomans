@@ -25,8 +25,9 @@ class UserActionsController < ApplicationController
     @user_action.user_occurences = @user_action.user_occurences + 1
     raise
     @user_action
-    if  @user_action.user_occurences >= @user_action.action.occurences
+    if @user_action.user_occurences >= @user_action.action.occurences
       @user_action.status = "validated"
+      @user_action.total_score = @user_action.score # score total mis à jour aura une pertinence avec le nb occurence différent de 1
     else
       @user_action.status = "in_progress"
     end
