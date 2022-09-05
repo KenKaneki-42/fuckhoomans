@@ -15,7 +15,7 @@ class UserActionsController < ApplicationController
     # @food_actions = UserAction.joins(:action).where({ category: 'food', status: 'selected' })
     # @digital_actions = UserAction.joins(:action).where({ category: 'digital', status: 'selected' })
     # @household_actions = UserAction.joins(:action).where({ category: 'household', status: 'selected' })
-    
+
     @last_actions = UserAction.includes(:action).where(user: current_user).last(3)
     @user_infos = current_user
   end
@@ -50,7 +50,7 @@ class UserActionsController < ApplicationController
       if @user_action.status == "validated"
         update_score(@user_action)
       end
-      redirect_to actions_path
+      redirect_to user_actions_path
     else
       render :show, status: :unprocessable_entity
     end
@@ -66,25 +66,46 @@ class UserActionsController < ApplicationController
     score_table = current_user.score
     score_table.total_score += user_action.score
 
-    if user_action.category == "transport"
+    if user_action.category == 'transport'
       score_table.transport_score += user_action.score
-      current_user.transport_level = "intermediate" if (score_table.transport_score > 20)?
-      current_user.transport_level = "advanced" if (score_table.transport_score > 60)?
-      
-      # (score_table.transport_score > 20) ? {if-code-block} : {else-code-block}
-    elsif user_action.category == "food"
+
+      if score_table.transport_score > 20 && score_table.transport_score < 60
+        current_user.transport_level = 'intermediate'
+      elsif score_table.transport_score > 60
+        current_user.transport_level = 'advanced'
+      else
+        current_user.transport_level = 'beginner'
+      end
+
+    elsif user_action.category == 'food'
       score_table.food_score += user_action.score
-    elsif user_action.category == "numeric"
+
+      if score_table.food_score > 20
+        current_user.food_level = 'intermediate'
+      elsif score_table.food_score > 60
+        current_user.food_level = 'advanced'
+      else
+        current_user.food_level = 'beginner'
+      end
+
+    elsif user_action.category == 'digital'
       score_table.digital_score += user_action.score
-    elsif user_action.category  == "home"
+
+      if score_table.digital_score > 20
+        current_user.numeric_level = 'intermediate'
+      elsif score_table.digital_score > 60
+        current_user.numeric_level = 'advanced'
+      else
+        current_user.numeric_level = 'beginner'
+      end
+
+    elsif user_action.category == 'home'
       score_table.household_score += user_action.score
     else
       p "the category doesn't exist"
     end
+
+    current_user.save
+    score_table.save
   end
 end
-
-"transport_level"
-"home_level"
-"numeric_level"
-"food_level"
