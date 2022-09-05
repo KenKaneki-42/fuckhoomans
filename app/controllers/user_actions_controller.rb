@@ -25,15 +25,15 @@ class UserActionsController < ApplicationController
   end
 
   def update
-    user_action = UserAction.includes(:action).find(params[:id])
-    user_action.user_occurences = user_action.user_occurences + 1
-    if user_action.action.occurences == user_action.user_occurences
-      user_action.status = "validated"
+    @user_action = UserAction.includes(:action).find(params[:id])
+    @user_action.user_occurences = @user_action.user_occurences + 1
+    if  @user_action.user_occurences >= @user_action.action.occurences
+      @user_action.status = "validated"
     else
-      user_action.status = "in_progress"
+      @user_action.status = "in_progress"
     end
 
-    if user_action.save
+    if @user_action.save
       redirect_to actions_path
     else
       render :show, status: :unprocessable_entity
