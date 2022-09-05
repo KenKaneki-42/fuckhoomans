@@ -328,3 +328,5 @@ user1_action8 = UserAction.create({ title: action4l2.title,
                                     score: action4l2.score,
                                     category: action4l2.category,
                                     carbongain: action4l2.carbongain })
+
+p 'Finished seeds'
