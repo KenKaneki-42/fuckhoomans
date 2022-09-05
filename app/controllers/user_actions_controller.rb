@@ -77,37 +77,40 @@ class UserActionsController < ApplicationController
 
     if user_action.category == 'transport'
       score_table.transport_score += user_action.score
-      if score_table.transport_score > 20 && score_table.transport_score < 60
-        current_user.transport_level = 'intermediate'
-      elsif score_table.transport_score > 60
-        current_user.transport_level = 'advanced'
-      else
+      if score_table.transport_score < 20
         current_user.transport_level = 'beginner'
+      elsif score_table.transport_score >= 20 && score_table.transport_score < 60
+        current_user.transport_level = 'intermediate'
+      else
+        current_user.transport_level = 'advanced'
       end
     elsif user_action.category == 'food'
       score_table.food_score += user_action.score
-
-      if score_table.food_score > 20
-        current_user.food_level = 'intermediate'
-      elsif score_table.food_score > 60
-        current_user.food_level = 'advanced'
-      else
+      if score_table.food_score < 20
         current_user.food_level = 'beginner'
+      elsif score_table.food_score >= 20 && score_table.food_score < 60
+        current_user.food_level = 'intermediate'
+      else
+        current_user.food_level = 'advanced'
       end
-
     elsif user_action.category == 'digital'
       score_table.digital_score += user_action.score
-
-      if score_table.digital_score > 20
-        current_user.numeric_level = 'intermediate'
-      elsif score_table.digital_score > 60
-        current_user.numeric_level = 'advanced'
-      else
+      if score_table.digital_score < 20
         current_user.numeric_level = 'beginner'
+      elsif score_table.digital_score >= 20 && score_table.digital_score < 60
+        current_user.numeric_level = 'intermediate'
+      else
+        current_user.numeric_level = 'advanced'
       end
-
     elsif user_action.category == 'home'
       score_table.household_score += user_action.score
+      if score_table.household_score < 20
+        current_user.home_level = 'beginner'
+      elsif score_table.household_score >= 20 && score_table.household_score < 60
+        current_user.home_level = 'intermediate'
+      else
+        current_user.home_level = 'advanced'
+      end
     else
       p "the category doesn't exist"
     end
