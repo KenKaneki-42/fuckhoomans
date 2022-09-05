@@ -51,7 +51,7 @@
                   <h1><strong><%= user_action.action.title %></strong></h1> <!-- user_action title-->
                   <h4 style="color: rgb(216, 176, 77);"><%= user_action.action.occurences %> times / week</h4><!-- action occurences-->
                   <div class="">
-                    <p><%= user_action.action.description[0..50] %>...</p>
+                    <p><%= user_action.action.description[0..50] %> ...</p>
                   </div>
 
                   <div class="card-category-footer d-flex justify-content-between">
@@ -93,7 +93,7 @@
           <h1><strong><%= user_action.action.title %></strong></h1> <!-- user_action title-->
           <h4 style="color: rgb(216, 176, 77);"><%= user_action.action.occurences %> times / week</h4><!-- action occurences-->
           <div class="">
-            <p><%= user_action.action.description %></p>
+            <p><%= user_action.action.description[0..90] %> ...</p>
           </div>
         </div>
       <% end %>
