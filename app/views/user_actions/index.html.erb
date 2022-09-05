@@ -38,9 +38,24 @@
 </div>
 
 <div class="container mt-3">
+
   <% @user_actions.each do |user_action| %>
     <div class="card-category-card">
       <%= link_to user_action_path(user_action) do %>
+
+
+  <div data-controller="carousel" class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">Slide 1</div>
+      <div class="swiper-slide">Slide 2</div>
+      <div class="swiper-slide">Slide 3</div>
+    </div>
+  </div>
+
+  <% @transport_actions.each do |action| %>
+    <div class="card-category-card carousel-item">
+      <%= link_to user_action_path(action) do %>
+
         <img src="https://picsum.photos/500/400" alt="">
         <div class="card-bar-separator mb-1"></div>
         <div class="container">

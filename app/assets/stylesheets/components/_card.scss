@@ -1,3 +1,9 @@
+/* card-category (dashboard) */
+
+.card-category-card > * {
+  text-decoration: none;
+}
+
 .card-category-card {
   height: 24vh;
   border-radius: 8px;
@@ -5,61 +11,72 @@
   position: relative;
   margin: 10px;
   img {
-    max-height: 30%;
+    max-height: 40%;
     width: 100%;
     border-radius: 8px 8px 0 0;
   }
 
   .card-bar-separator {
-    height: 4px ;
+    height: 2%;
     background-color: rgb(216, 176, 77);
     width: 100%;
+    position: relative;
   }
 
+}
+
+.fa-leaf{
+  font-size: 80%;
+}
+
+.card-text-section {
+  height: 60%;
   h1 {
-    font-size: medium;
+    font-size: 98%;
     font-weight: bold;
     margin: 0;
     color: black;
   }
 
   h4 {
-    font-size: smaller;
-    margin-bottom: 3px;
+    font-size: 85%;
   }
 
   p {
-    font-size: xx-small;
-    margin-bottom: 5px;
+    font-size: 55%;
+    margin-bottom: 2%
   }
 }
 
-.fa-leaf{
-  font-size: 16px;
+.card-category-footer {
+  position: absolute;
+  top: 1%;
+  width: 90%;
+  height: 10%;
 }
 
 .card-category-co2 {
-  width: 45%;
-  height: 15%;
-  padding: 2px;
+  width: 30%;
+  height: 85%;
+  padding: 1%;
   color: rgb(216, 176, 77);
-  background-color: rgb(20, 20, 42);
+  background-color: rgba(20, 20, 42, 0.5);
   border-radius: 12px;
   p {
-    font-size: x-small;
+    font-size: 65%;
     margin: 0;
   }
 }
 
 .card-category-level {
-  width: 35%;
-  height: 15%;
-  padding: 2px;
+  width: 21%;
+  height: 85%;
+  padding: 1%;
   color: white;
-  background-color: rgb(216, 176, 77);
+  background-color: rgba(216, 177, 77, 0.5);
   border-radius: 12px;
   p {
-    font-size: x-small;
+    font-size: 65%;
     margin: 0;
   }
 
@@ -67,18 +84,21 @@
 
 .icon-container {
   background-color: rgb(216, 176, 77);
-  height: 40px;
-  width: 40px;
+  height: 800%;
+  width: height;
   border-radius: 50%;
   position: absolute;
-  top: 46px;
-  right: 5px;
+  // top: 22%;
+  // right: 5px;
   i {
     font-size: 20px;
     color: white;
   }
 }
 
+
+
+/* action show card */
 
 .action-show-card {
   height: 50vh;
@@ -87,7 +107,6 @@
   padding: 10px;
   margin: 0;
   border-radius: 8px;
-
   h1 {
     font-size: large;
     font-weight: bold;
@@ -149,5 +168,5 @@
   position: absolute;
   bottom: 30px;
   right: 8%;
-  
+
 }
