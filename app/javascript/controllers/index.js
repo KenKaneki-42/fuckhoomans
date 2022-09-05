@@ -4,5 +4,11 @@
 
 import { application } from "./application"
 
+// import CarouselController from "./carousel_controller"
+// application.register("carousel", CarouselController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import Carousel from '/home/larotka/code/Larotka/fuckhoomans/node_modules/stimulus-carousel/dist/stimulus-carousel'
+application.register('carousel', Carousel)
