@@ -5,19 +5,14 @@
 }
 
 .card-category-card {
-  height: 24vh;
+  height: 30vh;
   border-radius: 8px;
   background-color: white;
   position: relative;
   margin: 10px;
-  img {
-    max-height: 40%;
-    width: 100%;
-    border-radius: 8px 8px 0 0;
-  }
 
   .card-bar-separator {
-    height: 2%;
+    height: 4px;
     background-color: rgb(216, 176, 77);
     width: 100%;
     position: relative;
@@ -25,40 +20,37 @@
 
 }
 
-.fa-leaf{
-  font-size: 80%;
+.card-img {
+  height: 45%;
+  width: 100%;
+  border-radius: 8px 8px 0 0;
+  background-image: url(https://picsum.photos/500/400);
 }
 
 .card-text-section {
-  height: 60%;
   h1 {
-    font-size: 98%;
+    font-size: medium;
     font-weight: bold;
     margin: 0;
     color: black;
   }
 
   h4 {
-    font-size: 85%;
+    font-size: medium;
   }
 
   p {
-    font-size: 55%;
-    margin-bottom: 2%
+    font-size: small;
   }
 }
 
 .card-category-footer {
-  position: absolute;
-  top: 1%;
-  width: 90%;
-  height: 10%;
+
 }
 
 .card-category-co2 {
-  width: 30%;
-  height: 85%;
-  padding: 1%;
+  width: 90px;
+  padding: 2px;
   color: rgb(216, 176, 77);
   background-color: rgba(20, 20, 42, 0.5);
   border-radius: 12px;
@@ -69,9 +61,8 @@
 }
 
 .card-category-level {
-  width: 21%;
-  height: 85%;
-  padding: 1%;
+  width: 70px;
+  padding: 2px;
   color: white;
   background-color: rgba(216, 177, 77, 0.5);
   border-radius: 12px;
@@ -168,5 +159,5 @@
   position: absolute;
   bottom: 30px;
   right: 8%;
-
+  background-image: url("https://picsum.photos/500/400");
 }

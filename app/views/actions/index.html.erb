@@ -9,15 +9,11 @@
     <%= link_to action_path(action) do %>
       <div class="card-category-card col-10 mx-auto mb-3">
         <img src="https://picsum.photos/500/400" alt="">
-        <div class="card-bar-separator mb-1">
-          <div class="icon-container d-flex justify-content-around align-items-center ">
-            <i class="fa-solid fa-plane"></i>
-          </div>
-        </div>
-        <div class="container card-text-section">
+        <div class="card-bar-separator mb-1"></div>
+        <div class="container">
           <h1><strong><%= action.title %></strong></h1> <!-- user_action title-->
-          <h4 style="color: rgb(216, 176, 77);" class="mb-2"><%= action.occurences %> times / week</h4><!-- action occurences-->
-          <strong><p class=" mb-1" style="color: black;"><%= action.description[0..150] %> ...</p></strong>
+          <h4 style="color: rgb(216, 176, 77);" class="mb-3"><%= action.occurences %> times / week</h4><!-- action occurences-->
+          <strong><p class=" mb-1"><%= action.description %></p></strong>
           <p class="mb-4 ml-3" style="color: rgb(102, 102, 102);">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi, eveniet vitae!</p>
 
           <div class="card-category-footer d-flex justify-content-between">
@@ -29,6 +25,9 @@
               <p > <%= action.level%></p>
             </div>
           </div>
+        </div>
+        <div class="icon-container d-flex justify-content-around align-items-center ">
+          <i class="fa-solid fa-plane"></i>
         </div>
       </div>
   <% end %>
@@ -43,7 +42,7 @@
         <div class="container">
           <h1><strong><%= action.title %></strong></h1> <!-- user_action title-->
           <h4 style="color: rgb(216, 176, 77);" class="mb-3"><%= action.occurences %> times / week</h4><!-- action occurences-->
-          <strong><p class=" mb-1" style="color: black;"><%= action.description[0..150] %> ...</p></strong>
+          <strong><p class=" mb-1"><%= action.description %></p></strong>
           <p class="mb-4 ml-3" style="color: rgb(102, 102, 102);">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi, eveniet vitae!</p>
 
           <div class="card-category-footer d-flex justify-content-between">
@@ -72,7 +71,7 @@
         <div class="container">
           <h1><strong><%= action.title %></strong></h1> <!-- user_action title-->
           <h4 style="color: rgb(216, 176, 77);" class="mb-3"><%= action.occurences %> times / week</h4><!-- action occurences-->
-          <strong><p class=" mb-1" style="color: black;"><%= action.description[0..150] %> ...</p></strong>
+          <strong><p class=" mb-1"><%= action.description %></p></strong>
           <p class="mb-4 ml-3" style="color: rgb(102, 102, 102);">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi, eveniet vitae!</p>
 
           <div class="card-category-footer d-flex justify-content-between">
@@ -101,7 +100,7 @@
         <div class="container">
           <h1><strong><%= action.title %></strong></h1> <!-- user_action title-->
           <h4 style="color: rgb(216, 176, 77);" class="mb-3"><%= action.occurences %> times / week</h4><!-- action occurences-->
-          <strong><p class=" mb-1" style="color: black;"><%= action.description[0..150] %> ...</p></strong>
+          <strong><p class=" mb-1"><%= action.description %></p></strong>
           <p class="mb-4 ml-3" style="color: rgb(102, 102, 102);">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi, eveniet vitae!</p>
 
           <div class="card-category-footer d-flex justify-content-between">

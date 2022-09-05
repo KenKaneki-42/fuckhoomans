@@ -5,11 +5,13 @@ Rails.application.routes.draw do
   # root "articles#index"
   root to: "pages#home"
   get "component", to: "pages#component"
+  get "dashboard", to: "user_actions#dashboard"
   # get "contact", to: "pages#contact"
   get "about", to: "pages#about"
   get "contact", to: "pages#contact"
   resources :user_actions, only: %i[index show update]
   resources :actions, only: %i[index show] do
-    resources :user_actions, only: %i[create]
+  resources :user_actions, only: %i[create]
+  resources :scores, only: %i[index show create]
   end
 end
