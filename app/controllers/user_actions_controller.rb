@@ -23,16 +23,17 @@ class UserActionsController < ApplicationController
   def update
     @user_action = UserAction.includes(:action).find(params[:id])
     @user_action.user_occurences = @user_action.user_occurences + 1
-    raise
-    @user_action
+
     if @user_action.user_occurences >= @user_action.action.occurences
       @user_action.status = "validated"
-      @user_action.total_score = @user_action.score # score total mis à jour aura une pertinence avec le nb occurence différent de 1
     else
       @user_action.status = "in_progress"
     end
 
     if @user_action.save
+      if @user_action.status == "validated"
+        update_score(@user_action)
+      end
       redirect_to actions_path
     else
       render :show, status: :unprocessable_entity
@@ -45,4 +46,21 @@ class UserActionsController < ApplicationController
     params.require(:user_action).permit(:action_id, :score, :category, :title, :status, :user_occurences)
   end
 
+  def update_score(user_action)
+    score_table = current_user.score
+    score_table.score_total += user_action.score
+
+    if user_action.category == "transport"
+      score_table.transport_score += user_action.score
+    elsif user_action.category == "food"
+      score_table.food_score += user_action.score
+    elsif user_action.category == "numeric"
+      score_table.digital_score += user_action.score
+    elsif user_action.category  == "home"
+      score_table.household_score += user_action.score
+    else
+      p "the category doesn't exist"
+    end
+
+  end
 end

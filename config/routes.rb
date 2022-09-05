@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   resources :user_actions, only: %i[index show update]
   resources :actions, only: %i[index show] do
   resources :user_actions, only: %i[create]
+  resources :scores, only: %i[index show create]
   end
 end
