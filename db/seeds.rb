@@ -16,67 +16,59 @@ User.delete_all
 
 p 'Generate User seeds'
 ####################### USERS ###############################################################
-user1 = User.create!({
-                        email: 'jean.jordan@gmail.com',
-                        password: '123456',
-                        first_name: 'jean',
-                        last_name: 'jordan',
-                        pseudo: 'jjordan47',
-                        rank_category: 'bronze',
-                        transport_level: 'beginner',
-                        home_level: 'beginner',
-                        numeric_level: 'beginner',
-                        food_level: 'beginner'
-                     })
+user1 = User.create!({email: 'jean.jordan@gmail.com',
+                      password: '123456',
+                      first_name: 'jean',
+                      last_name: 'jordan',
+                      pseudo: 'jjordan47',
+                      rank_category: 'bronze',
+                      transport_level: 'beginner',
+                      home_level: 'beginner',
+                      numeric_level: 'beginner',
+                      food_level: 'beginner'})
 file1 = URI.open("https://avatars.githubusercontent.com/u/86103386?v=4")
 user1.photo.attach(io: file1, filename: "user1.jpg", content_type: "image/jpeg")
 
 
-user2 = User.create!({
-  email: 'jordan.jean@gmail.com',
-  password: '123456',
-  first_name: 'jordan',
-  last_name: 'jean',
-  pseudo: 'jjean971',
-  rank_category: 'bronze',
-  transport_level: 'intermediate',
-  home_level: 'beginner',
-  numeric_level: 'beginner',
-  food_level: 'beginner'
-})
+user2 = User.create!({email: 'jordan.jean@gmail.com',
+                      password: '123456',
+                      first_name: 'jordan',
+                      last_name: 'jean',
+                      pseudo: 'jjean971',
+                      rank_category: 'bronze',
+                      transport_level: 'intermediate',
+                      home_level: 'beginner',
+                      numeric_level: 'beginner',
+                      food_level: 'beginner'})
 file2 = URI.open("https://avatars.githubusercontent.com/u/108475328?v=4")
 user2.photo.attach(io: file2, filename: "user2.jpg", content_type: "image/jpeg")
 
 
 
-user3 = User.create!({
-  email: 'rafa.icy@gmail.com',
-  password: '123456',
-  first_name: 'rafa',
-  last_name: 'delavega',
-  pseudo: 'icyaspasta',
-  rank_category: 'bronze',
-  transport_level: 'beginner',
-  home_level: 'beginner',
-  numeric_level: 'beginner',
-  food_level: 'beginner'
-})
+user3 = User.create!({email: 'rafa.icy@gmail.com',
+                      password: '123456',
+                      first_name: 'rafa',
+                      last_name: 'delavega',
+                      pseudo: 'icyaspasta',
+                      rank_category: 'bronze',
+                      transport_level: 'beginner',
+                      home_level: 'beginner',
+                      numeric_level: 'beginner',
+                      food_level: 'beginner'})
 file3 = URI.open("https://avatars.githubusercontent.com/u/107106167?v=4")
 user3.photo.attach(io: file3, filename: "user3.jpg", content_type: "image/jpeg")
 
 
-user4 = User.create!({
-  email: 'lil.witch@gmail.com',
-  password: '123456',
-  first_name: 'sabrina',
-  last_name: 'theWitch',
-  pseudo: 'lilsabrina42',
-  rank_category: 'bronze',
-  transport_level: 'beginner',
-  home_level: 'beginner',
-  numeric_level: 'beginner',
-  food_level: 'beginner'
-})
+user4 = User.create!({email: 'lil.witch@gmail.com',
+                      password: '123456',
+                      first_name: 'sabrina',
+                      last_name: 'theWitch',
+                      pseudo: 'lilsabrina42',
+                      rank_category: 'bronze',
+                      transport_level: 'beginner',
+                      home_level: 'beginner',
+                      numeric_level: 'beginner',
+                      food_level: 'beginner'})
 file4 = URI.open("https://avatars.githubusercontent.com/u/107299884?v=4")
 user4.photo.attach(io: file4, filename: "user4.jpg", content_type: "image/jpeg")
 
@@ -89,12 +81,13 @@ action1l1 = Action.create({ title: 'Get your bike',
                             level: 'beginner',
                             score: '7',
                             category: 'transport',
-                            description: "Get you bike instead of a car at least 1 time a week, for a average distance
-                                          of 10km you will also improve your health",
+                            description: "Get you bike instead of a car at least 1 time a week",
+                            explication: "For a average distance of 10km you will also improve your health",
                             occurences: 1,
                             carbongain: 860_000 })
 file1l1bike = URI.open("https://images.unsplash.com/photo-1593341476900-a1cfedc5c489?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1615&q=80")
 user1.photo.attach(io: file1l1bike, filename: "bike1.jpg", content_type: "image/jpeg")
+
 # Sur un an de trajet, à raison de 10 km par jour ouvré, un cycliste sur un vélo conventionnel émettra
 # 224 kg de CO2 de moins qu’un automobiliste au volant d’un véhicule thermique,
 # contre 223,5 kg de moins pour un utilisateur de bicyclette électrique.
@@ -103,106 +96,134 @@ action1l2 = Action.create({ title: 'Get your bike',
                             level: 'intermediate',
                             score: '15',
                             category: 'transport',
-                            description: "Get you bike instead of a car at least 2 times a week, for a average distance
-                                          of 10km you will also improve your health more",
+                            description: 'Get you bike instead of a car at least 2 times a week',
+                            explication: 'For a average distance of 10km you will also improve your health more',
                             occurences: 1,
                             carbongain: 1_720_000 })
+file1l2bike = URI.open("https://images.unsplash.com/photo-1505705694340-019e1e335916?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80")
+user1.photo.attach(io: file1l2bike, filename: "bike2.jpg", content_type: "image/jpeg")
+
 action1l3 = Action.create({ title: 'Get your bike',
                             level: 'advanced',
                             score: '35',
                             category: 'transport',
-                            description: "Get you bike instead of a car at least 5 times a week, for a average distance
-                                          of 10km you will also improve your health more and more and become an athlete",
+                            description: 'Get you bike instead of a car at least 5 times a week',
+                            explication: 'For a average distance of 10km you will also improve your
+                                          health more and more and become an athlete',
                             occurences: 1,
                             carbongain: 4_300_000 })
-                            # train vs flight
+file1l3bike = URI.open("https://images.unsplash.com/photo-1528629297340-d1d466945dc5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2122&q=80")
+user1.photo.attach(io: file1l3bike, filename: "bike3.jpg", content_type: "image/jpeg")
+
+# train vs flight
 action2l1 = Action.create({ title: 'Take train VS domestic flight',
                             level: 'beginner',
                             score: '7',
                             category: 'transport',
-                            description: "Take the intercity train instead of a domestic flight,
-                                          you will decrease your carbon impact by 28 times, a travel of 300km
+                            description: 'Take the intercity train instead of a domestic flight',
+                            explication:'You will decrease your carbon impact by 28 times, a travel of 300km
                                           with an intercity train will generate 2,2 kgCO2e/p whereas 62,1 kgCO2e/p
-                                          for a domestic flight",
+                                          for a domestic flight',
                             occurences: 1,
                             carbongain: 59_900_000 })
 file2l1train = URI.open("https://images.unsplash.com/photo-1527295110-5145f6b148d0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1731&q=80")
 user1.photo.attach(io: file2l1train, filename: "train-intercity.jpg", content_type: "image/jpeg")
+
 action2l2 = Action.create({ title: 'Take train VS domestic flight',
                             level: 'intermediate',
                             score: '15',
                             category: 'transport',
-                            description: "Take the train instead of a domestic flight, for example with Paris-Toulouse,
+                            description: 'Take the train instead of a domestic flight',
+                            explication: 'For example with Paris-Toulouse,
                                           you will decrease your carbon impact by 56 times, a travel of 800km
                                           with a train will generate 1,4 kgCO2e/p whereas 79 kgCO2e/p
-                                          for a domestic flight",
+                                          for a domestic flight',
                             occurences: 1,
                             carbongain: 77_600_000 })
+file2l2train = URI.open("https://images.unsplash.com/photo-1515165562839-978bbcf18277?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80")
+user1.photo.attach(io: file2l2train, filename: "train2.jpg", content_type: "image/jpeg")
+
 action2l3 = Action.create({ title: 'Take the sailing boat VS long-haul flight',
                             level: 'advanced',
                             score: '1000',
                             category: 'transport',
-                            description: "If you have time, take a sailing boat instead of
-                            a long-haul flight for a Paris New-York (11 700km)
-                            you will decrease your carbon impact near infinite",
+                            description: 'If you have time, take a sailing boat',
+                            explication: 'Taking a sailing boat instead of
+                                          a long-haul flight for a Paris New-York (11 700km)
+                                          you will decrease your carbon impact near infinite',
                             occurences: 1,
                             carbongain: 1_178_000_000 })
+file2l3boat = URI.open("https://images.unsplash.com/photo-1597236962720-2688febea843?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=654&q=80")
+user1.photo.attach(io: file2l3boat, filename: "sailingboat.jpg", content_type: "image/jpeg")
 
 action3l1 = Action.create({ title: 'Bus is your friend',
                             level: 'beginner',
                             score: '7',
                             category: 'transport',
-                            description: "Take the bus at least one time a week
-                            for a trip in bus with a average of 20 people you will generate 50gCO2e/km so 0,50kgCO2e
+                            description: 'Take the bus at least one time a week',
+                            explication: 'For a trip in bus with a average of 20 people you will generate 50gCO2e/km so 0,50kgCO2e
                             for 10km. An efficient car or a little car generate 156gCO2e/km
-                            if there is only one person. So take the bus will decrease your carbon impact by 28 times",
+                            if there is only one person. So take the bus will decrease your carbon impact by 28 times',
                             occurences: 1,
                             carbongain: 1_060_000 })
+file3l1bus = URI.open("https://images.unsplash.com/photo-1632276536839-84cad7fd03b0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80")
+user1.photo.attach(io: file3l1bus, filename: "bus1.jpg", content_type: "image/jpeg")
 # bus 68gCO2e/km (12,7person) approx=> 50gCO2/km (20p) => 0,50kgCO2 for 10km
 # Efficient car or little car 104gC02/km (1,5person) => 156gCO2/km (1p) => 1,56kgCO2  for 10km
 action3l2 = Action.create({ title: 'Bus is your friend',
                             level: 'intermediate',
                             score: '15',
                             category: 'transport',
-                            description: "Take the bus at least 3 times a week
-                            for a trip in bus with a average of 20 people you will generate 50gCO2e/km so 0,50kgCO2e
-                            for 10km. An efficient car or a little car generate 156gCO2e/km
-                            if there is only one person. So take the bus will decrease your carbon impact by 28 times",
+                            description: 'Take the bus at least 3 times a week',
+                            explication: 'or a trip in bus with a average of 20 people you will generate
+                            50gCO2e/km so 0,50kgCO2e for 10km. An efficient car or a little car generate 156gCO2e/km
+                            if there is only one person. So take the bus will decrease your carbon impact by 28 times',
                             occurences: 1,
                             carbongain: 3_180_000 })
+file3l2bus = URI.open("https://images.unsplash.com/photo-1562620669-98104534c6cd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2787&q=80")
+user1.photo.attach(io: file3l2bus, filename: "bus2.jpg", content_type: "image/jpeg")
 # bus: 0,50kgCO2 for 10km => 1,5kgCO2 for 3 times (30km)
 # car: 1,56kgCO2  for 10km => 4,68kgCO2 for 3 times (30km)
 action3l3 = Action.create({ title: 'Bus is your friend',
                             level: 'advanced',
                             score: '35',
                             category: 'transport',
-                            description: "Take the bus at least 5 times a week
-                            for a trip in bus with a average of 20 people you will generate 50gCO2e/km so 0,50kgCO2e
-                            for 10km. An efficient car or a little car generate 156gCO2e/km
-                            if there is only one person. So take the bus will decrease your carbon impact by 28 times",
+                            description: 'Take the bus at least 5 times a week',
+                            explication: 'For a trip in bus with a average of 20 people you will generate 50gCO2e/km
+                            so 0,50kgCO2e for 10km. An efficient car or a little car generate 156gCO2e/km
+                            if there is only one person. So take the bus will decrease your carbon impact by 28 times',
                             occurences: 1,
                             carbongain: 5_300_000 })
+file3l3bus = URI.open("https://images.unsplash.com/photo-1597920467799-ec8bee99f6eb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=680&q=80")
+user1.photo.attach(io: file3l3bus, filename: "bus3.jpg", content_type: "image/jpeg")
 # bus: 0,50kgCO2 for 10km => 2,5kgCO2 for 5 times (50km)
 # car: 1,56kgCO2  for 10km => 7,8kgCO2 for 5 times (50km)
 action4l1 = Action.create({ title: 'Red Meat',
                             level: 'beginner',
                             score: '7',
                             category: 'food',
-                            description: "Replace red meat 1 time per week. It's generate 40 kgCO2e/kg of red meat
+                            description: 'Replace red meat by fish or white meat 1 time per week',
+                            explication: "It's generate 40 kgCO2e/kg of red meat
                                           instead of white meat or fish that generate 9,5 kgCO2e/kg,
                                           it also increase methane in atmosphere",
                             occurences: 1,
                             carbongain: 3_050_000 })
+file4l1redmeat = URI.open("https://images.unsplash.com/photo-1571067224158-622a54542fed?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80")
+user1.photo.attach(io: file4l1redmeat, filename: "redmeat.jpg", content_type: "image/jpeg")
+
 # 100g red meat => 4kgCO2e
 # 100g white meat => 0,95kgC02e
 action4l2 = Action.create({ title: 'Red Meat',
                             level: 'intermediate',
                             score: '10',
                             category: 'food',
-                            description: "Replace red meat 2 times a week. It's generate 40 kgCO2e/kg of red meat
+                            description: 'Replace red meat by eggs 2 times a week',
+                            explication: "It's generate 40 kgCO2e/kg of red meat
                             instead of eggs that generate 2,8 kgCO2e/kg",
                             occurences: 1,
                             carbongain: 7_480_000 })
+file4l2redmeat = URI.open("https://images.unsplash.com/photo-1595356161904-6708c97be89c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80")
+user1.photo.attach(io: file4l2redmeat, filename: "redmeat2.jpg", content_type: "image/jpeg")
 # 2*100g red meat => 8kgCO2e
 # 2*100g eggs => 0,52kgCO2e
 
@@ -210,11 +231,14 @@ action4l3 = Action.create({ title: 'Red Meat',
                             level: 'advanced',
                             score: '15',
                             category: 'food',
-                            description: "Replace red meat 5 times a week that generate 40 kgCO2e/kg of red meat by
+                            description: 'Replace red meat 5 times a week',
+                            explication: "That generate 40 kgCO2e/kg of red meat by
                             a melt of oleaginous that generate 4 kgCO2e/kg,
                             starches (2kgCO2e/kg) and legumes (0,5kgCO2e/kg)",
                             occurences: 1,
                             carbongain: 18_915_000 })
+file4l3redmeat = URI.open("https://images.unsplash.com/photo-1555265399-48aa9c11d869?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80")
+user1.photo.attach(io: file4l3redmeat, filename: "redmeat3.jpg", content_type: "image/jpeg")
 # 5*100g red meat => 20 kgCO2e
 # 5*100g mixed((1/3)*(4+2+0.5)) =>  1,085kgCO2e
 # 2,17 kgCO2e/k => 5 * 0,217
