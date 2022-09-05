@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_05_112146) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_05_114219) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -57,11 +57,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_05_112146) do
 
   create_table "scores", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.integer "transport_score"
-    t.integer "food_score"
-    t.integer "household_score"
-    t.integer "digital_score"
-    t.integer "total_score"
+    t.integer "transport_score", default: 0
+    t.integer "food_score", default: 0
+    t.integer "household_score", default: 0
+    t.integer "digital_score", default: 0
+    t.integer "total_score", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_scores_on_user_id"

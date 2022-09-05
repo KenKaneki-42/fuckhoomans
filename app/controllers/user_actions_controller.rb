@@ -61,6 +61,6 @@ class UserActionsController < ApplicationController
     else
       p "the category doesn't exist"
     end
-
+    raise
   end
 end
