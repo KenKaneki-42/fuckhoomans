@@ -20,6 +20,7 @@
     height: 2%;
     background-color: rgb(216, 176, 77);
     width: 100%;
+    position: relative;
   }
 
 }
@@ -83,12 +84,12 @@
 
 .icon-container {
   background-color: rgb(216, 176, 77);
-  height: 40px;
-  width: 40px;
+  height: 800%;
+  width: height;
   border-radius: 50%;
   position: absolute;
-  top: 22%;
-  right: 5px;
+  // top: 22%;
+  // right: 5px;
   i {
     font-size: 20px;
     color: white;

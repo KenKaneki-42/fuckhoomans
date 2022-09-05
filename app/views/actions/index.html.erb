@@ -9,7 +9,11 @@
     <%= link_to action_path(action) do %>
       <div class="card-category-card col-10 mx-auto mb-3">
         <img src="https://picsum.photos/500/400" alt="">
-        <div class="card-bar-separator mb-1"></div>
+        <div class="card-bar-separator mb-1">
+          <div class="icon-container d-flex justify-content-around align-items-center ">
+            <i class="fa-solid fa-plane"></i>
+          </div>
+        </div>
         <div class="container card-text-section">
           <h1><strong><%= action.title %></strong></h1> <!-- user_action title-->
           <h4 style="color: rgb(216, 176, 77);" class="mb-2"><%= action.occurences %> times / week</h4><!-- action occurences-->
@@ -25,9 +29,6 @@
               <p > <%= action.level%></p>
             </div>
           </div>
-        </div>
-        <div class="icon-container d-flex justify-content-around align-items-center ">
-          <i class="fa-solid fa-plane"></i>
         </div>
       </div>
   <% end %>
