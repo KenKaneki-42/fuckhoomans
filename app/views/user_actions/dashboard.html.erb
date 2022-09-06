@@ -1,5 +1,5 @@
 <% # user infos:  rank, level by category, pseudo etc... %>
-
+<%= render "shared/header" %>
 <%# <%= photo %>
 <div class="d-flex container py-4 justify-content-center">
   <div class="d-flex flex-column align-items-center">
@@ -16,6 +16,7 @@
 
 <div class="d-grid category-grid">
   <%# transport %>
+
   <%= link_to user_actions_path(category: "transport"), class:"icon-travel" do %>
     <div class="ko-progress-circle icon-wrapper" data-progress= "<%= ((@transport_score.to_f / @transport_next_level.to_f)*100).to_i %>">
         <div class="ko-circle">
@@ -32,6 +33,7 @@
         </div>
     </div>
   <% end %>
+
 
   <%# food %>
   <%= link_to user_actions_path(category: "food"), class:"icon-food" do %>
@@ -86,6 +88,7 @@
       </div>
     </div>
   <% end %>
+
 
 </div>
 
