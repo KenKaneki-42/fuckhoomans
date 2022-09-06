@@ -1,33 +1,100 @@
-$progress-bar-stroke-width: 3.25;
-$progress-bar-progress-stroke-width: 3.27;
-$progress-bar-size: 80px;
 
-.c-progress-container {
-    position: relative;
-    width: $progress-bar-size;
-    margin: 0 auto;
-}
+$circle-size: 120px;
+$circle-background: #D9D9D9;
+$circle-color: #1291D4;
+$inset-size: 105px;
+$inset-color: #fbfbfb;
+$transition-length: 1s;
 
-// SVG circle shape
-.c-progress-circle {
-    width: $progress-bar-size;
-    height: $progress-bar-size;
-    transform: rotate(-90deg);
-}
+.ko-progress-circle {
+	margin: 20px auto;
+	width:  $circle-size;
+	height: $circle-size;
 
-// circle background
-.c-progress-bar__background {
-    fill: none;
-    stroke: black;
-    stroke-width: $progress-bar-stroke-width;
-}
+	background-color: $circle-background;
+	border-radius: 50%;
+		.ko-progress-circle__slice, .ko-progress-circle__fill {
+			width:    $circle-size;
+			height:   $circle-size;
+			position: absolute;
+			-webkit-backface-visibility: hidden;
+			transition: transform $transition-length;
+			border-radius: 50%;
+		}
+		.ko-progress-circle__slice {
+			clip: rect(0px, $circle-size, $circle-size, $circle-size/2);
+			.ko-progress-circle__fill {
+				clip: rect(0px, $circle-size/2, $circle-size, 0px);
+				background-color: $circle-color;
+			}
+	}
+	.transport-progress-circle__overlay {
+		width:       $inset-size;
+		height:      $inset-size;
+		position:    absolute;
+		margin-left: ($circle-size - $inset-size)/2;
+		margin-top:  ($circle-size - $inset-size)/2;
+    display: grid;
+    place-content: center;
+    border-radius: 50%;
 
-// circle progression
-.c-progress-bar__progress {
-    fill: none;
-    stroke: orange;
-    stroke-dasharray: 100 100;
-    stroke-linecap: square;
-    stroke-width: $progress-bar-progress-stroke-width;
-    transition: stroke-dashoffset .75s ease-in-out;
+		background-color: rgb(216, 176, 77);
+		border-radius: 50%;
+	}
+
+  .food-progress-circle__overlay {
+		width:       $inset-size;
+		height:      $inset-size;
+		position:    absolute;
+		margin-left: ($circle-size - $inset-size)/2;
+		margin-top:  ($circle-size - $inset-size)/2;
+    display: grid;
+    place-content: center;
+    border-radius: 50%;
+
+		background-color: rgb(164, 198, 99);
+		border-radius: 50%;
+	}
+
+  .digital-progress-circle__overlay {
+		width:       $inset-size;
+		height:      $inset-size;
+		position:    absolute;
+		margin-left: ($circle-size - $inset-size)/2;
+		margin-top:  ($circle-size - $inset-size)/2;
+    display: grid;
+    place-content: center;
+    border-radius: 50%;
+
+		background-color: rgb(125, 156, 183);
+		border-radius: 50%;
+	}
+
+  .household-progress-circle__overlay {
+		width:       $inset-size;
+		height:      $inset-size;
+		position:    absolute;
+		margin-left: ($circle-size - $inset-size)/2;
+		margin-top:  ($circle-size - $inset-size)/2;
+    display: grid;
+    place-content: center;
+    border-radius: 50%;
+
+		background-color: rgb(189, 96, 72);
+		border-radius: 50%;
+	}
+
+	$i: 0;
+	$increment: 180deg / 100;
+	@while $i <= 100 {
+		&[data-progress='#{$i}'] {
+				.ko-progress-circle__slice.full, .ko-progress-circle__fill {
+          transform: rotate($increment * $i);
+				}
+				.ko-progress-circle__fill.ko-progress-circle__bar {
+					transform: rotate($increment * $i * 2);
+				}
+      $i: $i + 1;
+		}
+	}
 }
