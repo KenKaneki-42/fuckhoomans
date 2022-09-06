@@ -5,7 +5,7 @@ class UserActionsController < ApplicationController
     @digital_actions = UserAction.joins(:action).where({ category: 'digital', status: 'selected' })
     @household_actions = UserAction.joins(:action).where({ category: 'household', status: 'selected' })
     @user_infos = current_user
-    @last_actions = UserAction.includes(:action).where(user: current_user).last(3)
+    @last_actions = UserAction.includes(:action).where(user: current_user, status: 'selected')
   end
 
 
