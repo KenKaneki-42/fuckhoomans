@@ -120,7 +120,7 @@
     <div class="carousel-inner col-10 mx-auto">
       <div class="carousel-item active">
         <%= link_to user_action_path(@last_actions.first) do %>
-          <div class="card-category-card">
+          <div class="card-category-card"   style="width: 70vw;">
             <div class= "card-img p-2">
               <div class="card-category-footer d-flex justify-content-between">
                 <div class="d-flex justify-content-evenly card-category-co2">
@@ -149,7 +149,7 @@
       <% @last_actions[1..].each do |user_action|%>
         <div class="carousel-item">
           <%= link_to user_action_path(@last_actions.first) do %>
-            <div class="card-category-card">
+            <div class="card-category-card"   style="width: 70vw;">
               <div class= "card-img p-2">
                 <div class="card-category-footer d-flex justify-content-between">
                   <div class="d-flex justify-content-evenly card-category-co2">
