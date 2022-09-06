@@ -1,15 +1,5 @@
 class UserActionsController < ApplicationController
   def index
-    @transport_actions = UserAction.joins(:action).where(category: 'transport', status: 'selected')
-    @food_actions = UserAction.joins(:action).where({ category: 'food', status: 'selected' })
-    @digital_actions = UserAction.joins(:action).where({ category: 'digital', status: 'selected' })
-    @household_actions = UserAction.joins(:action).where({ category: 'household', status: 'selected' })
-    @user_infos = current_user
-    @last_actions = UserAction.includes(:action).where(user: current_user, status: 'selected')
-  end
-
-
-  def dashboard
     if params[:category] == 'transport'
       @user_actions = UserAction.joins(:action).where(category: 'transport', user: current_user)
     elsif params[:category] == 'food'
@@ -21,12 +11,10 @@ class UserActionsController < ApplicationController
     else
       @user_actions = UserAction.joins(:action).where(user: current_user)
     end
-    # @transport_actions = UserAction.joins(:action).where(category: 'transport', status: 'selected')
-    # @food_actions = UserAction.joins(:action).where({ category: 'food', status: 'selected' })
-    # @digital_actions = UserAction.joins(:action).where({ category: 'digital', status: 'selected' })
-    # @household_actions = UserAction.joins(:action).where({ category: 'household', status: 'selected' })
+  end
+
+  def dashboard
     @last_actions = UserAction.includes(:action).where(user: current_user).last(3)
-    @user_infos = current_user
   end
 
   def show
