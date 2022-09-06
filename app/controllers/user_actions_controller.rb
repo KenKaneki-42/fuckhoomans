@@ -94,6 +94,7 @@ class UserActionsController < ApplicationController
       if @user_action.status == "validated"
         update_score(@user_action)
       end
+      flash[:notice] = "Congratulations, you sucessfully validated this action"
       redirect_to dashboard_path
     else
       render :show, status: :unprocessable_entity
