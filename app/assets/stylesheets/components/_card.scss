@@ -5,12 +5,28 @@
 }
 
 .card-category-card {
-  height: 35vh;
+  height: 25vh;
   border-radius: 8px;
   background-color: white;
   position: relative;
   margin: 10px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+  h1 {
+    font-size: large;
+    font-weight: bold;
+    margin: 0;
+    color: black;
+  }
+
+  h4 {
+    font-size: medium;
+  }
+
+  p {
+    font-size: medium;
+    color: black;
+  }
+
 
   .card-bar-separator {
     height: 4px;
@@ -32,20 +48,7 @@
 }
 
 .card-text-section {
-  h1 {
-    font-size: medium;
-    font-weight: bold;
-    margin: 0;
-    color: black;
-  }
 
-  h4 {
-    font-size: medium;
-  }
-
-  p {
-    font-size: small;
-  }
 }
 
 .card-category-footer {
@@ -61,6 +64,7 @@
   p {
     font-size: 65%;
     margin: 0;
+    color: rgb(216, 176, 77);
   }
 }
 
@@ -73,6 +77,7 @@
   p {
     font-size: 65%;
     margin: 0;
+    color: white;
   }
 
 }
