@@ -13,6 +13,11 @@ class UserActionsController < ApplicationController
     end
   end
 
+  def history
+    @user_actions = UserAction.where(user: current_user, status: 'validated')
+
+  end
+
   def dashboard
     @last_actions = UserAction.where(user: current_user, status: 'selected').last(3)
     @last_actions = @last_actions.reverse
