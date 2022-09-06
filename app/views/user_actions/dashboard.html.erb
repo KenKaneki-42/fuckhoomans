@@ -16,157 +16,172 @@
 
 <div class="d-grid category-grid">
   <%# transport %>
-  <div class="ko-progress-circle" data-progress= "<%= ((@transport_score.to_f / @transport_next_level.to_f)*100).to_i %>">
-      <div class="ko-circle">
-          <div class="full ko-progress-circle__slice">
-              <div class="ko-progress-circle__fill"></div>
-          </div>
-          <div class="ko-progress-circle__slice">
-              <div class="ko-progress-circle__fill"></div>
-              <div class="ko-progress-circle__fill ko-progress-circle__bar"></div>
-          </div>
-      </div>
-      <div class="transport-progress-circle__overlay">
-        <i class="fa-solid fa-plane fa-2x circle-icon"></i>
-      </div>
-  </div>
-
+  <%= link_to user_actions_path(category: "transport"), class:"icon-travel" do %>
+    <div class="ko-progress-circle icon-wrapper" data-progress= "<%= ((@transport_score.to_f / @transport_next_level.to_f)*100).to_i %>">
+        <div class="ko-circle">
+            <div class="full ko-progress-circle__slice">
+                <div class="ko-progress-circle__fill"></div>
+            </div>
+            <div class="ko-progress-circle__slice">
+                <div class="ko-progress-circle__fill"></div>
+                <div class="ko-progress-circle__fill ko-progress-circle__bar"></div>
+            </div>
+        </div>
+        <div class="transport-progress-circle__overlay">
+            <i class="fa-solid fa-plane fa-2x circle-icon"></i>
+        </div>
+    </div>
+  <% end %>
 
   <%# food %>
-  <div class="ko-progress-circle" data-progress="<%= ((@food_score.to_f / @food_next_level.to_f)*100 ).to_i%>">
-      <div class="ko-circle">
-          <div class="full ko-progress-circle__slice">
-              <div class="ko-progress-circle__fill"></div>
-          </div>
-          <div class="ko-progress-circle__slice">
-              <div class="ko-progress-circle__fill"></div>
-              <div class="ko-progress-circle__fill ko-progress-circle__bar"></div>
-          </div>
-      </div>
-      <div class="food-progress-circle__overlay">
-        <i class="fa-solid fa-carrot fa-2x circle-icon"></i>
-      </div>
-  </div>
+  <%= link_to user_actions_path(category: "food"), class:"icon-food" do %>
+    <div class="ko-progress-circle icon-wrapper" data-progress="<%= ((@food_score.to_f / @food_next_level.to_f)*100 ).to_i%>">
+        <div class="ko-circle">
+            <div class="full ko-progress-circle__slice">
+                <div class="ko-progress-circle__fill"></div>
+            </div>
+            <div class="ko-progress-circle__slice">
+                <div class="ko-progress-circle__fill"></div>
+                <div class="ko-progress-circle__fill ko-progress-circle__bar"></div>
+            </div>
+        </div>
+        <div class="food-progress-circle__overlay">
+            <i class="fa-solid fa-carrot fa-2x circle-icon"></i>
+        </div>
+    </div>
+  <% end %>
 
   <%# digital %>
-  <div class="ko-progress-circle" data-progress="<%= ((@digital_score.to_f / @digital_next_level.to_f)*100).to_i %>">
-      <div class="ko-circle">
-          <div class="full ko-progress-circle__slice">
-              <div class="ko-progress-circle__fill"></div>
-          </div>
-          <div class="ko-progress-circle__slice">
-              <div class="ko-progress-circle__fill"></div>
-              <div class="ko-progress-circle__fill ko-progress-circle__bar"></div>
-          </div>
-      </div>
-      <div class="digital-progress-circle__overlay">
-        <i class="fa-solid fa-computer fa-2x circle-icon"></i>
-      </div>
-  </div>
+   <%= link_to user_actions_path(category: "digital"), class:"icon-tech" do %>
+    <div class="ko-progress-circle icon-wrapper" data-progress="<%= ((@digital_score.to_f / @digital_next_level.to_f)*100).to_i %>">
+        <div class="ko-circle">
+            <div class="full ko-progress-circle__slice">
+                <div class="ko-progress-circle__fill"></div>
+            </div>
+            <div class="ko-progress-circle__slice">
+                <div class="ko-progress-circle__fill"></div>
+                <div class="ko-progress-circle__fill ko-progress-circle__bar"></div>
+            </div>
+        </div>
+        <div class="digital-progress-circle__overlay">
+            <i class="fa-solid fa-computer fa-2x circle-icon"></i>
+        </div>
+    </div>
+  <% end %>
 
   <%# household %>
-  <div class="ko-progress-circle" data-progress="<%= ((@household_score.to_f / @household_next_level.to_f)*100).to_i %>">
+  <%= link_to user_actions_path(category: "household"), class:"icon-home" do %>
+    <div class="ko-progress-circle icon-wrapper" data-progress="<%= ((@household_score.to_f / @household_next_level.to_f)*100).to_i %>">
       <div class="ko-circle">
-          <div class="full ko-progress-circle__slice">
-              <div class="ko-progress-circle__fill"></div>
-          </div>
-          <div class="ko-progress-circle__slice">
-              <div class="ko-progress-circle__fill"></div>
-              <div class="ko-progress-circle__fill ko-progress-circle__bar"></div>
-          </div>
+        <div class="full ko-progress-circle__slice">
+            <div class="ko-progress-circle__fill"></div>
+        </div>
+        <div class="ko-progress-circle__slice">
+            <div class="ko-progress-circle__fill"></div>
+            <div class="ko-progress-circle__fill ko-progress-circle__bar"></div>
+        </div>
       </div>
       <div class="household-progress-circle__overlay">
-        <i class="fa-solid fa-house fa-2x circle-icon"></i>
+          <i class="fa-solid fa-house fa-2x circle-icon"></i>
       </div>
-  </div>
-<% end %>
+    </div>
+  <% end %>
+
+</div>
 
 <% ### actions by category %>
 <div class="d-flex justify-content-between container-dashboard ">
   <h3>My last actions</h3>
-
   <%= link_to "See all", user_actions_path, class: "btn btn-domore" %>
 </div>
 
 
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+<% unless @last_actions.empty? %>
 
-<div id="carouselExampleIndicators" class="carousel slide carousel-dark" data-ride="carousel">
+
+
+  <div id="carouselExampleIndicatorss" class="carousel slide carousel-dark" data-ride="carousel">
     <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      <li data-target="#carouselExampleIndicatorss" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicatorss" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicatorss" data-slide-to="2"></li>
     </ol>
     <div class="carousel-inner">
-        <div class="carousel-item active">
-            <%= link_to user_action_path(@last_actions.first) do %>
-              <div class="card-category-card">
-                <div class= "card-img p-2">
-                  <div class="card-category-footer d-flex justify-content-between">
-                    <div class="d-flex justify-content-evenly card-category-co2">
-                      <i class="fa-solid fa-leaf"></i>
-                      <p class=""><%= @last_actions.first.action.carbongain.div(100_000) %> <p>kgCO2e</p></p>
-                    </div>
-                    <div class="card-category-level d-flex justify-content-around isDisabled">
-                      <p class="isDisabled"><%= @last_actions.first.action.level %></p>
-                    </div>
-                  </div>
+      <div class="carousel-item active">
+        <%= link_to user_action_path(@last_actions.first) do %>
+          <div class="card-category-card">
+            <div class= "card-img p-2">
+              <div class="card-category-footer d-flex justify-content-between">
+                <div class="d-flex justify-content-evenly card-category-co2">
+                  <i class="fa-solid fa-leaf"></i>
+                  <p class=""><%= @last_actions.first.action.carbongain.div(100_000) %> <p>kgCO2e</p></p>
                 </div>
-
-                <div class="card-bar-separator mb-1"></div>
-
-                <div class="container">
-                  <h1><strong><%= @last_actions.first.action.title %></strong></h1> <!-- @last_actions.first title-->
-                  <h4 style="color: rgb(216, 176, 77);"><%= @last_actions.first.action.occurences %> times / week</h4><!-- action occurences-->
-                  <div class="">
-                    <p><%= @last_actions.first.action.description[0..90] %> ...</p>
-                  </div>
+                <div class="card-category-level d-flex justify-content-around isDisabled">
+                  <p class="isDisabled"><%= @last_actions.first.action.level %></p>
                 </div>
-              <% end %>
+              </div>
             </div>
-        </div>
 
-        <% @last_actions[1..2].each do |user_action|%>
-          <div class="carousel-item">
-            <div class="card-category-card">
-              <%= link_to user_action_path(user_action) do %>
-                <div class= "card-img p-2">
-                <div class="card-category-footer d-flex justify-content-between">
-                    <div class="d-flex justify-content-evenly card-category-co2">
-                      <i class="fa-solid fa-leaf"></i>
-                      <p class=""><%= user_action.action.carbongain.div(100_000) %> <p>kgCO2e</p></p>
-                    </div>
-                    <div class="card-category-level d-flex justify-content-around isDisabled">
-                      <p class="isDisabled"><%= user_action.action.level %></p>
-                    </div>
-                  </div>
-                </div>
-                <div class="card-bar-separator mb-1"></div>
+            <div class="card-bar-separator mb-1"></div>
 
-                <div class="container">
-                  <h1><strong><%= user_action.action.title %></strong></h1> <!-- user_action title-->
-                  <h4 style="color: rgb(216, 176, 77);"><%= user_action.action.occurences %> times / week</h4><!-- action occurences-->
-                  <div class="">
-                    <p><%= user_action.action.description[0..90] %> ...</p>
-                  </div>
-                </div>
-              <% end %>
+            <div class="container">
+              <h1><strong><%= @last_actions.first.action.title %></strong></h1> <!-- @last_actions.first title-->
+              <h4 style="color: rgb(216, 176, 77);"><%= @last_actions.first.action.occurences %> times / week</h4><!-- action occurences-->
+              <div class="">
+                <p><%= @last_actions.first.action.description[0..90] %> ...</p>
+              </div>
             </div>
           </div>
         <% end %>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
+      </div>
+
+      <% @last_actions[1..].each do |user_action|%>
+        <div class="carousel-item">
+          <%= link_to user_action_path(@last_actions.first) do %>
+            <div class="card-category-card">
+              <div class= "card-img p-2">
+                <div class="card-category-footer d-flex justify-content-between">
+                  <div class="d-flex justify-content-evenly card-category-co2">
+                    <i class="fa-solid fa-leaf"></i>
+                    <p class=""><%= user_action.action.carbongain.div(100_000) %> <p>kgCO2e</p></p>
+                  </div>
+                  <div class="card-category-level d-flex justify-content-around isDisabled">
+                    <p class="isDisabled"><%= user_action.action.level %></p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-bar-separator mb-1"></div>
+
+              <div class="container">
+                <h1><strong><%= user_action.action.title %></strong></h1> <!-- @last_actions.first title-->
+                <h4 style="color: rgb(216, 176, 77);"><%= user_action.action.occurences %> times / week</h4><!-- action occurences-->
+                <div class="">
+                  <p><%= user_action.action.description[0..90] %> ...</p>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicatorss" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
     </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
+    <a class="carousel-control-next" href="#carouselExampleIndicatorss" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
     </a>
-</div>
+  </div>
+<% end %>
 
-
-
-<div class="container mt-3">
-
-</div>
