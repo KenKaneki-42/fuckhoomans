@@ -1,33 +1,45 @@
-<%= render "shared/header" %>
-<img src="https://picsum.photos/450/300" alt="" class="mb-4" style="width: 100%; height: 45vh;">
 
-<div class="action-show-card mx-auto position-relative">
-  <div class="d-flex col-12 justify-content-between mt-3 mb-5">
-    <div class="show-icon-container d-flex justify-content-around align-items-center ">
-        <i class="fa-solid fa-plane"></i>
+<%= render "shared/header" %>
+  <div class= "card-img p-2 card-view-h300 " style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+        url('<%= cl_image_path @user_action.action.photo.key, height: 800, crop: :fit%>')">
+    <div class="card-category-footer d-flex justify-content-between">
+      <div class="d-flex justify-content-evenly card-category-co2">
+        <i class="fa-solid fa-leaf"></i>
+        <p class=""><%= @user_action.action.carbongain.div(100_000) %> <p>kgCO2e</p></p>
       </div>
-      <div class="d-flex col-7 justify-content-between">
-        <div class="d-flex justify-content-evenly align-items-center card-show-co2">
-          <i class="fa-solid fa-leaf"></i>
-          <p class="">0kg/ CO2</p>
-        </div>
-        <div class="col-5">
-          <div class="card-show-level d-flex justify-content-around align-items-center mb-2">
-            <p><%= @user_action.action.level %></p>
-          </div>
-          <p style="font-size: smaller; text-align: end;">Score: <%= @user_action.score %></p>
-        </div>
+      <div class="card-category-level d-flex justify-content-around isDisabled">
+        <p class="isDisabled"><%= @user_action.action.level %></p>
       </div>
+    </div>
   </div>
-  <!-- for testing upadte = ok
-  <h1><%= @user_action.user_occurences %></h1>
-  <h1><%= @user_action.status %></h1>
-  -->
-  <h1><strong><%= @user_action.title %></strong></h1> <!-- user_action title-->
-  <h4 style="color: rgb(216, 176, 77);" class="mb-3"><%= @user_action.action.occurences %> times / week</h4><!-- action occurences-->
-  <strong><p class=" mb-1"> <%= @user_action.action.description %></p></strong>
-  <p class="mb-4 ml-3" style="color: rgb(102, 102, 102);">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi, eveniet vitae!</p>
-  <%= simple_form_for @user_action, html: {class: "col-12 d-flex justify-content-between"}, url: user_action_path(@user_action), method: :patch do |f| %>
-    <%= f.submit "Done", class: "col-10 btn btn-done " %>
-  <% end %>
-</div>
+
+  <div class="action-show-card mx-auto position-relative">
+    <div class="d-flex col-12 justify-content-between mt-3 mb-5">
+      <div class="show-icon-container d-flex justify-content-around align-items-center ">
+          <i class="fa-solid fa-plane"></i>
+        </div>
+        <div class="d-flex col-7 justify-content-between">
+          <div class="d-flex justify-content-evenly align-items-center card-show-co2">
+            <i class="fa-solid fa-leaf"></i>
+            <p class="">0kg/ CO2</p>
+          </div>
+          <div class="col-5">
+            <div class="card-show-level d-flex justify-content-around align-items-center mb-2">
+              <p><%= @user_action.action.level %></p>
+            </div>
+            <p style="font-size: smaller; text-align: end;">Score: <%= @user_action.score %></p>
+          </div>
+        </div>
+    </div>
+    <!-- for testing upadte = ok
+    <h1><%= @user_action.user_occurences %></h1>
+    <h1><%= @user_action.status %></h1>
+    -->
+    <h1><strong><%= @user_action.title %></strong></h1> <!-- user_action title-->
+    <h4 style="color: rgb(216, 176, 77);" class="mb-3"><%= @user_action.action.occurences %> times / week</h4><!-- action occurences-->
+    <strong><p class=" mb-1"> <%= @user_action.action.description %></p></strong>
+    <p class="mb-4 ml-3" style="color: rgb(102, 102, 102);">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi, eveniet vitae!</p>
+    <%= simple_form_for @user_action, html: {class: "col-12 d-flex justify-content-between"}, url: user_action_path(@user_action), method: :patch do |f| %>
+      <%= f.submit "Done", class: "col-10 btn btn-done " %>
+    <% end %>
+  </div>
