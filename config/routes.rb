@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   resources :user_actions, only: %i[create]
   resources :scores, only: %i[index show create]
   end
+  get 'dashboard', to: "user_actions#dashboard", :as => :user_root
 end
