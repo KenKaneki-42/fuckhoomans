@@ -1,15 +1,5 @@
 class UserActionsController < ApplicationController
   def index
-    @transport_actions = UserAction.joins(:action).where(category: 'transport', status: 'selected')
-    @food_actions = UserAction.joins(:action).where({ category: 'food', status: 'selected' })
-    @digital_actions = UserAction.joins(:action).where({ category: 'digital', status: 'selected' })
-    @household_actions = UserAction.joins(:action).where({ category: 'household', status: 'selected' })
-    @user_infos = current_user
-    @last_actions = UserAction.includes(:action).where(user: current_user, status: 'selected')
-  end
-
-
-  def dashboard
     if params[:category] == 'transport'
       @user_actions = UserAction.joins(:action).where(category: 'transport', user: current_user)
     elsif params[:category] == 'food'
@@ -21,12 +11,56 @@ class UserActionsController < ApplicationController
     else
       @user_actions = UserAction.joins(:action).where(user: current_user)
     end
-    # @transport_actions = UserAction.joins(:action).where(category: 'transport', status: 'selected')
-    # @food_actions = UserAction.joins(:action).where({ category: 'food', status: 'selected' })
-    # @digital_actions = UserAction.joins(:action).where({ category: 'digital', status: 'selected' })
-    # @household_actions = UserAction.joins(:action).where({ category: 'household', status: 'selected' })
+  end
+
+  def dashboard
     @last_actions = UserAction.includes(:action).where(user: current_user).last(3)
+
     @user_infos = current_user
+    @scores = Score.find_by("user_id = ? ", current_user.id)
+    if @user_infos.transport_level == "beginner"
+      @transport_next_level = 20
+      @transport_score = @scores.transport_score
+    elsif @user_infos.transport_level == "intermediate"
+      @transport_next_level = 40
+      @transport_score = @scores.transport_score - 20
+    elsif @user_infos.transport_level == "advanced"
+      @transport_next_level = 60
+      @transport_score = @scores.transport_score - 60
+    end
+
+    if @user_infos.food_level == "beginner"
+      @food_next_level = 20
+      @food_score = @scores.food_score
+    elsif @user_infos.food_level == "intermediate"
+      @food_next_level = 40
+      @food_score = @scores.food_score - 20
+    elsif @user_infos.food_level == "advanced"
+      @food_next_level = 60
+      @food_score = @scores.food_score - 60
+    end
+
+    if @user_infos.home_level == "beginner"
+      @household_next_level = 20
+      @household_score = @scores.household_score
+    elsif @user_infos.home_level == "intermediate"
+      @household_next_level = 40
+      @household_score = @scores.household_score - 20
+    elsif @user_infos.home_level == "advanced"
+      @household_next_level = 60
+      @household_score = @scores.household_score - 60
+    end
+
+    if @user_infos.numeric_level == "beginner"
+      @digital_next_level = 20
+      @digital_score = @scores.digital_score
+    elsif @user_infos.numeric_level == "intermediate"
+      @digital_next_level = 40
+      @digital_score = @scores.digital_score - 20
+    elsif @user_infos.numeric_level == "advanced"
+      @digital_next_level = 60
+      @digital_score = @scores.digital_score - 60
+    end
   end
 
   def show
@@ -59,7 +93,7 @@ class UserActionsController < ApplicationController
       if @user_action.status == "validated"
         update_score(@user_action)
       end
-      redirect_to user_actions_path
+      redirect_to dashboard_path
     else
       render :show, status: :unprocessable_entity
     end

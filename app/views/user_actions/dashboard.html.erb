@@ -4,7 +4,7 @@
 <div class="d-flex container py-4 justify-content-center">
   <div class="d-flex flex-column align-items-center">
     <%= image_tag "https://kitt.lewagon.com/placeholder/users/KenKaneki-42", class: "avatar", alt: "avatar" %>
-    <h3><%= @user_infos.pseudo %></h3>
+    <h3><%= current_user.pseudo %></h3>
   </div>
 
 </div>
@@ -16,7 +16,7 @@
 
 <div class="d-grid category-grid">
   <%# transport %>
-  <div class="ko-progress-circle icon-wrapper" data-progress="90">
+  <div class="ko-progress-circle" data-progress= "<%= ((@transport_score.to_f / @transport_next_level.to_f)*100).to_i %>">
       <div class="ko-circle">
           <div class="full ko-progress-circle__slice">
               <div class="ko-progress-circle__fill"></div>
@@ -33,7 +33,7 @@
 
 
   <%# food %>
-  <div class="ko-progress-circle icon-wrapper" data-progress="90">
+  <div class="ko-progress-circle" data-progress="<%= ((@food_score.to_f / @food_next_level.to_f)*100 ).to_i%>">
       <div class="ko-circle">
           <div class="full ko-progress-circle__slice">
               <div class="ko-progress-circle__fill"></div>
@@ -49,7 +49,7 @@
   </div>
 
   <%# digital %>
-  <div class="ko-progress-circle icon-wrapper" data-progress="90">
+  <div class="ko-progress-circle" data-progress="<%= ((@digital_score.to_f / @digital_next_level.to_f)*100).to_i %>">
       <div class="ko-circle">
           <div class="full ko-progress-circle__slice">
               <div class="ko-progress-circle__fill"></div>
@@ -65,7 +65,7 @@
   </div>
 
   <%# household %>
-  <div class="ko-progress-circle icon-wrapper" data-progress="90">
+  <div class="ko-progress-circle" data-progress="<%= ((@household_score.to_f / @household_next_level.to_f)*100).to_i %>">
       <div class="ko-circle">
           <div class="full ko-progress-circle__slice">
               <div class="ko-progress-circle__fill"></div>
@@ -79,39 +79,60 @@
         <i class="fa-solid fa-house fa-2x circle-icon"></i>
       </div>
   </div>
-
-</div>
+<% end %>
 
 <% ### actions by category %>
 <div class="d-flex justify-content-between container-dashboard ">
   <h3>My last actions</h3>
-  <h4><small>See all!</small></h4>
+
+  <%= link_to "See all", user_actions_path, class: "btn btn-domore" %>
 </div>
 
-<div class="container mt-3">
-  <%# Slider %>
-  <div class="splide" role="group" aria-label="Splide Basic HTML Example">
-    <div class="splide__track">
-      <ul class="splide__list">
-        <% @last_actions.each do |user_action|%>
 
-          <%# Slides %>
-          <li class="splide__slid d-none">
-            <%# Card %>
-            <div class="card-category-card">
-              <%= link_to user_action_path(user_action) do %>
-                <%# <%= cl_image_tag("#{user_action.action.photo.key}", :class => "card-img") %>
-                <img class="card-img" src="https://picsum.photos/500/400" alt="">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+<div id="carouselExampleIndicators" class="carousel slide carousel-dark" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <%= link_to user_action_path(@last_actions.first) do %>
+              <div class="card-category-card">
+                <div class= "card-img p-2">
+                  <div class="card-category-footer d-flex justify-content-between">
+                    <div class="d-flex justify-content-evenly card-category-co2">
+                      <i class="fa-solid fa-leaf"></i>
+                      <p class=""><%= @last_actions.first.action.carbongain.div(100_000) %> <p>kgCO2e</p></p>
+                    </div>
+                    <div class="card-category-level d-flex justify-content-around isDisabled">
+                      <p class="isDisabled"><%= @last_actions.first.action.level %></p>
+                    </div>
+                  </div>
+                </div>
+
                 <div class="card-bar-separator mb-1"></div>
 
                 <div class="container">
-                  <h1><strong><%= user_action.action.title %></strong></h1> <!-- user_action title-->
-                  <h4 style="color: rgb(216, 176, 77);"><%= user_action.action.occurences %> times / week</h4><!-- action occurences-->
+                  <h1><strong><%= @last_actions.first.action.title %></strong></h1> <!-- @last_actions.first title-->
+                  <h4 style="color: rgb(216, 176, 77);"><%= @last_actions.first.action.occurences %> times / week</h4><!-- action occurences-->
                   <div class="">
-                    <p><%= user_action.action.description[0..50] %> ...</p>
+                    <p><%= @last_actions.first.action.description[0..90] %> ...</p>
                   </div>
+                </div>
+              <% end %>
+            </div>
+        </div>
 
-                  <div class="card-category-footer d-flex justify-content-between">
+        <% @last_actions[1..2].each do |user_action|%>
+          <div class="carousel-item">
+            <div class="card-category-card">
+              <%= link_to user_action_path(user_action) do %>
+                <div class= "card-img p-2">
+                <div class="card-category-footer d-flex justify-content-between">
                     <div class="d-flex justify-content-evenly card-category-co2">
                       <i class="fa-solid fa-leaf"></i>
                       <p class=""><%= user_action.action.carbongain.div(100_000) %> <p>kgCO2e</p></p>
@@ -121,39 +142,31 @@
                     </div>
                   </div>
                 </div>
+                <div class="card-bar-separator mb-1"></div>
+
+                <div class="container">
+                  <h1><strong><%= user_action.action.title %></strong></h1> <!-- user_action title-->
+                  <h4 style="color: rgb(216, 176, 77);"><%= user_action.action.occurences %> times / week</h4><!-- action occurences-->
+                  <div class="">
+                    <p><%= user_action.action.description[0..90] %> ...</p>
+                  </div>
+                </div>
               <% end %>
             </div>
-          </li>
+          </div>
         <% end %>
-      </ul>
-    </div>
-  </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
 
 
-  <% @last_actions.each do |user_action|%>
-    <div class="card-category-card">
-      <%= link_to user_action_path(user_action) do %>
-        <div class= "card-img p-2">
-         <div class="card-category-footer d-flex justify-content-between">
-            <div class="d-flex justify-content-evenly card-category-co2">
-              <i class="fa-solid fa-leaf"></i>
-              <p class=""><%= user_action.action.carbongain.div(100_000) %> <p>kgCO2e</p></p>
-            </div>
-            <div class="card-category-level d-flex justify-content-around isDisabled">
-              <p class="isDisabled"><%= user_action.action.level %></p>
-            </div>
-          </div>
-        </div>
-        <div class="card-bar-separator mb-1"></div>
 
-        <div class="container">
-          <h1><strong><%= user_action.action.title %></strong></h1> <!-- user_action title-->
-          <h4 style="color: rgb(216, 176, 77);"><%= user_action.action.occurences %> times / week</h4><!-- action occurences-->
-          <div class="">
-            <p><%= user_action.action.description[0..90] %> ...</p>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
+<div class="container mt-3">
+
 </div>
