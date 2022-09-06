@@ -2,10 +2,11 @@
 
   <div class="col-8 mx-auto">
     <h3 style="text-align: center;">for now your level in this <br> category is <strong><%= current_user.rank_category %></strong></h3>
-    <p style="text-align: center; font-size: x-small; line-height: 2.7;">Let's select 2 actions that you want <br> to realize by clicking on em just below </p>
+    <p style="text-align: center; font-size: x-small; line-height: 2.7; margin-bottom: 0;">Let's select 2 actions that you want <br> to realize by clicking on em just below </p>
   </div>
 
-  <div class="d-grid category-grid">
+
+  <div class="d-flex justify-content-evenly py-4 align-items-center">
     <div class="icon-wrapper">
       <%= link_to actions_path(category: "transport"), class:"icon-travel" do %>
         <i class="fa-solid fa-plane fa-2x circle-icon"></i>
@@ -27,6 +28,9 @@
       <% end %>
     </div>
   </div>
+
+
+<hr class="w-100">
 
   <% @actions.each do |action|%>
     <div class="card-category-card">

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
   get "component", to: "pages#component"
   get "dashboard", to: "user_actions#dashboard"
+  get "history", to: "user_actions#history"
   # get "contact", to: "pages#contact"
   get "about", to: "pages#about"
   get "contact", to: "pages#contact"

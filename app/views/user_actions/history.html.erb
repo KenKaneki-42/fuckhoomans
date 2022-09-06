@@ -1,43 +1,17 @@
-<div class="d-flex container py-4 justify-content-center">
-  <div class="d-flex flex-column align-items-center">
-    <%= image_tag "https://kitt.lewagon.com/placeholder/users/KenKaneki-42", class: "avatar", alt: "avatar" %>
-    <h3><%= current_user.pseudo %></h3>
-  </div>
-</div>
-
-<div class="d-flex justify-content-center">
-  <%= link_to "Want to do more?", actions_path, class: "btn btn-domore" %>
-</div>
-
- <div class="d-flex justify-content-evenly py-4 align-items-center">
-  <div class="icon-wrapper">
-    <%= link_to user_actions_path(category: "transport"), class:"icon-travel" do %>
-      <i class="fa-solid fa-plane fa-2x circle-icon"></i>
-    <% end %>
-  </div>
-  <div class="icon-wrapper">
-    <%= link_to user_actions_path(category: "food"), class:"icon-food" do %>
-      <i class="fa-solid fa-carrot fa-2x circle-icon"></i>
-    <% end %>
-  </div>
-  <div class="icon-wrapper">
-    <%= link_to user_actions_path(category: "digital"), class:"icon-tech" do %>
-      <i class="fa-solid fa-computer fa-2x circle-icon"></i>
-    <% end %>
-  </div>
-  <div class="icon-wrapper">
-    <%= link_to user_actions_path(category: "household"), class:"icon-home" do %>
-      <i class="fa-solid fa-house fa-2x circle-icon"></i>
-    <% end %>
-  </div>
+<div class="container pb-5">
+  <h1 class="text-center">here is your <br> validated actions </h1>
+  <% total_carbon_gain = 0 %>
+  <% @user_actions.each do |action|%>
+    <% total_carbon_gain += action.action.carbongain.div(100_000) %>
+  <% end %>
+  <h2 class="text-center"> your saved carbon <%= total_carbon_gain %></h2>
 </div>
 
 <hr class="w-100">
 
-<!-- to fix card-->
 <div class="container mt-3">
   <% @user_actions.each do |user_action|%>
-    <div class="card-category-card">
+    <div class="card-category-card col-11 mb-4">
       <%= link_to user_action_path(user_action) do %>
         <div class= "card-img p-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
             url('<%= cl_image_path user_action.action.photo.key, height: 300, crop: :fit%>')">
@@ -58,7 +32,6 @@
           <h4 style="color: rgb(216, 176, 77);"><%= user_action.action.occurences %> times / week</h4><!-- action occurences-->
           <div class="">
             <p><%= user_action.action.description[0..90] %> ...</p>
-            <p><%= user_action.status%></p>
           </div>
         </div>
       <% end %>
