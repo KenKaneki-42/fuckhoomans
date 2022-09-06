@@ -1,0 +1,30 @@
+<div class="container mt-3">
+  <% @user_actions.each do |user_action|%>
+    <div class="card-category-card">
+      <%= link_to user_action_path(user_action) do %>
+        <div class= "card-img p-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+            url('<%= cl_image_path user_action.action.photo.key, height: 300, crop: :fit%>')">
+         <div class="card-category-footer d-flex justify-content-between">
+            <div class="d-flex justify-content-evenly card-category-co2">
+              <i class="fa-solid fa-leaf"></i>
+              <p class=""><%= user_action.action.carbongain.div(100_000) %> <p>kgCO2e</p></p>
+            </div>
+            <div class="card-category-level d-flex justify-content-around isDisabled">
+              <p class="isDisabled"><%= user_action.action.level %></p>
+            </div>
+          </div>
+        </div>
+        <div class="card-bar-separator mb-1"></div>
+
+        <div class="container">
+          <h1><strong><%= user_action.action.title %></strong></h1> <!-- user_action title-->
+          <h4 style="color: rgb(216, 176, 77);"><%= user_action.action.occurences %> times / week</h4><!-- action occurences-->
+          <div class="">
+            <p><%= user_action.action.description[0..90] %> ...</p>
+            <p><%= user_action.status%></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
