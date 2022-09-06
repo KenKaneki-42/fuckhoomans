@@ -4,7 +4,7 @@
 <div class="d-flex container py-4 justify-content-center">
   <div class="d-flex flex-column align-items-center">
     <%= image_tag "https://kitt.lewagon.com/placeholder/users/KenKaneki-42", class: "avatar", alt: "avatar" %>
-    <h3><%= @user_infos.pseudo %></h3>
+    <h3><%= current_user.pseudo %></h3>
   </div>
 
 </div>
@@ -79,8 +79,7 @@
         <i class="fa-solid fa-house fa-2x circle-icon"></i>
       </div>
   </div>
-
-</div>
+<% end %>
 
 <% ### actions by category %>
 <div class="d-flex justify-content-between container-dashboard ">
@@ -113,6 +112,7 @@
                     </div>
                   </div>
                 </div>
+
                 <div class="card-bar-separator mb-1"></div>
 
                 <div class="container">
