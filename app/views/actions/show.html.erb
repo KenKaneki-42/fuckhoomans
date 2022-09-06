@@ -1,4 +1,15 @@
-<img src="https://picsum.photos/450/300" alt="" class="mb-4" style="width: 100%">
+<div class= "card-img p-2 card-view-h300 " style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+      url('<%= cl_image_path @action.photo.key, height: 800, crop: :fit%>')">
+  <div class="card-category-footer d-flex justify-content-between">
+    <div class="d-flex justify-content-evenly card-category-co2">
+      <i class="fa-solid fa-leaf"></i>
+      <p class=""><%= @action.carbongain.div(100_000) %> <p>kgCO2e</p></p>
+    </div>
+    <div class="card-category-level d-flex justify-content-around isDisabled">
+      <p class="isDisabled"><%= @action.level %></p>
+    </div>
+  </div>
+</div>
 
 <div class="action-show-card mx-auto position-relative">
   <div class="d-flex col-12 justify-content-between mt-3 mb-5">
@@ -21,13 +32,15 @@
   <h1><strong><%= @action.title %></strong></h1> <!-- user_action title-->
   <h4 style="color: rgb(216, 176, 77);" class="mb-3"><%= @action.occurences %> times / week</h4><!-- action occurences-->
   <strong><p class=" mb-1"> <%= @action.description %></p></strong>
-  <p class="mb-4 ml-3" style="color: rgb(102, 102, 102);">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi, eveniet vitae!</p>
-  <%= simple_form_for ([@action, @user_action]) do |f| %>
-    <%= f.input :action_id, as: :hidden, input_html:{ value: @action.id }%>
-    <%= f.input :category, as: :hidden, input_html:{ value: @action.category }%>
-    <%= f.input :title, as: :hidden, input_html:{ value: @action.title }%>
-    <%= f.input :score, as: :hidden, input_html:{ value: @action.score }%>
-    <%= f.submit "take this action", class: "col-10 btn btn-done" %>
-  <% end %>
+  <p class="mb-4 ml-3" style="color: rgb(102, 102, 102);"><%= @action.explication %></p>
 
+    <%= simple_form_for ([@action, @user_action]) do |f| %>
+      <%= f.input :action_id, as: :hidden, input_html:{ value: @action.id }%>
+      <%= f.input :category, as: :hidden, input_html:{ value: @action.category }%>
+      <%= f.input :title, as: :hidden, input_html:{ value: @action.title }%>
+      <%= f.input :score, as: :hidden, input_html:{ value: @action.score }%>
+      <div class="d-flex justify-content-center">
+        <%= f.submit "Take this action", class: "col-10 btn btn-done" %>
+      </div>
+    <% end %>
 </div>
