@@ -36,7 +36,7 @@
       <%= link_to action_path(action) do %>
         <div class= "card-img p-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
             url('<%= cl_image_path action.photo.key, height: 300, crop: :fit%>')">
-         <div class="card-category-footer d-flex justify-content-between">
+          <div class="card-category-footer d-flex justify-content-between">
             <div class="d-flex justify-content-evenly card-category-co2">
               <i class="fa-solid fa-leaf"></i>
               <p class=""><%= action.carbongain.div(100_000) %> <p>kgCO2e</p></p>
