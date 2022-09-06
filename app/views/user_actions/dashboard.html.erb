@@ -4,7 +4,7 @@
 <div class="d-flex container py-4 justify-content-center">
   <div class="d-flex flex-column align-items-center">
     <%= image_tag "https://kitt.lewagon.com/placeholder/users/KenKaneki-42", class: "avatar", alt: "avatar" %>
-    <h3><%= @user_infos.pseudo %></h3>
+    <h3><%= current_user.pseudo %></h3>
   </div>
 
 </div>
@@ -16,76 +16,82 @@
 
 <div class="d-grid category-grid">
   <%# transport %>
-  <div class="ko-progress-circle icon-wrapper" data-progress="90">
-      <div class="ko-circle">
-          <div class="full ko-progress-circle__slice">
-              <div class="ko-progress-circle__fill"></div>
-          </div>
-          <div class="ko-progress-circle__slice">
-              <div class="ko-progress-circle__fill"></div>
-              <div class="ko-progress-circle__fill ko-progress-circle__bar"></div>
-          </div>
-      </div>
-      <div class="transport-progress-circle__overlay">
-        <i class="fa-solid fa-plane fa-2x circle-icon"></i>
-      </div>
-  </div>
-
+  <%= link_to user_actions_path(category: "transport"), class:"icon-travel" do %>
+    <div class="ko-progress-circle icon-wrapper" data-progress="90">
+        <div class="ko-circle">
+            <div class="full ko-progress-circle__slice">
+                <div class="ko-progress-circle__fill"></div>
+            </div>
+           <div class="ko-progress-circle__slice">
+                <div class="ko-progress-circle__fill"></div>
+                <div class="ko-progress-circle__fill ko-progress-circle__bar"></div>
+           </div>
+        </div>
+        <div class="transport-progress-circle__overlay">
+          <i class="fa-solid fa-plane fa-2x circle-icon"></i>
+        </div>
+    </div>
+<% end %>
 
   <%# food %>
-  <div class="ko-progress-circle icon-wrapper" data-progress="90">
-      <div class="ko-circle">
-          <div class="full ko-progress-circle__slice">
-              <div class="ko-progress-circle__fill"></div>
-          </div>
-          <div class="ko-progress-circle__slice">
-              <div class="ko-progress-circle__fill"></div>
-              <div class="ko-progress-circle__fill ko-progress-circle__bar"></div>
-          </div>
-      </div>
-      <div class="food-progress-circle__overlay">
-        <i class="fa-solid fa-carrot fa-2x circle-icon"></i>
-      </div>
-  </div>
+  <%= link_to user_actions_path(category: "food") do %>
+    <div class="ko-progress-circle icon-wrapper" data-progress="90">
+        <div class="ko-circle">
+            <div class="full ko-progress-circle__slice">
+                <div class="ko-progress-circle__fill"></div>
+            </div>
+            <div class="ko-progress-circle__slice">
+                <div class="ko-progress-circle__fill"></div>
+                <div class="ko-progress-circle__fill ko-progress-circle__bar"></div>
+            </div>
+        </div>
+        <div class="food-progress-circle__overlay">
+          <i class="fa-solid fa-carrot fa-2x circle-icon"></i>
+        </div>
+    </div>
+  <% end %>
 
   <%# digital %>
-  <div class="ko-progress-circle icon-wrapper" data-progress="90">
-      <div class="ko-circle">
-          <div class="full ko-progress-circle__slice">
-              <div class="ko-progress-circle__fill"></div>
-          </div>
-          <div class="ko-progress-circle__slice">
-              <div class="ko-progress-circle__fill"></div>
-              <div class="ko-progress-circle__fill ko-progress-circle__bar"></div>
-          </div>
-      </div>
-      <div class="digital-progress-circle__overlay">
-        <i class="fa-solid fa-computer fa-2x circle-icon"></i>
-      </div>
-  </div>
+  <%= link_to user_actions_path(category: "digital"), class:"icon-tech" do %>
+    <div class="ko-progress-circle icon-wrapper" data-progress="90">
+        <div class="ko-circle">
+            <div class="full ko-progress-circle__slice">
+                <div class="ko-progress-circle__fill"></div>
+            </div>
+            <div class="ko-progress-circle__slice">
+                <div class="ko-progress-circle__fill"></div>
+                <div class="ko-progress-circle__fill ko-progress-circle__bar"></div>
+           </div>
+       </div>
+        <div class="digital-progress-circle__overlay">
+          <i class="fa-solid fa-computer fa-2x circle-icon"></i>
+        </div>
+    </div>
+  <% end %>
 
   <%# household %>
-  <div class="ko-progress-circle icon-wrapper" data-progress="90">
-      <div class="ko-circle">
-          <div class="full ko-progress-circle__slice">
-              <div class="ko-progress-circle__fill"></div>
-          </div>
-          <div class="ko-progress-circle__slice">
-              <div class="ko-progress-circle__fill"></div>
-              <div class="ko-progress-circle__fill ko-progress-circle__bar"></div>
-          </div>
-      </div>
-      <div class="household-progress-circle__overlay">
-        <i class="fa-solid fa-house fa-2x circle-icon"></i>
-      </div>
+  <%= link_to user_actions_path(category: "household"), class:"icon-home" do %>
+    <div class="ko-progress-circle icon-wrapper" data-progress="90">
+        <div class="ko-circle">
+           <div class="full ko-progress-circle__slice">
+                <div class="ko-progress-circle__fill"></div>
+           </div>
+            <div class="ko-progress-circle__slice">
+                <div class="ko-progress-circle__fill"></div>
+                <div class="ko-progress-circle__fill ko-progress-circle__bar"></div>
+            </div>
+        </div>
+        <div class="household-progress-circle__overlay">
+          <i class="fa-solid fa-house fa-2x circle-icon"></i>
+        </div>
+    </div>
   </div>
-
-</div>
+<% end %>
 
 <% ### actions by category %>
 <div class="d-flex justify-content-between container-dashboard ">
   <h3>My last actions</h3>
-  <h4><small>See all</small></h4>
+  <h4><small><%= link_to "see all", user_actions_path %></small></h4>
 </div>
 
 <div class="container mt-3">
