@@ -1,20 +1,20 @@
 class UserActionsController < ApplicationController
   def index
     if params[:category] == 'transport'
-      @user_actions = UserAction.joins(:action).where(category: 'transport', user: current_user)
+      @user_actions = UserAction.joins(:action).where(category: 'transport', user: current_user, status: 'selected')
     elsif params[:category] == 'food'
-      @user_actions = UserAction.joins(:action).where(category: 'food', user: current_user)
+      @user_actions = UserAction.joins(:action).where(category: 'food', user: current_user, status: 'selected')
     elsif params[:category] == 'digital'
-      @user_actions = UserAction.joins(:action).where(category: 'digital', user: current_user)
+      @user_actions = UserAction.joins(:action).where(category: 'digital', user: current_user, status: 'selected')
     elsif params[:category] == 'household'
-      @user_actions = UserAction.joins(:action).where(category: 'household', user: current_user)
+      @user_actions = UserAction.joins(:action).where(category: 'household', user: current_user, status: 'selected')
     else
-      @user_actions = UserAction.joins(:action).where(user: current_user)
+      @user_actions = UserAction.joins(:action).where(user: current_user, status: 'selected')
     end
   end
 
   def dashboard
-    @last_actions = UserAction.includes(:action).where(user: current_user).last(3)
+    @last_actions = UserAction.where(user: current_user, status: 'selected').last(3)
 
     @user_infos = current_user
     @scores = Score.find_by("user_id = ? ", current_user.id)
@@ -61,6 +61,7 @@ class UserActionsController < ApplicationController
       @digital_next_level = 60
       @digital_score = @scores.digital_score - 60
     end
+
   end
 
   def show
