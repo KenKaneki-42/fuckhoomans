@@ -35,25 +35,82 @@
   <% @actions.each do |action|%>
     <div class="card-category-card mb-4" style="height: 27vh">
       <%= link_to action_path(action) do %>
+
+
         <div class= "card-img p-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
             url('<%= cl_image_path action.photo.key, height: 300, crop: :fit%>')">
+
+        <% if action.category == 'transport' %>
+          <div class="card-icon" style="background-color: rgb(216, 176, 77);">
+            <i class="fa-solid fa-plane fa-1x circle-icon"></i>
+          </div>
+        <% elsif action.category == 'food' %>
+          <div class="card-icon" style="background-color: rgb(164, 198, 99);">
+            <i class="fa-solid fa-carrot fa-1x circle-icon"></i>
+          </div>
+        <% elsif action.category == 'digital' %>
+          <div class="card-icon" style="background-color: rgb(125, 156, 183);">
+            <i class="fa-solid fa-computer fa-1x circle-icon"></i>
+          </div>
+        <% elsif action.category == 'household' %>
+          <div class="card-icon" style="background-color: rgb(189, 96, 72);">
+            <i class="fa-solid fa-house fa-1x circle-icon"></i>
+          </div>
+        <% end %>
+
+
           <div class="card-category-footer d-flex justify-content-between">
             <div class="d-flex justify-content-evenly card-category-co2">
               <i class="fa-solid fa-leaf"></i>
-              <p class=""><%= action.carbongain.div(100_000) %> <p>kgCO2e</p></p>
+            <% if action.category == 'transport' %>
+              <p style="color: rgb(216, 176, 77);"><%= action.carbongain.div(100_000) %> kgCO2e</p>
+            <% elsif action.category == 'food' %>
+              <p style="color: rgb(164, 198, 99);"><%= action.carbongain.div(100_000) %> kgCO2e</p>
+            <% elsif action.category == 'digital' %>
+              <p style="color: rgb(125, 156, 183);"><%= action.carbongain.div(100_000) %> kgCO2e</p>
+            <% elsif action.category == 'household' %>
+              <p style="color: rgb(189, 96, 72);"><%= action.carbongain.div(100_000) %> kgCO2e</p>
+            <% end %>
             </div>
-            <div class="card-category-level d-flex justify-content-around isDisabled">
-              <p class="isDisabled"><%= action.level %></p>
-            </div>
+
+            <% if action.category == 'transport' %>
+              <div class="card-category-level d-flex justify-content-around isDisabled" style="background-color: rgb(216, 176, 77);">
+            <% elsif action.category == 'food' %>
+              <div class="card-category-level d-flex justify-content-around isDisabled" style="background-color: rgb(164, 198, 99);">
+            <% elsif action.category == 'digital' %>
+              <div class="card-category-level d-flex justify-content-around isDisabled" style="background-color: rgb(125, 156, 183);">
+            <% elsif action.category == 'household' %>
+              <div class="card-category-level d-flex justify-content-around isDisabled" style="background-color: rgb(189, 96, 72);">
+            <% end %>
+                <p class="isDisabled"><%= action.level %></p>
+              </div>
           </div>
+
+
         </div>
-          <div class="card-bar-separator mb-1"></div>
+        <% if action.category == 'transport' %>
+          <div class="card-bar-separator mb-1" style="background-color: rgb(216, 176, 77);"></div>
+        <% elsif action.category == 'food' %>
+          <div class="card-bar-separator mb-1" style="background-color: rgb(164, 198, 99);"></div>
+        <% elsif action.category == 'digital' %>
+          <div class="card-bar-separator mb-1" style="background-color: rgb(125, 156, 183);"></div>
+        <% elsif action.category == 'household' %>
+          <div class="card-bar-separator mb-1" style="background-color: rgb(189, 96, 72);"></div>
+        <% end %>
         <div class="container position-relative pt-4">
           <div class="card-icon">
             <i class="fa-solid fa-carrot fa-2x circle-icon"></i>
           </div>
           <h1><strong><%= action.title %></strong></h1> <!-- action title-->
-          <h4 style="color: rgb(216, 176, 77);"><%= action.occurences %> times / week</h4><!-- action occurences-->
+        <% if action.category == 'transport' %>
+          <h4 style="color: rgb(216, 176, 77);"><%= action.occurences %> times / week</h4>
+        <% elsif action.category == 'food' %>
+          <h4 style="color: rgb(164, 198, 99);"><%= action.occurences %> times / week</h4>
+        <% elsif action.category == 'digital' %>
+          <h4 style="color: rgb(125, 156, 183);"><%= action.occurences %> times / week</h4>
+        <% elsif action.category == 'household' %>
+          <h4 style="color: rgb(189, 96, 72);"><%= action.occurences %> times / week</h4>
+        <% end %>
           <div class="">
             <% if action.description.length > 150 %>
               <p style="font-size: small; color: rgb(102, 102, 102);"><%= action.description[0..150] %> ...</p>
