@@ -15,15 +15,71 @@
 
 
 <div class="d-grid category-grid">
-  <i class="fa-solid fa-plane"></i>
-  <i class="fa-solid fa-carrot"></i>
-  <i class="fa-solid fa-computer"></i>
-  <i class="fa-solid fa-house"></i>
-  <%# <%= @user_infos.rank_category %>
-  <%# <%= @user_infos.transport_level %>
-  <%# <%= @user_infos.home_level %>
-  <%# <%= @user_infos.numeric_level %>
-  <%# <%= @user_infos.food_level %>
+  <%# transport %>
+  <div class="ko-progress-circle" data-progress="90">
+      <div class="ko-circle">
+          <div class="full ko-progress-circle__slice">
+              <div class="ko-progress-circle__fill"></div>
+          </div>
+          <div class="ko-progress-circle__slice">
+              <div class="ko-progress-circle__fill"></div>
+              <div class="ko-progress-circle__fill ko-progress-circle__bar"></div>
+          </div>
+      </div>
+      <div class="transport-progress-circle__overlay">
+        <i class="fa-solid fa-plane fa-2x circle-icon"></i>
+      </div>
+  </div>
+
+
+  <%# food %>
+  <div class="ko-progress-circle" data-progress="90">
+      <div class="ko-circle">
+          <div class="full ko-progress-circle__slice">
+              <div class="ko-progress-circle__fill"></div>
+          </div>
+          <div class="ko-progress-circle__slice">
+              <div class="ko-progress-circle__fill"></div>
+              <div class="ko-progress-circle__fill ko-progress-circle__bar"></div>
+          </div>
+      </div>
+      <div class="food-progress-circle__overlay">
+        <i class="fa-solid fa-carrot fa-2x circle-icon"></i>
+      </div>
+  </div>
+
+  <%# digital %>
+  <div class="ko-progress-circle" data-progress="90">
+      <div class="ko-circle">
+          <div class="full ko-progress-circle__slice">
+              <div class="ko-progress-circle__fill"></div>
+          </div>
+          <div class="ko-progress-circle__slice">
+              <div class="ko-progress-circle__fill"></div>
+              <div class="ko-progress-circle__fill ko-progress-circle__bar"></div>
+          </div>
+      </div>
+      <div class="digital-progress-circle__overlay">
+        <i class="fa-solid fa-computer fa-2x circle-icon"></i>
+      </div>
+  </div>
+
+  <%# household %>
+  <div class="ko-progress-circle" data-progress="90">
+      <div class="ko-circle">
+          <div class="full ko-progress-circle__slice">
+              <div class="ko-progress-circle__fill"></div>
+          </div>
+          <div class="ko-progress-circle__slice">
+              <div class="ko-progress-circle__fill"></div>
+              <div class="ko-progress-circle__fill ko-progress-circle__bar"></div>
+          </div>
+      </div>
+      <div class="household-progress-circle__overlay">
+        <i class="fa-solid fa-house fa-2x circle-icon"></i>
+      </div>
+  </div>
+
 </div>
 
 <% ### actions by category %>
