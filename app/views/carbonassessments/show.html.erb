@@ -1,0 +1,52 @@
+<div class="container">
+
+<%= simple_form_for (@carbonassessment) do |f| %>
+
+  <%= f.input :bike, input_html:{  }%>
+  <%= f.input :bus, input_html:{ }%>
+  <%= f.input :plane, input_html:{  }%>
+  <%= f.input :car, input_html:{  }%>
+
+  <%= f.input :email, input_html:{  }%>
+  <%= f.input :streaming, input_html:{ }%>
+  <%= f.input :devise, input_html:{  }%>
+  <%= f.input :second_hand, input_html:{  }%>
+
+  <%= f.input :red_meat, input_html:{  }%>
+  <%= f.input :white_meat, input_html:{ }%>
+  <%= f.input :oil, input_html:{  }%>
+  <%= f.input :dairy, input_html:{  }%>
+
+  <%= f.input :house_size, input_html:{  }%>
+  <%= f.input :house_heated, input_html:{ }%>
+  <%= f.input :renewable_energy, input_html:{  }%>
+  <%= f.input :people_number, input_html:{  }%>
+
+  <div class="d-flex justify-content-center">
+    <%= f.submit "generate my profil", class: "col-10 btn btn-done" %>
+  </div>
+<% end %>
+
+</div>
+
+
+
+#   t.string "bike"
+#   t.string "bus"
+#   t.string "plane"
+#   t.string "car"
+
+#   t.string "email"
+#   t.string "streaming"
+#   t.string "devise"
+#   t.string "second_hand"
+
+#   t.string "red_meat"
+#   t.string "white_meat"
+#   t.string "oil"
+#   t.string "dairy"
+
+#   t.string "house_size"
+#   t.string "house_heated"
+#   t.string "renewable_energy"
+#   t.string "people_number"
