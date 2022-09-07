@@ -19,7 +19,7 @@ class UserActionsController < ApplicationController
   end
 
   def dashboard
-    @last_actions = UserAction.where(user: current_user, status: 'selected').last(3)
+    @last_actions = UserAction.where(user: current_user, status: 'selected')
     @last_actions = @last_actions.reverse
     @user_infos = current_user
     @scores = Score.find_by("user_id = ? ", current_user.id)
