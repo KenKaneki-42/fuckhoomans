@@ -72,16 +72,19 @@
 
           <div class="card-category-footer d-flex justify-content-between">
             <div class="d-flex justify-content-evenly card-category-co2">
-              <i class="fa-solid fa-leaf pr-2"></i>
-            <% if action.category == 'transport' %>
-              <p style="color: rgb(216, 176, 77);"><%= action.carbongain.div(100_000) %> kgCO2e</p>
-            <% elsif action.category == 'food' %>
-              <p style="color: rgb(164, 198, 99);"><%= action.carbongain.div(100_000) %> kgCO2e</p>
-            <% elsif action.category == 'digital' %>
-              <p style="color: rgb(125, 156, 183);"><%= action.carbongain.div(100_000) %> kgCO2e</p>
-            <% elsif action.category == 'household' %>
-              <p style="color: rgb(189, 96, 72);"><%= action.carbongain.div(100_000) %> kgCO2e</p>
-            <% end %>
+              <% if action.category == 'transport' %>
+                <i class="fa-solid fa-leaf pe-2" style="color: rgb(216, 176, 77);"></i>
+                <p style="color: rgb(216, 176, 77);"><%= action.carbongain.div(100_000) %> kgCO2e</p>
+              <% elsif action.category == 'food' %>
+                <i class="fa-solid fa-leaf pe-2" style="color: rgb(164, 198, 99);"></i>
+                <p style="color: rgb(164, 198, 99);"><%= action.carbongain.div(100_000) %> kgCO2e</p>
+              <% elsif action.category == 'digital' %>
+                <i class="fa-solid fa-leaf pe-2" style="color: rgb(125, 156, 183);"></i>
+                <p style="color: rgb(125, 156, 183);"><%= action.carbongain.div(100_000) %> kgCO2e</p>
+              <% elsif action.category == 'household' %>
+                <i class="fa-solid fa-leaf pe-2" style="color: rgb(189, 96, 72);"></i>
+                <p style="color: rgb(189, 96, 72);"><%= action.carbongain.div(100_000) %> kgCO2e</p>
+              <% end %>
             </div>
 
             <% if action.category == 'transport' %>
