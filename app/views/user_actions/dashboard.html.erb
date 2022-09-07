@@ -17,7 +17,14 @@
   <%# transport %>
 
   <%= link_to user_actions_path(category: "transport"), class:"icon-travel" do %>
-    <div class="ko-progress-circle icon-wrapper" data-progress= "<%= ((@transport_score.to_f / @transport_next_level.to_f)*100).to_i %>">
+    <div class="ko-progress-circle icon-wrapper position-relative" data-progress= "<%= ((@transport_score.to_f / @transport_next_level.to_f)*100).to_i %>">
+      <% if current_user.transport_level == "beginner" %>
+        <img class="dashboard-level-icon position-absolute" src="https://cdn-icons-png.flaticon.com/512/2583/2583434.png" style="width: 35px;" alt="">
+      <% elsif current_user.transport_level == "intermediate" %>
+        <img class="dashboard-level-icon position-absolute" src="https://cdn-icons-png.flaticon.com/512/2583/2583319.png" style="width: 35px;" alt="">
+      <% elsif current_user.transport_level == "advanced" %>
+        <img class="dashboard-level-icon position-absolute" src="https://cdn-icons-png.flaticon.com/512/2583/2583344.png" style="width: 35px;" alt="">
+      <% end %>
         <div class="ko-circle">
             <div class="full ko-progress-circle__slice">
                 <div class="ko-progress-circle__fill"></div>
@@ -36,7 +43,14 @@
 
   <%# food %>
   <%= link_to user_actions_path(category: "food"), class:"icon-food" do %>
-    <div class="ko-progress-circle icon-wrapper" data-progress="<%= ((@food_score.to_f / @food_next_level.to_f)*100 ).to_i%>">
+    <div class="ko-progress-circle icon-wrapper position-relative" data-progress="<%= ((@food_score.to_f / @food_next_level.to_f)*100 ).to_i%>">
+      <% if current_user.food_level == "beginner" %>
+        <img class="dashboard-level-icon position-absolute" src="https://cdn-icons-png.flaticon.com/512/2583/2583434.png" style="width: 35px;" alt="">
+      <% elsif current_user.food_level == "intermediate" %>
+        <img class="dashboard-level-icon position-absolute" src="https://cdn-icons-png.flaticon.com/512/2583/2583319.png" style="width: 35px;" alt="">
+      <% elsif current_user.food_level == "advanced" %>
+        <img class="dashboard-level-icon position-absolute" src="https://cdn-icons-png.flaticon.com/512/2583/2583344.png" style="width: 35px;" alt="">
+      <% end %>
         <div class="ko-circle">
             <div class="full ko-progress-circle__slice">
                 <div class="ko-progress-circle__fill"></div>
@@ -54,7 +68,14 @@
 
   <%# digital %>
   <%= link_to user_actions_path(category: "digital"), class:"icon-tech" do %>
-    <div class="ko-progress-circle icon-wrapper" data-progress="<%= ((@digital_score.to_f / @digital_next_level.to_f)*100).to_i %>">
+    <div class="ko-progress-circle icon-wrapper position-relative" data-progress="<%= ((@digital_score.to_f / @digital_next_level.to_f)*100).to_i %>">
+      <% if current_user.numeric_level == "beginner" %>
+        <img class="dashboard-level-icon position-absolute" src="https://cdn-icons-png.flaticon.com/512/2583/2583434.png" style="width: 35px;" alt="">
+      <% elsif current_user.numeric_level == "intermediate" %>
+        <img class="dashboard-level-icon position-absolute" src="https://cdn-icons-png.flaticon.com/512/2583/2583319.png" style="width: 35px;" alt="">
+      <% elsif current_user.numeric_level == "advanced" %>
+        <img class="dashboard-level-icon position-absolute" src="https://cdn-icons-png.flaticon.com/512/2583/2583344.png" style="width: 35px;" alt="">
+      <% end %>
         <div class="ko-circle">
             <div class="full ko-progress-circle__slice">
                 <div class="ko-progress-circle__fill"></div>
@@ -72,7 +93,14 @@
 
   <%# household %>
   <%= link_to user_actions_path(category: "household"), class:"icon-home" do %>
-    <div class="ko-progress-circle icon-wrapper" data-progress="<%= ((@household_score.to_f / @household_next_level.to_f)*100).to_i %>">
+    <div class="ko-progress-circle icon-wrapper position-relative" data-progress="<%= ((@household_score.to_f / @household_next_level.to_f)*100).to_i %>">
+      <% if current_user.home_level == "beginner" %>
+        <img class="dashboard-level-icon position-absolute" src="https://cdn-icons-png.flaticon.com/512/2583/2583434.png" style="width: 35px;" alt="">
+      <% elsif current_user.home_level == "intermediate" %>
+        <img class="dashboard-level-icon position-absolute" src="https://cdn-icons-png.flaticon.com/512/2583/2583319.png" style="width: 35px;" alt="">
+      <% elsif current_user.home_level == "advanced" %>
+        <img class="dashboard-level-icon position-absolute" src="https://cdn-icons-png.flaticon.com/512/2583/2583344.png" style="width: 35px;" alt="">
+      <% end %>
       <div class="ko-circle">
         <div class="full ko-progress-circle__slice">
             <div class="ko-progress-circle__fill"></div>
