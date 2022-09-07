@@ -208,7 +208,7 @@
       </div>
       <% @last_actions[1..].each do |user_action|%>
         <div class="carousel-item">
-          <%= link_to user_action_path(@last_actions.first) do %>
+          <%= link_to user_action_path(user_action) do %>
             <div class="card-category-card"   style="width: 70vw;"  >
               <div class= "card-img p-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path user_action.action.photo.key, height: 300, crop: :fit%>')">
                 <% if user_action.category == 'transport' %>
