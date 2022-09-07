@@ -37,28 +37,81 @@
 <!-- to fix card-->
 <div class="container mt-3">
   <% @user_actions.each do |user_action|%>
+
     <div class="card-category-card mb-4" style="height: 30vh">
       <%= link_to user_action_path(user_action) do %>
         <div class= "card-img p-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
             url('<%= cl_image_path user_action.action.photo.key, height: 300, crop: :fit%>')">
-         <div class="card-category-footer d-flex justify-content-between">
-            <div class="d-flex justify-content-evenly card-category-co2">
-              <i class="fa-solid fa-leaf"></i>
-              <p class=""><%= user_action.action.carbongain.div(100_000) %> <p>kgCO2e</p></p>
-            </div>
-            <div class="card-category-level d-flex justify-content-around isDisabled">
-              <p class="isDisabled"><%= user_action.action.level %></p>
-            </div>
-          </div>
-        </div>
-        <div class="card-bar-separator mb-1"></div>
 
-        <div class="container">
-          <div class="card-icon">
+        <% if user_action.category == 'transport' %>
+          <div class="card-icon" style="background-color: rgb(216, 176, 77);">
+            <i class="fa-solid fa-plane fa-1x circle-icon"></i>
+          </div>
+        <% elsif user_action.category == 'food' %>
+          <div class="card-icon" style="background-color: rgb(164, 198, 99);">
             <i class="fa-solid fa-carrot fa-1x circle-icon"></i>
           </div>
+        <% elsif user_action.category == 'digital' %>
+          <div class="card-icon" style="background-color: rgb(125, 156, 183);">
+            <i class="fa-solid fa-computer fa-1x circle-icon"></i>
+          </div>
+        <% elsif user_action.category == 'household' %>
+          <div class="card-icon" style="background-color: rgb(189, 96, 72);">
+            <i class="fa-solid fa-house fa-1x circle-icon"></i>
+          </div>
+        <% end %>
+          <div class="card-category-footer d-flex justify-content-between">
+            <div class="d-flex justify-content-evenly card-category-co2">
+            <% if user_action.category == 'transport' %>
+              <i class="fa-solid fa-leaf" style="color: rgb(216, 176, 77);"></i>
+              <p style="color: rgb(216, 176, 77);"><%= user_action.action.carbongain.div(100_000) %> kgCO2e</p>
+            <% elsif user_action.category == 'food' %>
+              <i class="fa-solid fa-leaf" style="color: rgb(164, 198, 99);"></i>
+              <p style="color: rgb(164, 198, 99);"><%= user_action.action.carbongain.div(100_000) %> kgCO2e</p>
+            <% elsif user_action.category == 'digital' %>
+              <i class="fa-solid fa-leaf" style="color: rgb(125, 156, 183);"></i>
+              <p style="color: rgb(125, 156, 183);"><%= user_action.action.carbongain.div(100_000) %> kgCO2e</p>
+            <% elsif user_action.category == 'household' %>
+              <i class="fa-solid fa-leaf" style="color: rgb(189, 96, 72);"></i>
+              <p style="color: rgb(189, 96, 72);"><%= user_action.action.carbongain.div(100_000) %> kgCO2e</p>
+            <% end %>
+            </div>
+
+            <% if user_action.category == 'transport' %>
+              <div class="card-category-level d-flex justify-content-around isDisabled" style="background-color: rgb(216, 176, 77);">
+            <% elsif user_action.category == 'food' %>
+              <div class="card-category-level d-flex justify-content-around isDisabled" style="background-color: rgb(164, 198, 99);">
+            <% elsif user_action.category == 'digital' %>
+              <div class="card-category-level d-flex justify-content-around isDisabled" style="background-color: rgb(125, 156, 183);">
+            <% elsif user_action.category == 'household' %>
+              <div class="card-category-level d-flex justify-content-around isDisabled" style="background-color: rgb(189, 96, 72);">
+            <% end %>
+                <p class="isDisabled"><%= user_action.action.level %></p>
+              </div>
+          </div>
+        </div>
+
+
+        <% if user_action.category == 'transport' %>
+          <div class="card-bar-separator mb-1" style="background-color: rgb(216, 176, 77);"></div>
+        <% elsif user_action.category == 'food' %>
+          <div class="card-bar-separator mb-1" style="background-color: rgb(164, 198, 99);"></div>
+        <% elsif user_action.category == 'digital' %>
+          <div class="card-bar-separator mb-1" style="background-color: rgb(125, 156, 183);"></div>
+        <% elsif user_action.category == 'household' %>
+          <div class="card-bar-separator mb-1" style="background-color: rgb(189, 96, 72);"></div>
+        <% end %>
+        <div class="container">
           <h1><strong><%= user_action.action.title %></strong></h1> <!-- user_action title-->
-          <h4 style="color: rgb(216, 176, 77);"><%= user_action.action.occurences %> times / week</h4><!-- action occurences-->
+        <% if user_action.category == 'transport' %>
+          <h4 style="color: rgb(216, 176, 77);"><%= user_action.action.occurences %> times / week</h4>
+        <% elsif user_action.category == 'food' %>
+          <h4 style="color: rgb(164, 198, 99);"><%= user_action.action.occurences %> times / week</h4>
+        <% elsif user_action.category == 'digital' %>
+          <h4 style="color: rgb(125, 156, 183);"><%= user_action.action.occurences %> times / week</h4>
+        <% elsif user_action.category == 'household' %>
+          <h4 style="color: rgb(189, 96, 72);"><%= user_action.action.occurences %> times / week</h4>
+        <% end %>
           <div>
             <% if user_action.action.description.length > 150 %>
               <p style="font-size: small; color: rgb(102, 102, 102);"><%= user_action.action.description[0..150] %> ...</p>
