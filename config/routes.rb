@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get "about", to: "pages#about"
   get "contact", to: "pages#contact"
   resources :user_actions, only: %i[index show update]
-  resources :carbonassessments, only: %i[show create]
+  resources :carbonassessments, only: %i[new create]
 
   resources :actions, only: %i[index show] do
     resources :user_actions, only: %i[create]

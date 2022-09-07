@@ -1,16 +1,16 @@
 class CarbonassessmentsController < ApplicationController
 
-  def show
-    @carbonassessment = Carbonassessment.where(user: current_user)
+  def new
+    @carbon_assessment = Carbonassessment.new
   end
 
   def create
-    @new_carbonassessment = Carbonassessment.new(get_params)
-    @new_carbonassessment.user = current_user
-    if @new_carbonassessment.save
+    @carbon_assessment = Carbonassessment.new(get_params)
+    @carbon_assessment.user = current_user
+    if @carbon_assessment.save
       redirect_to dashboard_path
     else
-      raise
+      render :new
     end
   end
 
