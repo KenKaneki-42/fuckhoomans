@@ -95,7 +95,13 @@
   <% end %>
   <strong><p class=" mb-1"> <%= @action.description %></p></strong>
   <p class="mb-4 ml-3" style="color: rgb(102, 102, 102);"><%= @action.explication %></p>
-  <%= simple_form_for @action, html: {class: "col-12 d-flex justify-content-between"}, url: action_path(@action), method: :patch do |f| %>
-    <%= f.submit "Done", class: "col-10 btn btn-done " %>
+  <%= simple_form_for [@action, @user_action], html: {class: "col-12 d-flex justify-content-between"} do |f| %>
+    <%= f.input :status, as: :hidden, input_html: {"value": "selected" } %>
+    <%= f.input :score, as: :hidden, input_html: {"value": @action.score } %>
+    <%= f.input :action_id, as: :hidden, input_html: {"value": @action.id } %>
+    <%= f.input :category, as: :hidden, input_html: {"value": @action.category } %>
+    <%= f.input :title, as: :hidden, input_html: {"value": @action.title } %>
+    <%= f.input :carbongain, as: :hidden, input_html: {"value": @action.carbongain } %>
+    <%= f.submit "Add this action", class: "col-10 btn btn-done " %>
   <% end %>
 </div>

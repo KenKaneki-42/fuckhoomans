@@ -304,4 +304,8 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
+<% else %>
+  <div class="d-flex justify-content-center w-100 mt-5">
+    <%= link_to "No action yet, add some", actions_path, class: "btn btn-done" %>
+  </div>
 <% end %>
