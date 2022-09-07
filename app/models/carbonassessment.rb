@@ -17,9 +17,9 @@ class Carbonassessment < ApplicationRecord
   validates :oil, inclusion: 1..3
   validates :dairy, inclusion: 1..3
 
-  validates :house_size, inclusion: 1..3
-  validates :house_heated, inclusion: 1..3
+  validates :house_size, numericality: true
+  validates :house_heated
   validates :renewable_energy, inclusion: 1..3
-  validates :people_number, inclusion: 1..3
+  validates :people_number, numericality: true
 
 end
