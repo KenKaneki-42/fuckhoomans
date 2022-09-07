@@ -32,12 +32,12 @@ class CarbonassessmentsController < ApplicationController
         end
 
       end
-    elsif
-
-    elsif
-
-    elsif
-
+    elsif stuf
+      stuff = "stuff"
+    elsif stuf
+      stuff = "stuff"
+    elsif stuf
+      stuff = "stuff"
     end
     raise
 
