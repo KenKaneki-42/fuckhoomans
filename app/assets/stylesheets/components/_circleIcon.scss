@@ -1,5 +1,6 @@
 .icon-wrapper {
   margin: auto;
+  height: 60px;
 
   a {
     width: 45px;
@@ -31,6 +32,55 @@
     background: #BD6048;
   }
 }
+
+.active-icon-wrapper {
+  margin: auto;
+
+  .fa-solid {
+    width: 55px;
+    height: 55px;
+    display: grid;
+    place-content: center;
+    border-radius: 50%;
+    color: black
+  }
+
+  .circle-icon {
+    color: white;
+  }
+
+  .icon-travel {
+    border-color: #D8B04D;
+    border: solid 2px;
+    color:  #D8B04D;
+    background: white;
+    transform: rotate(315deg);
+  }
+
+  .icon-food {
+    border-color: #A4C663;
+    border: solid 2px;
+    color:  #A4C663;
+    background: white;
+  }
+
+  .icon-tech {
+    border-color: #7D9CB7;
+    border: solid 2px;
+    color:  #7D9CB7;
+    background: white;
+  }
+
+  .icon-home {
+    border-color: #BD6048;
+    border: solid 2px;
+    color:  #BD6048;
+    background: white;
+  }
+}
+
+
+
 
 .card-icon {
   width: 40px;
