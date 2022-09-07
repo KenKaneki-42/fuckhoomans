@@ -3,7 +3,7 @@
 
   img {
     width: 100%;
-    margin-top: 4rem;
+    margin-top: 0rem;
   }
 
   .home-desc {
@@ -18,4 +18,18 @@
 .slogan {
   text-align: center;
   font-size: 13px;
+}
+
+.btn-gradient-land {
+  color: white;
+  padding: 10px 30px;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+  border: 1px solid #118C7E;
+  background: linear-gradient(#118C7E, #118C7E);
+  color: white;
+  position: absolute;
+  bottom: 110px;
+  right: 80px;
 }
