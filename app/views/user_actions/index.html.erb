@@ -63,16 +63,16 @@
           <div class="card-category-footer d-flex justify-content-between">
             <div class="d-flex justify-content-evenly card-category-co2">
             <% if user_action.category == 'transport' %>
-              <i class="fa-solid fa-leaf" style="color: rgb(216, 176, 77);"></i>
+              <i class="fa-solid fa-leaf pr-2" style="color: rgb(216, 176, 77);"></i>
               <p style="color: rgb(216, 176, 77);"><%= user_action.action.carbongain.div(100_000) %> kgCO2e</p>
             <% elsif user_action.category == 'food' %>
-              <i class="fa-solid fa-leaf" style="color: rgb(164, 198, 99);"></i>
+              <i class="fa-solid fa-leaf pr-2" style="color: rgb(164, 198, 99);"></i>
               <p style="color: rgb(164, 198, 99);"><%= user_action.action.carbongain.div(100_000) %> kgCO2e</p>
             <% elsif user_action.category == 'digital' %>
-              <i class="fa-solid fa-leaf" style="color: rgb(125, 156, 183);"></i>
+              <i class="fa-solid fa-leaf pr-2" style="color: rgb(125, 156, 183);"></i>
               <p style="color: rgb(125, 156, 183);"><%= user_action.action.carbongain.div(100_000) %> kgCO2e</p>
             <% elsif user_action.category == 'household' %>
-              <i class="fa-solid fa-leaf" style="color: rgb(189, 96, 72);"></i>
+              <i class="fa-solid fa-leaf pr-2" style="color: rgb(189, 96, 72);"></i>
               <p style="color: rgb(189, 96, 72);"><%= user_action.action.carbongain.div(100_000) %> kgCO2e</p>
             <% end %>
             </div>
@@ -102,7 +102,11 @@
           <div class="card-bar-separator mb-1" style="background-color: rgb(189, 96, 72);"></div>
         <% end %>
         <div class="container">
-          <h1><strong><%= user_action.action.title %></strong></h1> <!-- user_action title-->
+          <% if user_action.title.length > 40 %>
+            <h1 style="font-size: small;"><strong><%= user_action.title %></strong></h1>
+          <% else %>
+            <h1><strong><%= user_action.title %></strong></h1>
+          <% end %>
         <% if user_action.category == 'transport' %>
           <h4 style="color: rgb(216, 176, 77);"><%= user_action.action.occurences %> times / week</h4>
         <% elsif user_action.category == 'food' %>
