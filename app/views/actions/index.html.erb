@@ -61,7 +61,7 @@
 
           <div class="card-category-footer d-flex justify-content-between">
             <div class="d-flex justify-content-evenly card-category-co2">
-              <i class="fa-solid fa-leaf"></i>
+              <i class="fa-solid fa-leaf pr-2"></i>
             <% if action.category == 'transport' %>
               <p style="color: rgb(216, 176, 77);"><%= action.carbongain.div(100_000) %> kgCO2e</p>
             <% elsif action.category == 'food' %>
@@ -97,11 +97,12 @@
         <% elsif action.category == 'household' %>
           <div class="card-bar-separator mb-1" style="background-color: rgb(189, 96, 72);"></div>
         <% end %>
-        <div class="container position-relative pt-4">
-          <div class="card-icon">
-            <i class="fa-solid fa-carrot fa-2x circle-icon"></i>
-          </div>
-          <h1><strong><%= action.title %></strong></h1> <!-- action title-->
+        <div class="container pt-2">
+          <% if action.title.length > 40 %>
+            <h1 style="font-size: small;"><strong><%= action.title %></strong></h1>
+          <% else %>
+            <h1><strong><%= action.title %></strong></h1>
+          <% end %>
         <% if action.category == 'transport' %>
           <h4 style="color: rgb(216, 176, 77);"><%= action.occurences %> times / week</h4>
         <% elsif action.category == 'food' %>
