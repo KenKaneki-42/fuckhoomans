@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
   has_one_attached :photo
   has_many :user_actions
+  has_many :Carbonassessments
   has_one :score
 
   private

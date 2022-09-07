@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_05_114219) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_07_094257) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -53,6 +53,29 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_05_114219) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "carbonassessments", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "bike"
+    t.string "bus"
+    t.string "plane"
+    t.string "car"
+    t.string "email"
+    t.string "streaming"
+    t.string "devise"
+    t.string "second_hand"
+    t.string "red_meat"
+    t.string "white_meat"
+    t.string "oil"
+    t.string "dairy"
+    t.string "house_size"
+    t.string "house_heated"
+    t.string "renewable_energy"
+    t.string "people_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_carbonassessments_on_user_id"
   end
 
   create_table "scores", force: :cascade do |t|
@@ -104,6 +127,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_05_114219) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "carbonassessments", "users"
   add_foreign_key "scores", "users"
   add_foreign_key "user_actions", "actions"
   add_foreign_key "user_actions", "users"
