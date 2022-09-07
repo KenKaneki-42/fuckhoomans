@@ -198,7 +198,9 @@ file3l3bus = URI.open("https://images.unsplash.com/photo-1597920467799-ec8bee99f
 action3l3.photo.attach(io: file3l3bus, filename: "bus3.jpg", content_type: "image/jpeg")
 # bus: 0,50kgCO2 for 10km => 2,5kgCO2 for 5 times (50km)
 # car: 1,56kgCO2  for 10km => 7,8kgCO2 for 5 times (50km)
-action4l1 = Action.create({ title: 'Red Meat',
+
+# FOOD CATEGORY
+action4l1 = Action.create({ title: 'Red meat VS white meat',
                             level: 'beginner',
                             score: '7',
                             category: 'food',
@@ -213,7 +215,7 @@ action4l1.photo.attach(io: file4l1redmeat, filename: "redmeat.jpg", content_type
 
 # 100g red meat => 4kgCO2e
 # 100g white meat => 0,95kgC02e
-action4l2 = Action.create({ title: 'Red Meat',
+action4l2 = Action.create({ title: 'Red meat VS white meat',
                             level: 'intermediate',
                             score: '10',
                             category: 'food',
@@ -242,6 +244,22 @@ action4l3.photo.attach(io: file4l3redmeat, filename: "redmeat3.jpg", content_typ
 # 5*100g red meat => 20 kgCO2e
 # 5*100g mixed((1/3)*(4+2+0.5)) =>  1,085kgCO2e
 # 2,17 kgCO2e/k => 5 * 0,217
+
+
+# a reprendre
+# action5l1 = Action.create({ title: 'XXX',
+#                             level: 'beginner',
+#                             score: '7',
+#                             category: 'food',
+#                             description: 'Replace red meat by fish or white meat 1 time per week',
+#                             explication: "It's generate 40 kgCO2e/kg of red meat
+#                                           instead of white meat or fish that generate 9,5 kgCO2e/kg,
+#                                           it also increase methane in atmosphere",
+#                             occurences: 1,
+#                             carbongain: 0_000_000 })
+# file5l1redmeat = URI.open("https://images.unsplash.com/photo-1571067224158-622a54542fed?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80")
+# action5l1.photo.attach(io: file5l1redmeat, filename: "redmeat.jpg", content_type: "image/jpeg")
+
 
 # action2 = Action.create({ title: 'household question', level: 'beginner', score: '7', category: 'household', description: "do some stuff for the planet", occurences: 1 })
 # action3 = Action.create({ title: 'numeric question', level: 'beginner', score: '7', category: 'digital', description: "do some stuff for the planet", occurences: 1 })
