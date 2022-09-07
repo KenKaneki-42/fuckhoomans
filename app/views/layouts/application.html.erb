@@ -18,6 +18,6 @@
       <%= yield %>
       <%= render "shared/flashes" %>
     </div>
-    <%= render "shared/navbar" %>
+    <%= render "shared/navbar" unless @disable_footer %>
   </body>
 </html>
