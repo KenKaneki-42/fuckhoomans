@@ -79,7 +79,7 @@ class UserActionsController < ApplicationController
     @new_user_action.user_occurences = 0
     @new_user_action.user = current_user #.valid?       } if not saving
     if @new_user_action.save             #.errors       }
-      redirect_to user_actions_path
+      redirect_to dashboard_path
     else
       raise
     end

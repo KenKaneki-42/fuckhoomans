@@ -12,22 +12,22 @@
  <div class="d-flex justify-content-evenly py-4 align-items-center">
   <div class="icon-wrapper">
     <%= link_to user_actions_path(category: "transport"), class:"icon-travel" do %>
-      <i class="fa-solid fa-plane fa-2x circle-icon"></i>
+      <i class="fa-solid fa-plane fa-1x circle-icon"></i>
     <% end %>
   </div>
   <div class="icon-wrapper">
     <%= link_to user_actions_path(category: "food"), class:"icon-food" do %>
-      <i class="fa-solid fa-carrot fa-2x circle-icon"></i>
+      <i class="fa-solid fa-carrot fa-1x circle-icon"></i>
     <% end %>
   </div>
   <div class="icon-wrapper">
     <%= link_to user_actions_path(category: "digital"), class:"icon-tech" do %>
-      <i class="fa-solid fa-computer fa-2x circle-icon"></i>
+      <i class="fa-solid fa-computer fa-1x circle-icon"></i>
     <% end %>
   </div>
   <div class="icon-wrapper">
     <%= link_to user_actions_path(category: "household"), class:"icon-home" do %>
-      <i class="fa-solid fa-house fa-2x circle-icon"></i>
+      <i class="fa-solid fa-house fa-1x circle-icon"></i>
     <% end %>
   </div>
 </div>
@@ -37,7 +37,7 @@
 <!-- to fix card-->
 <div class="container mt-3">
   <% @user_actions.each do |user_action|%>
-    <div class="card-category-card">
+    <div class="card-category-card mb-4" style="height: 30vh">
       <%= link_to user_action_path(user_action) do %>
         <div class= "card-img p-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
             url('<%= cl_image_path user_action.action.photo.key, height: 300, crop: :fit%>')">
@@ -54,11 +54,17 @@
         <div class="card-bar-separator mb-1"></div>
 
         <div class="container">
+          <div class="card-icon">
+            <i class="fa-solid fa-carrot fa-1x circle-icon"></i>
+          </div>
           <h1><strong><%= user_action.action.title %></strong></h1> <!-- user_action title-->
           <h4 style="color: rgb(216, 176, 77);"><%= user_action.action.occurences %> times / week</h4><!-- action occurences-->
-          <div class="">
-            <p><%= user_action.action.description[0..90] %> ...</p>
-            <p><%= user_action.status%></p>
+          <div>
+            <% if user_action.action.description.length > 150 %>
+              <p style="font-size: small; color: rgb(102, 102, 102);"><%= user_action.action.description[0..150] %> ...</p>
+            <% else %>
+              <p style="font-size: small; color: rgb(102, 102, 102);"><%= user_action.action.description %></p>
+            <% end %>
           </div>
         </div>
       <% end %>
