@@ -11,9 +11,11 @@ Rails.application.routes.draw do
   get "about", to: "pages#about"
   get "contact", to: "pages#contact"
   resources :user_actions, only: %i[index show update]
+  resources :carbonassessments, only: %i[new create]
+
   resources :actions, only: %i[index show] do
-  resources :user_actions, only: %i[create]
-  resources :scores, only: %i[index show create]
+    resources :user_actions, only: %i[create]
+    resources :scores, only: %i[index show create]
   end
   get 'dashboard', to: "user_actions#dashboard", :as => :user_root
 end
