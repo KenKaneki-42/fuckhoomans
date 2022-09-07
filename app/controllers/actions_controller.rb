@@ -16,7 +16,7 @@ class ActionsController < ApplicationController
   private
 
   def define_actions_to_see
-    case current_user.transport_level
+    case current_user.send("#{define_category}_level")
     when "beginner"
       ["beginner"]
     when "intermediate"
@@ -34,9 +34,9 @@ class ActionsController < ApplicationController
     when "food"
       "food"
     when "digital"
-      "digital"
+      "numeric"
     when "household"
-      "household"
+      "home"
     end
   end
 end
