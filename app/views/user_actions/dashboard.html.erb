@@ -182,7 +182,7 @@
             <% end %>
             <div class="container">
               <% if @last_actions.first.title.length > 40 %>
-                <h1 style="font-size: small;"><strong><%= @last_actions.first.title %></strong></h1>
+                <h1 style="font-size: small; max-width: 80%;"><strong><%= @last_actions.first.title %></strong></h1>
               <% else %>
                 <h1><strong><%= @last_actions.first.title %></strong></h1>
               <% end %>
@@ -269,7 +269,7 @@
               <% end %>
               <div class="container">
                 <% if user_action.title.length > 40 %>
-                  <h1 style="font-size: small;"><strong><%= user_action.title %></strong></h1>
+                  <h1 style="font-size: small; max-width: 80%;"><strong><%= user_action.title %></strong></h1>
                 <% else %>
                   <h1><strong><%= user_action.title %></strong></h1>
                 <% end %>
