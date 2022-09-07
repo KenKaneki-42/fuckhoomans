@@ -1,5 +1,39 @@
 .icon-wrapper {
   margin: auto;
+
+  a {
+    width: 45px;
+    height: 45px;
+    display: grid;
+    place-content: center;
+    border-radius: 50%;
+    color: black
+  }
+
+  .circle-icon {
+    color: white;
+  }
+
+  .icon-travel {
+    background: #D8B04D;
+    transform: rotate(315deg);
+  }
+
+  .icon-food {
+    background: #A4C663;
+  }
+
+  .icon-tech {
+    background: #7D9CB7;
+  }
+
+  .icon-home {
+    background: #BD6048;
+  }
+}
+
+.icon-wrapper-idx {
+  margin: auto;
   height: 60px;
 
   a {
@@ -33,7 +67,7 @@
   }
 }
 
-.active-icon-wrapper {
+.active-icon-wrapper-idx {
   margin: auto;
 
   .fa-solid {
