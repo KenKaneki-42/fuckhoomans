@@ -1,7 +1,18 @@
 <div class="container">
 
   <div class="col-8 mx-auto">
-    <h3 style="text-align: center;">for now your level in this <br> category is <strong><%= current_user.rank_category %></strong></h3>
+    <% if @actions.first %>
+      <% case @actions.first.category  %>
+      <% when "transport" %>
+        <h3 style="text-align: center;">Your level in <br> transport category is <br> <strong><%= current_user.transport_level %></strong></h3>
+      <% when "food" %>
+        <h3 style="text-align: center;">Your level in <br> food category is <br> <strong><%= current_user.food_level %></strong></h3>
+      <% when "digital" %>
+        <h3 style="text-align: center;">Your level in <br> digital category is <br> <strong><%= current_user.digital_level %></strong></h3>
+      <% when "household" %>
+        <h3 style="text-align: center;">Your level in <br> household category is <br> <strong><%= current_user.household_level %></strong></h3>
+      <% end %>
+    <% end %>
     <p style="text-align: center; font-size: x-small; line-height: 2.7; margin-bottom: 0;">Let's select 2 actions that you want <br> to realize by clicking on em just below </p>
   </div>
 
