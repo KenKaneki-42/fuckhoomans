@@ -37,7 +37,6 @@
 <!-- to fix card-->
 <div class="container mt-3">
   <% @user_actions.each do |user_action|%>
-
     <div class="card-category-card mb-4" style="height: 30vh">
       <%= link_to user_action_path(user_action) do %>
         <div class= "card-img p-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path user_action.action.photo.key, height: 300, crop: :fit%>')">
@@ -59,7 +58,9 @@
           </div>
         <% end %>
           <div class="card-category-footer d-flex justify-content-between">
+
             <div class="d-flex justify-content-evenly card-category-co2">
+
             <% if user_action.category == 'transport' %>
               <i class="fa-solid fa-leaf pr-2" style="color: rgb(216, 176, 77);"></i>
               <p style="color: rgb(216, 176, 77);"><%= user_action.action.carbongain.div(100_000) %> kgCO2e</p>
@@ -74,32 +75,12 @@
               <p style="color: rgb(189, 96, 72);"><%= user_action.action.carbongain.div(100_000) %> kgCO2e</p>
             <% end %>
             </div>
-
-            <% if user_action.category == 'transport' %>
-              <div class="card-category-level d-flex justify-content-around isDisabled" style="background-color: rgb(216, 176, 77);">
-            <% elsif user_action.category == 'food' %>
-              <div class="card-category-level d-flex justify-content-around isDisabled" style="background-color: rgb(164, 198, 99);">
-            <% elsif user_action.category == 'digital' %>
-              <div class="card-category-level d-flex justify-content-around isDisabled" style="background-color: rgb(125, 156, 183);">
-            <% elsif user_action.category == 'household' %>
-              <div class="card-category-level d-flex justify-content-around isDisabled" style="background-color: rgb(189, 96, 72);">
-            <% end %>
-                <p class="isDisabled"><%= user_action.action.level %></p>
-              </div>
           </div>
         </div>
+        <div class="card-bar-separator mb-1"></div>
 
-
-        <% if user_action.category == 'transport' %>
-          <div class="card-bar-separator mb-1" style="background-color: rgb(216, 176, 77);"></div>
-        <% elsif user_action.category == 'food' %>
-          <div class="card-bar-separator mb-1" style="background-color: rgb(164, 198, 99);"></div>
-        <% elsif user_action.category == 'digital' %>
-          <div class="card-bar-separator mb-1" style="background-color: rgb(125, 156, 183);"></div>
-        <% elsif user_action.category == 'household' %>
-          <div class="card-bar-separator mb-1" style="background-color: rgb(189, 96, 72);"></div>
-        <% end %>
         <div class="container">
+
           <% if user_action.title.length > 40 %>
             <h1 style="font-size: small;"><strong><%= user_action.title %></strong></h1>
           <% else %>
