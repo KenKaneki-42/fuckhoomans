@@ -5,36 +5,106 @@
 
   <div class="action-show-card mx-auto position-relative">
     <div class="d-flex col-12 justify-content-between mt-3 mb-5">
-      <div class="show-icon-container d-flex justify-content-around align-items-center ">
-        <i class="fa-solid fa-plane"></i>
-      </div>
+      <% if @user_action.category == 'transport' %>
+        <div class="show-icon-container d-flex justify-content-around align-items-center" style="background-color: rgb(216, 176, 77);">
+          <i class="fa-solid fa-plane"></i>
+        </div>
+      <% elsif @user_action.category == 'food' %>
+        <div class="show-icon-container d-flex justify-content-around align-items-center" style="background-color: rgb(164, 198, 99);">
+          <i class="fa-solid fa-carrot"></i>
+        </div>
+      <% elsif @user_action.category == 'digital' %>
+        <div class="show-icon-container d-flex justify-content-around align-items-center" style="background-color: rgb(125, 156, 183);">
+          <i class="fa-solid fa-computer"></i>
+        </div>
+      <% elsif @user_action.category == 'household' %>
+        <div class="show-icon-container d-flex justify-content-around align-items-center" style="background-color: rgb(189, 96, 72);">
+          <i class="fa-solid fa-household"></i>
+        </div>
+      <% end %>
         <div class="d-flex col-7 justify-content-between">
-          <div class="col-5">
-            <div class="d-flex justify-content-evenly align-items-center card-show-co2">
-              <i class="fa-solid fa-leaf"></i>
-              <p class=""><%= @user_action.action.carbongain.div(100_000) %>kgCO2e</p>
-            </div>
+          <% if @user_action.action.carbongain.div(100_000)>= 1000 %>
+            <div class="col-5 flex-grow-1">
+          <% else %>
+            <div class="col-5">
+          <% end %>
+          <div class="d-flex justify-content-evenly align-items-center card-show-co2">
+            <% if @user_action.category == 'transport' %>
+              <i class="fa-solid fa-leaf pe-2" style="color: rgb(216, 176, 77);"></i>
+              <p style="color: rgb(216, 176, 77);"><%= @user_action.action.carbongain.div(100_000) %> kgCO2e</p>
+            <% elsif @user_action.category == 'food' %>
+              <i class="fa-solid fa-leaf pe-2" style="color: rgb(164, 198, 99);"></i>
+              <p style="color: rgb(164, 198, 99);"><%= @user_action.action.carbongain.div(100_000) %> kgCO2e</p>
+            <% elsif @user_action.category == 'digital' %>
+              <i class="fa-solid fa-leaf pe-2" style="color: rgb(125, 156, 183);"></i>
+              <p style="color: rgb(125, 156, 183);"><%= @user_action.action.carbongain.div(100_000) %> kgCO2e</p>
+            <% elsif @user_action.category == 'household' %>
+              <i class="fa-solid fa-leaf pe-2" style="color: rgb(189, 96, 72);"></i>
+              <p style="color: rgb(189, 96, 72);"><%= @user_action.action.carbongain.div(100_000) %> kgCO2e</p>
+            <% end %>
+          </div>
             <div class="mt-2 card-show-co2">
-              <p style="font-size: smaller; text-align: center;"> <%= @user_action.status %></p>
+              <% if @user_action.category == 'transport' %>
+                <p style="font-size: smaller; text-align: center; color: rgb(216, 176, 77);"> <%= @user_action.status %></p>
+              <% elsif @user_action.category == 'food' %>
+                <p style="font-size: smaller; text-align: center; color: rgb(164, 198, 99);"> <%= @user_action.status %></p>
+              <% elsif @user_action.category == 'digital' %>
+                <p style="font-size: smaller; text-align: center; color: rgb(125, 156, 183)"> <%= @user_action.status %></p>
+              <% elsif @user_action.category == 'household' %>
+                <p style="font-size: smaller; text-align: center; color: rgb(189, 96, 72);"> <%= @user_action.status %></p>
+              <% end %>
             </div>
           </div>
           <div class="col-5">
-            <div class="card-show-level d-flex justify-content-around align-items-center mb-2">
-              <p><%= @user_action.action.level %></p>
-            </div>
-            <div class="card-show-level">
-              <p style="font-size: smaller; text-align: center;"><%= @user_action.score %>pts</p>
-            </div>
+            <% if @user_action.category == 'transport' %>
+              <div class="card-show-level d-flex justify-content-around isDisabled" style="background-color: rgb(216, 176, 77);">
+                <p class="isDisabled"><%= @user_action.action.level %></p>
+              </div>
+            <% elsif @user_action.category == 'food' %>
+              <div class="card-show-level d-flex justify-content-around isDisabled" style="background-color: rgb(164, 198, 99);">
+                <p class="isDisabled"><%= @user_action.action.level %></p>
+              </div>
+            <% elsif @user_action.category == 'digital' %>
+              <div class="card-show-level d-flex justify-content-around isDisabled" style="background-color: rgb(125, 156, 183);">
+                <p class="isDisabled"><%= @user_action.action.level %></p>
+              </div>
+            <% elsif @user_action.category == 'household' %>
+              <div class="card-show-level d-flex justify-content-around isDisabled" style="background-color: rgb(189, 96, 72);">
+                <p class="isDisabled"><%= @user_action.action.level %></p>
+              </div>
+            <% end %>
+
+            <% if @user_action.category == 'transport' %>
+              <div class="card-show-level mt-2" style="background-color: rgb(216, 176, 77);">
+                <p style="font-size: smaller; text-align: center;"><%= @user_action.score %> pts</p>
+              </div>
+            <% elsif @user_action.category == 'food' %>
+              <div class="card-show-level mt-2" style="background-color: rgb(164, 198, 99);">
+                <p style="font-size: smaller; text-align: center;"><%= @user_action.score %> pts</p>
+              </div>
+            <% elsif @user_action.category == 'digital' %>
+              <div class="card-show-level mt-2" style="background-color: rgb(125, 156, 183);">
+                <p style="font-size: smaller; text-align: center;"><%= @user_action.score %> pts</p>
+              </div>
+            <% elsif @user_action.category == 'household' %>
+              <div class="card-show-level mt-2" style="background-color: rgb(189, 96, 72);">
+                <p style="font-size: smaller; text-align: center;"><%= @user_action.score %> pts</p>
+              </div>
+            <% end %>
           </div>
 
         </div>
     </div>
-    <!-- for testing upadte = ok
-    <h1><%= @user_action.user_occurences %></h1>
-    <h1><%= @user_action.status %></h1>
-    -->
     <h1><strong><%= @user_action.title %></strong></h1> <!-- user_action title-->
-    <h4 style="color: rgb(216, 176, 77);" class="mb-3"><%= @user_action.action.occurences %> times / week</h4><!-- action occurences-->
+    <% if @user_action.category == 'transport' %>
+      <h4 style="color: rgb(216, 176, 77);" class="mb-3"><%= @user_action.action.occurences %> times / week</h4>
+    <% elsif @user_action.category == 'food' %>
+      <h4 style="color: rgb(164, 198, 99);" class="mb-3"><%= @user_action.action.occurences %> times / week</h4>
+    <% elsif @user_action.category == 'digital' %>
+      <h4 style="color: rgb(125, 156, 183);" class="mb-3"><%= @user_action.action.occurences %> times / week</h4>
+    <% elsif @user_action.category == 'household' %>
+      <h4 style="color: rgb(189, 96, 72);" class="mb-3"><%= @user_action.action.occurences %> times / week</h4>
+    <% end %>
     <strong><p class=" mb-1"> <%= @user_action.action.description %></p></strong>
     <p class="mb-4 ml-3" style="color: rgb(102, 102, 102);"><%= @user_action.action.explication %></p>
     <%= simple_form_for @user_action, html: {class: "col-12 d-flex justify-content-between"}, url: user_action_path(@user_action), method: :patch do |f| %>
