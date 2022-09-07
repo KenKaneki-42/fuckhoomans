@@ -53,7 +53,7 @@
   <% end %>
 
   <%# digital %>
-   <%= link_to user_actions_path(category: "digital"), class:"icon-tech" do %>
+  <%= link_to user_actions_path(category: "digital"), class:"icon-tech" do %>
     <div class="ko-progress-circle icon-wrapper" data-progress="<%= ((@digital_score.to_f / @digital_next_level.to_f)*100).to_i %>">
         <div class="ko-circle">
             <div class="full ko-progress-circle__slice">
@@ -181,7 +181,7 @@
               <div class="card-bar-separator mb-1" style="background-color: rgb(189, 96, 72);"></div>
             <% end %>
             <div class="container">
-              <% if @last_actions.first.title.length > 40 %>
+              <% if @last_actions.first.title.length > 30 %>
                 <h1 style="font-size: small; max-width: 80%;"><strong><%= @last_actions.first.title %></strong></h1>
               <% else %>
                 <h1><strong><%= @last_actions.first.title %></strong></h1>
@@ -268,7 +268,7 @@
                 <div class="card-bar-separator mb-1" style="background-color: rgb(189, 96, 72);"></div>
               <% end %>
               <div class="container">
-                <% if user_action.title.length > 40 %>
+                <% if user_action.title.length > 30 %>
                   <h1 style="font-size: small; max-width: 80%;"><strong><%= user_action.title %></strong></h1>
                 <% else %>
                   <h1><strong><%= user_action.title %></strong></h1>
