@@ -4,16 +4,20 @@
   position: fixed;
   bottom: 0;
   padding: 15px 20px 10px 20px;
-  background-color: white;
-  z-index: 20;
-
-
+  background-color: #ffffff;
+  border-radius: 16px 16px 0px 0px;
+  
   i {
     font-size: 20px;
     text-align: center;
+
   }
 }
 
 .icon-link {
   text-align: center;
+}
+
+.icon-nav {
+  color: #818181fa;
 }
