@@ -2,7 +2,11 @@
 <%# <%= photo %>
 <div class="d-flex container py-4 justify-content-center">
   <div class="d-flex flex-column align-items-center">
-    <%= image_tag "https://kitt.lewagon.com/placeholder/users/KenKaneki-42", class: "avatar", alt: "avatar" %>
+    <% if current_user.photo.key %>
+      <div class= "avatar" style="background-image: url('<%= cl_image_path current_user.photo.key, height: 40, crop: :fit%>')"></div>
+    <% else %>
+      <%= image_tag "https://kitt.lewagon.com/placeholder/users/KenKaneki-42", class: "avatar", alt: "avatar" %>
+    <% end %>
     <h3><%= current_user.pseudo %></h3>
   </div>
 
