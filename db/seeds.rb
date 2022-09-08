@@ -27,7 +27,7 @@ user1 = User.create!({email: 'vincent.v@gmail.com',
                       home_level: 'beginner',
                       numeric_level: 'beginner',
                       food_level: 'beginner'})
-file1 = URI.open("https://avatars.githubusercontent.com/u/86103386?v=4")
+file1 = URI.open("https://media-exp1.licdn.com/dms/image/C4D03AQHPwMWR2XbSnQ/profile-displayphoto-shrink_800_800/0/1639410249022?e=1668038400&v=beta&t=2K79l1tLTlTGA4y0zMN-A7c1Ly6TujJWXR6AL2VY0CQ")
 user1.photo.attach(io: file1, filename: "user1.jpg", content_type: "image/jpeg")
 
 user2 = User.create!({email: 'jordan.jean@gmail.com',
@@ -75,6 +75,7 @@ p 'Generate Action seeds'
 
 # set d'action 1 (l1 = level 1 = difficulté, 1 lot d'action similaire
 # avec 3 niveaux de difficulté (beginner, intermediate, advanced))
+####################### TRANSPORT ###############################################################
 action1l1 = Action.create({ title: 'Get your bike',
                             level: 'beginner',
                             score: '7',
@@ -197,8 +198,8 @@ action3l3.photo.attach(io: file3l3bus, filename: "bus3.jpg", content_type: "imag
 # bus: 0,50kgCO2 for 10km => 2,5kgCO2 for 5 times (50km)
 # car: 1,56kgCO2  for 10km => 7,8kgCO2 for 5 times (50km)
 
-# FOOD CATEGORY
-action4l1 = Action.create({ title: 'Red meat VS white meat',
+####################### FOOD ###############################################################
+action4l1 = Action.create({ title: 'White meat VS Red meat',
                             level: 'beginner',
                             score: '7',
                             category: 'food',
@@ -208,12 +209,12 @@ action4l1 = Action.create({ title: 'Red meat VS white meat',
                                           it also increase methane in atmosphere",
                             occurences: 1,
                             carbongain: 3_050_000 })
-file4l1redmeat = URI.open("https://images.unsplash.com/photo-1571067224158-622a54542fed?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80")
+file4l1redmeat = URI.open("https://images.unsplash.com/photo-1532550907401-a500c9a57435?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1769&q=80")
 action4l1.photo.attach(io: file4l1redmeat, filename: "redmeat.jpg", content_type: "image/jpeg")
 
 # 100g red meat => 4kgCO2e
 # 100g white meat => 0,95kgC02e
-action4l2 = Action.create({ title: 'Red meat VS white meat',
+action4l2 = Action.create({ title: 'Eggs vs Red meat',
                             level: 'intermediate',
                             score: '15',
                             category: 'food',
@@ -222,28 +223,54 @@ action4l2 = Action.create({ title: 'Red meat VS white meat',
                             instead of eggs that generate 2,8 kgCO2e/kg",
                             occurences: 1,
                             carbongain: 7_480_000 })
-file4l2redmeat = URI.open("https://images.unsplash.com/photo-1595356161904-6708c97be89c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80")
+file4l2redmeat = URI.open("https://images.unsplash.com/photo-1585507252242-11fe632c26e8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80")
 action4l2.photo.attach(io: file4l2redmeat, filename: "redmeat2.jpg", content_type: "image/jpeg")
 # 2*100g red meat => 8kgCO2e
 # 2*100g eggs => 0,52kgCO2e
 
-action4l3 = Action.create({ title: 'Red Meat',
+action4l3 = Action.create({ title: 'Vegetarian VS Red meat',
                             level: 'advanced',
                             score: '35',
                             category: 'food',
-                            description: 'Replace red meat 5 times a week',
+                            description: 'Get 5 times a week vegetarian meals',
                             explication: "That generate 40 kgCO2e/kg of red meat by
                             a melt of oleaginous that generate 4 kgCO2e/kg,
                             starches (2kgCO2e/kg) and legumes (0,5kgCO2e/kg)",
                             occurences: 1,
                             carbongain: 18_915_000 })
-file4l3redmeat = URI.open("https://images.unsplash.com/photo-1555265399-48aa9c11d869?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80")
+file4l3redmeat = URI.open("https://images.unsplash.com/photo-1598449426314-8b02525e8733?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1626&q=80")
 action4l3.photo.attach(io: file4l3redmeat, filename: "redmeat3.jpg", content_type: "image/jpeg")
 # 5*100g red meat => 20 kgCO2e
 # 5*100g mixed((1/3)*(4+2+0.5)) =>  1,085kgCO2e
 # 2,17 kgCO2e/k => 5 * 0,217
 
-# numeric DIGITAL
+actionwastefood = Action.create({ title: 'Reduce food waste',
+                                  level: 'beginner',
+                                  score: '7',
+                                  category: 'food',
+                                  description: 'Avoid to generate food waste',
+                                  explication: "According to ADEME, nearly 10 million tonnes of consumable food are
+                                                thrown away each year in France.And it is estimated that food waste
+                                                emits more greenhouse gases than a country like India
+                                                (4th biggest polluter in the world).",
+                                  occurences: 1,
+                                  carbongain: 0 })
+filewastefood = URI.open("https://images.unsplash.com/photo-1605027538782-c1b60ffa6cef?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80")
+actionwastefood.photo.attach(io: filewastefood, filename: "wastefood.jpg", content_type: "image/jpeg")
+
+actionwastefood = Action.create({ title: 'Favor Local produce',
+                                  level: 'beginner',
+                                  score: '7',
+                                  category: 'food',
+                                  description: 'Favor short circuits and seasonal products',
+                                  explication: "Eating imported fruits or vegetables generates
+                                                an oil consumption 10 to 20 times higher than the consumption of local fruits or vegetables.
+                                                So Favor short circuits (stores close to your home)",
+                                  occurences: 1,
+                                  carbongain: 0 })
+filewastefood = URI.open("https://images.unsplash.com/photo-1506484381205-f7945653044d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80")
+actionwastefood.photo.attach(io: filewastefood, filename: "wastefood.jpg", content_type: "image/jpeg")
+####################### DIGITAL ###############################################################
 
 action5l1multiscreen = Action.create({ title: 'Adapt your video resolution to the screen',
                                         level: 'beginner',
@@ -285,25 +312,8 @@ action7l1email = Action.create({ title: 'Better email management',
 file7l1email = URI.open('https://images.unsplash.com/photo-1643845892686-30c241c3938c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=776&q=80')
 action7l1email.photo.attach(io: file7l1email, filename: 'notifemail.jpg', content_type: 'image/jpeg')
 
+####################### HOUSEHOLD ###############################################################
 
-
-# action8l1secondhand = Action.create({ title: '',
-#                                 level: 'beginner',
-#                                 score: '7',
-#                                 category: 'home',
-#                                 description: 'Regularly sort your mailbox',
-#                                 explication: 'Delete sent messages, spam, junk mail. And empty your trash,
-#                                               to avoid storing these useless emails in data centers.
-#                                               For example, a French person receives an average of 936 newsletters per year,
-#                                               (9 kgCO2e if we take into account their energy-intensive sending and storage).',
-#                                 occurences: 1,
-#                                 carbongain: 0 })
-# file8l1secondhand = URI.open('https://images.unsplash.com/photo-1643845892686-30c241c3938c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=776&q=80')
-# action8l1secondhand.photo.attach(io: file8l1secondhand, filename: 'notifemail.jpg', content_type: 'image/jpeg')
-
-# action2 = Action.create({ title: 'household question', level: 'beginner', score: '7', category: 'household', description: "do some stuff for the planet", occurences: 1 })
-# action3 = Action.create({ title: 'numeric question', level: 'beginner', score: '7', category: 'digital', description: "do some stuff for the planet", occurences: 1 })
-# action4 = Action.create({ title: 'food question', level: 'beginner', score: '7', category: 'food', description: "do some stuff for the planet", occurences: 1 })
 
 p 'Generate User_Action seeds'
 ####################### USER-ACTIONS ###############################################################
@@ -378,14 +388,14 @@ user1_action7 = UserAction.create({ title: action4l1.title,
                                     category: action4l1.category,
                                     carbongain: action4l1.carbongain })
 
-user1_action8 = UserAction.create({ title: action4l2.title,
+user1_action8 = UserAction.create({ title: actionwastefood.title,
                                     status: 'selected',
                                     user_occurences: 0,
                                     user_id: user1.id,
-                                    action_id: action4l2.id,
-                                    score: action4l2.score,
-                                    category: action4l2.category,
-                                    carbongain: action4l2.carbongain })
+                                    action_id: actionwastefood.id,
+                                    score: actionwastefood.score,
+                                    category: actionwastefood.category,
+                                    carbongain: actionwastefood.carbongain })
 
 p 'Generate score for vincent'
 # score1 = Score.create({ user_id: user1,
