@@ -126,7 +126,30 @@
   top: 83%;
   right: 1.5%;
   z-index: 10;
+}
 
+.card-icon-carousel {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-content: center;
+  border-radius: 50%;
+  position: absolute;
+  top: 97px;
+  right: 1.5%;
+  z-index: 10;
+}
+
+.card-icon-index-user-actions {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-content: center;
+  border-radius: 50%;
+  position: absolute;
+  top: 80px;
+  right: 1.5%;
+  z-index: 10;
 }
 
 .dashboard-level-icon {

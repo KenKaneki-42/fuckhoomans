@@ -4,7 +4,7 @@
 </div>
 
 <div class="action-show-card mx-auto position-relative">
-  <div class="d-flex col-12 justify-content-between mt-3 mb-5">
+  <div class="d-flex col-12 justify-content-between mt-3 mb-3">
     <% if @user_action.action.category == 'transport' %>
       <div class="show-icon-container d-flex justify-content-around align-items-center" style="background-color: rgb(216, 176, 77);">
         <i class="fa-solid fa-plane"></i>
@@ -65,13 +65,13 @@
   </div>
   <h1><strong><%= @user_action.action.title %></strong></h1> <!-- action title-->
   <% if @user_action.action.category == 'transport' %>
-    <h4 style="color: rgb(216, 176, 77);" class="mb-3"><%= @user_action.action.level %><strong style="color: black"> / </strong><%= @user_action.status %></h4>
+    <h4 style="color: rgb(216, 176, 77); margin-top: 12px;" class="mb-3"><%= @user_action.action.level %><strong style="color: black"> / </strong><%= @user_action.status %></h4>
   <% elsif @user_action.action.category == 'food' %>
-    <h4 style="color: rgb(164, 198, 99);" class="mb-3"><%= @user_action.action.level %><strong style="color: black"> / </strong><%= @user_action.status %></h4>
+    <h4 style="color: rgb(164, 198, 99); margin-top: 12px;" class="mb-3"><%= @user_action.action.level %><strong style="color: black"> / </strong><%= @user_action.status %></h4>
   <% elsif @user_action.action.category == 'numeric' %>
-    <h4 style="color: rgb(125, 156, 183);" class="mb-3"><%= @user_action.action.level %><strong style="color: black"> / </strong><%= @user_action.status %></h4>
+    <h4 style="color: rgb(125, 156, 183); margin-top: 12px;" class="mb-3"><%= @user_action.action.level %><strong style="color: black"> / </strong><%= @user_action.status %></h4>
   <% elsif @user_action.action.category == 'household' %>
-    <h4 style="color: rgb(189, 96, 72);" class="mb-3"><%= @user_action.action.level %><strong style="color: black"> / </strong><%= @user_action.status %></h4>
+    <h4 style="color: rgb(189, 96, 72); margin-top: 12px;" class="mb-3"><%= @user_action.action.level %><strong style="color: black"> / </strong><%= @user_action.status %></h4>
   <% end %>
   <strong><p class=" mb-1"> <%= @user_action.action.description %></p></strong>
   <p class="mb-4 ml-3" style="color: rgb(102, 102, 102);"><%= @user_action.action.explication %></p>

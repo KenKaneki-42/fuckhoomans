@@ -150,19 +150,19 @@
               url('<%= cl_image_path @last_actions.first.action.photo.key, height: 300, crop: :fit%>')">
 
               <% if @last_actions.first.category == 'transport' %>
-                <div class="card-icon" style="background-color: rgb(216, 176, 77);">
+                <div class="card-icon-carousel" style="background-color: rgb(216, 176, 77);">
                   <i class="fa-solid fa-plane fa-1x circle-icon"></i>
                 </div>
               <% elsif @last_actions.first.category == 'food' %>
-                <div class="card-icon" style="background-color: rgb(164, 198, 99);">
+                <div class="card-icon-carousel" style="background-color: rgb(164, 198, 99);">
                   <i class="fa-solid fa-carrot fa-1x circle-icon"></i>
                 </div>
               <% elsif @last_actions.first.category == 'numeric' %>
-                <div class="card-icon" style="background-color: rgb(125, 156, 183);">
+                <div class="card-icon-carousel" style="background-color: rgb(125, 156, 183);">
                   <i class="fa-solid fa-computer fa-1x circle-icon"></i>
                 </div>
               <% elsif @last_actions.first.category == 'household' %>
-                <div class="card-icon" style="background-color: rgb(189, 96, 72);">
+                <div class="card-icon-carousel" style="background-color: rgb(189, 96, 72);">
                   <i class="fa-solid fa-house fa-1x circle-icon"></i>
                 </div>
               <% end %>
@@ -201,13 +201,13 @@
                 <h1><strong><%= @last_actions.first.title %></strong></h1>
               <% end %>
               <% if @last_actions.first.category == 'transport' %>
-                <h4 style="color: rgb(216, 176, 77);"><%= @last_actions.first.action.level %></h4>
+                <h4 style="color: rgb(216, 176, 77); margin-top: 5px;"><%= @last_actions.first.action.level %></h4>
               <% elsif @last_actions.first.category == 'food' %>
-                <h4 style="color: rgb(164, 198, 99);"><%= @last_actions.first.action.level %></h4>
+                <h4 style="color: rgb(164, 198, 99); margin-top: 5px;"><%= @last_actions.first.action.level %></h4>
               <% elsif @last_actions.first.category == 'numeric' %>
-                <h4 style="color: rgb(125, 156, 183);"><%= @last_actions.first.action.level %></h4>
+                <h4 style="color: rgb(125, 156, 183); margin-top: 5px;"><%= @last_actions.first.action.level %></h4>
               <% elsif @last_actions.first.category == 'household' %>
-                <h4 style="color: rgb(189, 96, 72);"><%= @last_actions.first.action.level %></h4>
+                <h4 style="color: rgb(189, 96, 72); margin-top: 5px;"><%= @last_actions.first.action.level %></h4>
               <% end %>
               <div>
                 <% if @last_actions.first.action.description.length > 45 %>
@@ -226,19 +226,19 @@
             <div class="card-category-card"   style="width: 70vw; height: 35vh"  >
               <div class= "card-img p-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path user_action.action.photo.key, height: 300, crop: :fit%>')">
                 <% if user_action.category == 'transport' %>
-                  <div class="card-icon" style="background-color: rgb(216, 176, 77);">
+                  <div class="card-icon-carousel" style="background-color: rgb(216, 176, 77);">
                     <i class="fa-solid fa-plane fa-1x circle-icon"></i>
                   </div>
                 <% elsif user_action.category == 'food' %>
-                  <div class="card-icon" style="background-color: rgb(164, 198, 99);">
+                  <div class="card-icon-carousel" style="background-color: rgb(164, 198, 99);">
                     <i class="fa-solid fa-carrot fa-1x circle-icon"></i>
                   </div>
                 <% elsif user_action.category == 'numeric' %>
-                  <div class="card-icon" style="background-color: rgb(125, 156, 183);">
+                  <div class="card-icon-carousel" style="background-color: rgb(125, 156, 183);">
                     <i class="fa-solid fa-computer fa-1x circle-icon"></i>
                   </div>
                 <% elsif user_action.category == 'household' %>
-                  <div class="card-icon" style="background-color: rgb(189, 96, 72);">
+                  <div class="card-icon-carousel" style="background-color: rgb(189, 96, 72);">
                     <i class="fa-solid fa-house fa-1x circle-icon"></i>
                   </div>
                 <% end %>
@@ -277,13 +277,13 @@
                   <h1><strong><%= user_action.title %></strong></h1>
                 <% end %>
                 <% if user_action.category == 'transport' %>
-                  <h4 style="color: rgb(216, 176, 77);"><%= user_action.action.level %></h4>
+                  <h4 style="color: rgb(216, 176, 77); margin-top: 5px;"><%= user_action.action.level %></h4>
                 <% elsif user_action.category == 'food' %>
-                  <h4 style="color: rgb(164, 198, 99);"><%= user_action.action.level %></h4>
+                  <h4 style="color: rgb(164, 198, 99); margin-top: 5px;"><%= user_action.action.level %></h4>
                 <% elsif user_action.category == 'numeric' %>
-                  <h4 style="color: rgb(125, 156, 183);"><%= user_action.action.level %></h4>
+                  <h4 style="color: rgb(125, 156, 183); margin-top: 5px;"><%= user_action.action.level %></h4>
                 <% elsif user_action.category == 'household' %>
-                  <h4 style="color: rgb(189, 96, 72);"><%= user_action.action.level %></h4>
+                  <h4 style="color: rgb(189, 96, 72); margin-top: 5px;"><%= user_action.action.level %></h4>
                 <% end %>
                 <div>
                   <% if user_action.action.description.length > 45 %>

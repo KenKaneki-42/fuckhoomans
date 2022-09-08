@@ -144,13 +144,13 @@
             <h1><strong><%= action.title %></strong></h1>
           <% end %>
         <% if action.category == 'transport' %>
-          <h4 style="color: rgb(216, 176, 77);"><%= action.level %></h4>
+          <h4 style="color: rgb(216, 176, 77); margin-top: 5px;"><%= action.level %></h4>
         <% elsif action.category == 'food' %>
-          <h4 style="color: rgb(164, 198, 99);"><%= action.level %></h4>
+          <h4 style="color: rgb(164, 198, 99); margin-top: 5px;"><%= action.level %></h4>
         <% elsif action.category == 'numeric' %>
-          <h4 style="color: rgb(125, 156, 183);"><%= action.level %></h4>
+          <h4 style="color: rgb(125, 156, 183); margin-top: 5px;"><%= action.level %></h4>
         <% elsif action.category == 'household' %>
-          <h4 style="color: rgb(189, 96, 72);"><%= action.level %></h4>
+          <h4 style="color: rgb(189, 96, 72); margin-top: 5px;"><%= action.level %></h4>
         <% end %>
           <div class="">
             <% if action.description.length > 45 %>
