@@ -9,6 +9,7 @@ require 'open-uri'
 
 p 'Delete ancient seeds' # à classer du plus précis au moins
 
+Carbonassessment.delete_all
 Score.delete_all
 UserAction.delete_all
 Action.delete_all
@@ -245,21 +246,63 @@ action4l3.photo.attach(io: file4l3redmeat, filename: "redmeat3.jpg", content_typ
 # 5*100g mixed((1/3)*(4+2+0.5)) =>  1,085kgCO2e
 # 2,17 kgCO2e/k => 5 * 0,217
 
+# numeric DIGITAL
 
-# a reprendre
-# action5l1 = Action.create({ title: 'XXX',
-#                             level: 'beginner',
-#                             score: '7',
-#                             category: 'food',
-#                             description: 'Replace red meat by fish or white meat 1 time per week',
-#                             explication: "It's generate 40 kgCO2e/kg of red meat
-#                                           instead of white meat or fish that generate 9,5 kgCO2e/kg,
-#                                           it also increase methane in atmosphere",
-#                             occurences: 1,
-#                             carbongain: 0_000_000 })
-# file5l1redmeat = URI.open("https://images.unsplash.com/photo-1571067224158-622a54542fed?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80")
-# action5l1.photo.attach(io: file5l1redmeat, filename: "redmeat.jpg", content_type: "image/jpeg")
+action5l1multiscreen = Action.create({ title: 'Adapt your video resolution to the screen',
+                                        level: 'beginner',
+                                        score: '7',
+                                        category: 'numeric',
+                                        description: 'Choose résolution between 360p and 720p',
+                                        explication: "For example, for a 13-inch screen, a resolution of 360 to 720 inches is
+                                                      sufficient when watching a streaming video.
+                                                      Watching online videos generated more than 300 megatons of CO2 in 2018.
+                                                      Which corresponds to a country like Spain. (ADEME)",
+                                        occurences: 1,
+                                        carbongain: 0 })
+file5l1multiscreen = URI.open("https://images.unsplash.com/photo-1588508065123-287b28e013da?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80")
+action5l1multiscreen.photo.attach(io: file5l1multiscreen, filename: 'multiscreen.jpg', content_type: 'image/jpeg')
 
+action6l1stream = Action.create({ title: 'Stop streaming autoplay',
+                                  level: 'beginner',
+                                  score: '7',
+                                  category: 'numeric',
+                                  description: 'Disable video autoplay',
+                                  explication: 'Most of social networks and streaming platforms have an autoplay.
+                                                You will save energy time and choose what you want to watch',
+                                  occurences: 1,
+                                  carbongain: 0 })
+file6l1stream = URI.open('https://images.unsplash.com/photo-1611162616475-46b635cb6868?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1674&q=80')
+action6l1stream.photo.attach(io: file6l1stream, filename: 'stopautoplay.jpg', content_type: 'image/jpeg')
+
+action7l1email = Action.create({ title: 'Better email management',
+                                level: 'beginner',
+                                score: '7',
+                                category: 'numeric',
+                                description: 'Regularly sort your mailbox',
+                                explication: 'Delete sent messages, spam, junk mail. And empty your trash,
+                                              to avoid storing these useless emails in data centers.
+                                              For example, a French person receives an average of 936 newsletters per year,
+                                              (9 kgCO2e if we take into account their energy-intensive sending and storage).',
+                                occurences: 1,
+                                carbongain: 0 })
+file7l1email = URI.open('https://images.unsplash.com/photo-1643845892686-30c241c3938c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=776&q=80')
+action7l1email.photo.attach(io: file7l1email, filename: 'notifemail.jpg', content_type: 'image/jpeg')
+
+
+
+# action8l1secondhand = Action.create({ title: '',
+#                                 level: 'beginner',
+#                                 score: '7',
+#                                 category: 'home',
+#                                 description: 'Regularly sort your mailbox',
+#                                 explication: 'Delete sent messages, spam, junk mail. And empty your trash,
+#                                               to avoid storing these useless emails in data centers.
+#                                               For example, a French person receives an average of 936 newsletters per year,
+#                                               (9 kgCO2e if we take into account their energy-intensive sending and storage).',
+#                                 occurences: 1,
+#                                 carbongain: 0 })
+# file8l1secondhand = URI.open('https://images.unsplash.com/photo-1643845892686-30c241c3938c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=776&q=80')
+# action8l1secondhand.photo.attach(io: file8l1secondhand, filename: 'notifemail.jpg', content_type: 'image/jpeg')
 
 # action2 = Action.create({ title: 'household question', level: 'beginner', score: '7', category: 'household', description: "do some stuff for the planet", occurences: 1 })
 # action3 = Action.create({ title: 'numeric question', level: 'beginner', score: '7', category: 'digital', description: "do some stuff for the planet", occurences: 1 })

@@ -124,9 +124,9 @@
 </div>
 
 <% ### actions by category %>
-<div class="d-flex justify-content-between container-dashboard ">
-  <h3>My challenges</h3>
-  <%= link_to "See all", user_actions_path %>
+<div class="d-flex justify-content-between align-items-center container-dashboard ">
+  <h3 style="font-size:18px;">My challenges</h3>
+  <%= link_to "See all", user_actions_path, class: "btn-dash" %>
 </div>
 
 
@@ -157,7 +157,7 @@
                 <div class="card-icon" style="background-color: rgb(164, 198, 99);">
                   <i class="fa-solid fa-carrot fa-1x circle-icon"></i>
                 </div>
-              <% elsif @last_actions.first.category == 'digital' %>
+              <% elsif @last_actions.first.category == 'numeric' %>
                 <div class="card-icon" style="background-color: rgb(125, 156, 183);">
                   <i class="fa-solid fa-computer fa-1x circle-icon"></i>
                 </div>
@@ -174,7 +174,7 @@
                   <% elsif @last_actions.first.category == 'food' %>
                     <i class="fa-solid fa-leaf pr-2" style="color: rgb(164, 198, 99);"></i>
                     <p style="color: rgb(164, 198, 99);"><%= @last_actions.first.action.carbongain.div(100_000) %> kgCO2e</p>
-                  <% elsif @last_actions.first.category == 'digital' %>
+                  <% elsif @last_actions.first.category == 'numeric' %>
                     <i class="fa-solid fa-leaf pr-2" style="color: rgb(125, 156, 183);"></i>
                     <p style="color: rgb(125, 156, 183);"><%= @last_actions.first.action.carbongain.div(100_000) %> kgCO2e</p>
                   <% elsif @last_actions.first.category == 'household' %>
@@ -191,7 +191,7 @@
                   <div class="card-category-level d-flex justify-content-around isDisabled" style="background-color: rgb(164, 198, 99);">
                     <p class="isDisabled"><%= @last_actions.first.action.level %></p>
                   </div>
-                <% elsif @last_actions.first.category == 'digital' %>
+                <% elsif @last_actions.first.category == 'numeric' %>
                   <div class="card-category-level d-flex justify-content-around isDisabled" style="background-color: rgb(125, 156, 183);">
                     <p class="isDisabled"><%= @last_actions.first.action.level %></p>
                   </div>
@@ -207,7 +207,7 @@
               <div class="card-bar-separator mb-1" style="background-color: rgb(216, 176, 77);"></div>
             <% elsif @last_actions.first.category == 'food' %>
               <div class="card-bar-separator mb-1" style="background-color: rgb(164, 198, 99);"></div>
-            <% elsif @last_actions.first.category == 'digital' %>
+            <% elsif @last_actions.first.category == 'numeric' %>
               <div class="card-bar-separator mb-1" style="background-color: rgb(125, 156, 183);"></div>
             <% elsif @last_actions.first.category == 'household' %>
               <div class="card-bar-separator mb-1" style="background-color: rgb(189, 96, 72);"></div>
@@ -222,7 +222,7 @@
                 <h4 style="color: rgb(216, 176, 77);"><%= @last_actions.first.action.occurences %> times / week</h4>
               <% elsif @last_actions.first.category == 'food' %>
                 <h4 style="color: rgb(164, 198, 99);"><%= @last_actions.first.action.occurences %> times / week</h4>
-              <% elsif @last_actions.first.category == 'digital' %>
+              <% elsif @last_actions.first.category == 'numeric' %>
                 <h4 style="color: rgb(125, 156, 183);"><%= @last_actions.first.action.occurences %> times / week</h4>
               <% elsif @last_actions.first.category == 'household' %>
                 <h4 style="color: rgb(189, 96, 72);"><%= @last_actions.first.action.occurences %> times / week</h4>
@@ -251,7 +251,7 @@
                   <div class="card-icon" style="background-color: rgb(164, 198, 99);">
                     <i class="fa-solid fa-carrot fa-1x circle-icon"></i>
                   </div>
-                <% elsif user_action.category == 'digital' %>
+                <% elsif user_action.category == 'numeric' %>
                   <div class="card-icon" style="background-color: rgb(125, 156, 183);">
                     <i class="fa-solid fa-computer fa-1x circle-icon"></i>
                   </div>
@@ -268,7 +268,7 @@
                     <% elsif user_action.category == 'food' %>
                       <i class="fa-solid fa-leaf pr-2" style="color: rgb(164, 198, 99);"></i>
                       <p style="color: rgb(164, 198, 99);"><%= user_action.action.carbongain.div(100_000) %> kgCO2e</p>
-                    <% elsif user_action.category == 'digital' %>
+                    <% elsif user_action.category == 'numeric' %>
                       <i class="fa-solid fa-leaf pr-2" style="color: rgb(125, 156, 183);"></i>
                       <p style="color: rgb(125, 156, 183);"><%= user_action.action.carbongain.div(100_000) %> kgCO2e</p>
                     <% elsif user_action.category == 'household' %>
@@ -280,7 +280,7 @@
                     <div class="card-category-level d-flex justify-content-around isDisabled" style="background-color: rgb(216, 176, 77);">
                   <% elsif user_action.category == 'food' %>
                     <div class="card-category-level d-flex justify-content-around isDisabled" style="background-color: rgb(164, 198, 99);">
-                  <% elsif user_action.category == 'digital' %>
+                  <% elsif user_action.category == 'numeric' %>
                     <div class="card-category-level d-flex justify-content-around isDisabled" style="background-color: rgb(125, 156, 183);">
                   <% elsif user_action.category == 'household' %>
                     <div class="card-category-level d-flex justify-content-around isDisabled" style="background-color: rgb(189, 96, 72);">
@@ -294,7 +294,7 @@
                 <div class="card-bar-separator mb-1" style="background-color: rgb(216, 176, 77);"></div>
               <% elsif user_action.category == 'food' %>
                 <div class="card-bar-separator mb-1" style="background-color: rgb(164, 198, 99);"></div>
-              <% elsif user_action.category == 'digital' %>
+              <% elsif user_action.category == 'numeric' %>
                 <div class="card-bar-separator mb-1" style="background-color: rgb(125, 156, 183);"></div>
               <% elsif user_action.category == 'household' %>
                 <div class="card-bar-separator mb-1" style="background-color: rgb(189, 96, 72);"></div>
@@ -309,7 +309,7 @@
                   <h4 style="color: rgb(216, 176, 77);"><%= user_action.action.occurences %> times / week</h4>
                 <% elsif user_action.category == 'food' %>
                   <h4 style="color: rgb(164, 198, 99);"><%= user_action.action.occurences %> times / week</h4>
-                <% elsif user_action.category == 'digital' %>
+                <% elsif user_action.category == 'numeric' %>
                   <h4 style="color: rgb(125, 156, 183);"><%= user_action.action.occurences %> times / week</h4>
                 <% elsif user_action.category == 'household' %>
                   <h4 style="color: rgb(189, 96, 72);"><%= user_action.action.occurences %> times / week</h4>

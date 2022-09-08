@@ -12,7 +12,7 @@
       <div class="show-icon-container d-flex justify-content-around align-items-center" style="background-color: rgb(164, 198, 99);">
         <i class="fa-solid fa-carrot"></i>
       </div>
-    <% elsif @action.category == 'digital' %>
+    <% elsif @action.category == 'numeric' %>
       <div class="show-icon-container d-flex justify-content-around align-items-center" style="background-color: rgb(125, 156, 183);">
         <i class="fa-solid fa-computer"></i>
       </div>
@@ -22,7 +22,7 @@
       </div>
     <% end %>
       <div class="d-flex col-7 justify-content-between">
-        <% if @action.carbongain.div(100_000)>= 1000 %>
+        <% if @action.carbongain.div(1_000_000)>= 1000 %>
           <div class="col-5 flex-grow-1">
         <% else %>
           <div class="col-5">
@@ -30,16 +30,16 @@
           <div class="d-flex justify-content-evenly align-items-center card-show-co2">
             <% if @action.category == 'transport' %>
               <i class="fa-solid fa-leaf pe-2" style="color: rgb(216, 176, 77);"></i>
-              <p style="color: rgb(216, 176, 77);"><%= @action.carbongain.div(100_000) %> kgCO2e</p>
+              <p style="color: rgb(216, 176, 77);"><%= @action.carbongain.div(1_000_000) %> kgCO2e</p>
             <% elsif @action.category == 'food' %>
               <i class="fa-solid fa-leaf pe-2" style="color: rgb(164, 198, 99);"></i>
-              <p style="color: rgb(164, 198, 99);"><%= @action.carbongain.div(100_000) %> kgCO2e</p>
-            <% elsif @action.category == 'digital' %>
+              <p style="color: rgb(164, 198, 99);"><%= @action.carbongain.div(1_000_000) %> kgCO2e</p>
+            <% elsif @action.category == 'numeric' %>
               <i class="fa-solid fa-leaf pe-2" style="color: rgb(125, 156, 183);"></i>
-              <p style="color: rgb(125, 156, 183);"><%= @action.carbongain.div(100_000) %> kgCO2e</p>
+              <p style="color: rgb(125, 156, 183);"><%= @action.carbongain.div(1_000_000) %> kgCO2e</p>
             <% elsif @action.category == 'household' %>
               <i class="fa-solid fa-leaf pe-2" style="color: rgb(189, 96, 72);"></i>
-              <p style="color: rgb(189, 96, 72);"><%= @action.carbongain.div(100_000) %> kgCO2e</p>
+              <p style="color: rgb(189, 96, 72);"><%= @action.carbongain.div(1_000_000) %> kgCO2e</p>
             <% end %>
           </div>
         </div>
@@ -52,7 +52,7 @@
             <div class="card-show-level d-flex justify-content-around align-items-center isDisabled" style="background-color: rgb(164, 198, 99);">
               <p class="isDisabled"><%= @action.level %></p>
             </div>
-          <% elsif @action.category == 'digital' %>
+          <% elsif @action.category == 'numeric' %>
             <div class="card-show-level d-flex justify-content-around align-items-center isDisabled" style="background-color: rgb(125, 156, 183);">
               <p class="isDisabled"><%= @action.level %></p>
             </div>
@@ -70,7 +70,7 @@
             <div class="card-show-level mt-2" style="background-color: rgb(164, 198, 99);">
               <p style="font-size: smaller; text-align: center;"><%= @action.score %> pts</p>
             </div>
-          <% elsif @action.category == 'digital' %>
+          <% elsif @action.category == 'numeric' %>
             <div class="card-show-level mt-2" style="background-color: rgb(125, 156, 183);">
               <p style="font-size: smaller; text-align: center;"><%= @action.score %> pts</p>
             </div>
@@ -88,7 +88,7 @@
     <h4 style="color: rgb(216, 176, 77);" class="mb-3"><%= @action .occurences %> times / week</h4>
   <% elsif @action.category == 'food' %>
     <h4 style="color: rgb(164, 198, 99);" class="mb-3"><%= @action .occurences %> times / week</h4>
-  <% elsif @action.category == 'digital' %>
+  <% elsif @action.category == 'numeric' %>
     <h4 style="color: rgb(125, 156, 183);" class="mb-3"><%= @action.occurences %> times / week</h4>
   <% elsif @action.category == 'household' %>
     <h4 style="color: rgb(189, 96, 72);" class="mb-3"><%= @action.occurences %> times / week</h4>

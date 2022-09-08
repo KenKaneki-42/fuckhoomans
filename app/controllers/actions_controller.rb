@@ -1,24 +1,10 @@
 class ActionsController < ApplicationController
 
   def index
-    user_actions_validated = UserAction.where(status: "validated", user_id: current_user.id)
-    user_actions_selected = UserAction.where(status: "selected", user_id: current_user.id)
-    usr_action_valdid_slct = []
-    user_actions_validated.each do |user_action|
-      usr_action_valdid_slct << user_action.action_id
-    end
-    user_actions_selected.each do |user_action|
-      usr_action_valdid_slct << user_action.action_id
-    end
-    if params[:category].present?
+    @actions = Action.includes(:user_actions).where(user_actions: { user_id: nil })
+    return unless params[:category].present?
 
-      @actions = Action.where(level: define_actions_to_see, category: define_category)
-      @actions = @actions.reject { |action| usr_action_valdid_slct.include?(action.id) }
-
-    else
-      @actions = Action.all
-      @actions = @actions.reject { |action| usr_action_valdid_slct.include?(action.id) }
-    end
+    @actions = @actions.where(category: define_category)
   end
 
   def show
