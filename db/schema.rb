@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_07_094257) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_08_080318) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -112,10 +112,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_07_094257) do
     t.string "last_name"
     t.string "pseudo"
     t.string "rank_category"
-    t.string "transport_level"
-    t.string "home_level"
-    t.string "numeric_level"
-    t.string "food_level"
+    t.string "transport_level", default: "beginner"
+    t.string "home_level", default: "beginner"
+    t.string "numeric_level", default: "beginner"
+    t.string "food_level", default: "beginner"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

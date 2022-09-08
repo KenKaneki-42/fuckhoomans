@@ -9,6 +9,7 @@ require 'open-uri'
 
 p 'Delete ancient seeds' # à classer du plus précis au moins
 
+Carbonassessment.delete_all
 Score.delete_all
 UserAction.delete_all
 Action.delete_all
