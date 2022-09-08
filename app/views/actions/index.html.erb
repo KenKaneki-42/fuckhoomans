@@ -13,32 +13,70 @@
         <h3 style="text-align: center;">Your level in <br> household category is <br> <strong><%= current_user.household_level %></strong></h3>
       <% end %>
     <% end %>
-    <p style="text-align: center; font-size: x-small; line-height: 2.7; margin-bottom: 0;">Let's select 2 actions that you want <br> to realize by clicking on em just below </p>
+    <p style="text-align: center; font-size: x-small; line-height: 2.7; margin-bottom: 0;">Let's select 2 actions that you want <br> to realize by clicking on them just below </p>
   </div>
 
 
   <div class="d-flex justify-content-evenly py-4 align-items-center">
-    <div class="icon-wrapper">
+<%# transport %>
+
+  <% if  params[:category] == "transport"%>
+    <div class="active-icon-wrapper-idx">
+     <i class="fa-solid fa-plane fa-2x circle-icon icon-travel"></i>
+    </div>
+  <% else %>
+    <div class="icon-wrapper-idx d-flex align-items-center">
       <%= link_to actions_path(category: "transport"), class:"icon-travel" do %>
         <i class="fa-solid fa-plane fa-1x circle-icon"></i>
       <% end %>
     </div>
-    <div class="icon-wrapper">
-      <%= link_to actions_path(category: "food"), class:"icon-food" do %>
+  <% end %>
+
+
+<%# food %>
+
+  <% if  params[:category] == "food"%>
+    <div class="active-icon-wrapper-idx">
+       <i class="fa-solid fa-carrot fa-2x circle-icon icon-food"></i>
+    </div>
+  <% else %>
+    <div class="icon-wrapper-idx d-flex align-items-center">
+      <%= link_to actions_path(category: "food"), class:"icon-food " do %>
         <i class="fa-solid fa-carrot fa-1x circle-icon"></i>
       <% end %>
     </div>
-    <div class="icon-wrapper">
-      <%= link_to actions_path(category: "digital"), class:"icon-tech" do %>
-        <i class="fa-solid fa-computer fa-1x circle-icon"></i>
-      <% end %>
+  <% end %>
+
+
+<%# digital %>
+
+  <% if  params[:category] == "digital"%>
+    <div class="active-icon-wrapper-idx">
+       <i class="fa-solid fa-computer fa-2x circle-icon icon-tech"></i>
     </div>
-    <div class="icon-wrapper">
-      <%= link_to actions_path(category: "household"), class:"icon-home" do %>
-        <i class="fa-solid fa-house fa-1x circle-icon"></i>
-      <% end %>
-    </div>
+  <% else %>
+    <div class="icon-wrapper-idx d-flex align-items-center">
+    <%= link_to actions_path(category: "digital"), class:"icon-tech" do %>
+      <i class="fa-solid fa-computer fa-1x circle-icon"></i>
+    <% end %>
   </div>
+  <% end %>
+
+
+<%# household %>
+
+  <% if  params[:category] == "household"%>
+    <div class="active-icon-wrapper-idx">
+       <i class="fa-solid fa-house fa-2x circle-icon icon-home"></i>
+    </div>
+  <% else %>
+   <div class="icon-wrapper-idx d-flex align-items-center">
+    <%= link_to actions_path(category: "household"), class:"icon-home" do %>
+      <i class="fa-solid fa-house fa-1x circle-icon"></i>
+    <% end %>
+  </div>
+  <% end %>
+</div>
 
 
 <hr class="w-100 mb-4">
