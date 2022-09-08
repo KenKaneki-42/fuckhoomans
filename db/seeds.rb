@@ -251,7 +251,7 @@ action4l3.photo.attach(io: file4l3redmeat, filename: "redmeat3.jpg", content_typ
 action5l1multiscreen = Action.create({ title: 'Adapt your video resolution to the screen',
                                         level: 'beginner',
                                         score: '7',
-                                        category: 'digital',
+                                        category: 'numeric',
                                         description: 'Choose résolution between 360p and 720p',
                                         explication: "For example, for a 13-inch screen, a resolution of 360 to 720 inches is
                                                       sufficient when watching a streaming video.
@@ -265,7 +265,7 @@ action5l1multiscreen.photo.attach(io: file5l1multiscreen, filename: 'multiscreen
 action6l1stream = Action.create({ title: 'Stop streaming autoplay',
                                   level: 'beginner',
                                   score: '7',
-                                  category: 'digital',
+                                  category: 'numeric',
                                   description: 'Disable video autoplay',
                                   explication: 'Most of social networks and streaming platforms have an autoplay.
                                                 You will save energy time and choose what you want to watch',
@@ -277,7 +277,7 @@ action6l1stream.photo.attach(io: file6l1stream, filename: 'stopautoplay.jpg', co
 action7l1email = Action.create({ title: 'Better email management',
                                 level: 'beginner',
                                 score: '7',
-                                category: 'digital',
+                                category: 'numeric',
                                 description: 'Regularly sort your mailbox',
                                 explication: 'Delete sent messages, spam, junk mail. And empty your trash,
                                               to avoid storing these useless emails in data centers.
@@ -289,7 +289,20 @@ file7l1email = URI.open('https://images.unsplash.com/photo-1643845892686-30c241c
 action7l1email.photo.attach(io: file7l1email, filename: 'notifemail.jpg', content_type: 'image/jpeg')
 
 
-
+household
+action7l1email = Action.create({ title: 'Better email management',
+  level: 'beginner',
+  score: '7',
+  category: 'numeric',
+  description: 'Regularly sort your mailbox',
+  explication: 'Delete sent messages, spam, junk mail. And empty your trash,
+                to avoid storing these useless emails in data centers.
+                For example, a French person receives an average of 936 newsletters per year,
+                (9 kgCO2e if we take into account their energy-intensive sending and storage).',
+  occurences: 1,
+  carbongain: 0 })
+file7l1email = URI.open('https://images.unsplash.com/photo-1643845892686-30c241c3938c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=776&q=80')
+action7l1email.photo.attach(io: file7l1email, filename: 'notifemail.jpg', content_type: 'image/jpeg')
 
 # action2 = Action.create({ title: 'household question', level: 'beginner', score: '7', category: 'household', description: "do some stuff for the planet", occurences: 1 })
 # action3 = Action.create({ title: 'numeric question', level: 'beginner', score: '7', category: 'digital', description: "do some stuff for the planet", occurences: 1 })
