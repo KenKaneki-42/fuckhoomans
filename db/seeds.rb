@@ -17,19 +17,18 @@ User.delete_all
 
 p 'Generate User seeds'
 ####################### USERS ###############################################################
-user1 = User.create!({email: 'jean.jordan@gmail.com',
+user1 = User.create!({email: 'vincent.v@gmail.com',
                       password: '123456',
-                      first_name: 'jean',
-                      last_name: 'jordan',
-                      pseudo: 'jjordan47',
+                      first_name: 'Vincent',
+                      last_name: 'Vignali',
+                      pseudo: 'Falkor',
                       rank_category: 'bronze',
-                      transport_level: 'beginner',
+                      transport_level: 'intermediate',
                       home_level: 'beginner',
                       numeric_level: 'beginner',
                       food_level: 'beginner'})
 file1 = URI.open("https://avatars.githubusercontent.com/u/86103386?v=4")
 user1.photo.attach(io: file1, filename: "user1.jpg", content_type: "image/jpeg")
-
 
 user2 = User.create!({email: 'jordan.jean@gmail.com',
                       password: '123456',
@@ -43,8 +42,6 @@ user2 = User.create!({email: 'jordan.jean@gmail.com',
                       food_level: 'beginner'})
 file2 = URI.open("https://avatars.githubusercontent.com/u/108475328?v=4")
 user2.photo.attach(io: file2, filename: "user2.jpg", content_type: "image/jpeg")
-
-
 
 user3 = User.create!({email: 'rafa.icy@gmail.com',
                       password: '123456',
@@ -117,7 +114,7 @@ file1l3bike = URI.open("https://images.unsplash.com/photo-1528629297340-d1d46694
 action1l3.photo.attach(io: file1l3bike, filename: "bike3.jpg", content_type: "image/jpeg")
 
 # train vs flight
-action2l1 = Action.create({ title: 'Take train VS domestic flight',
+action2l1 = Action.create({ title: 'Take train VS flight',
                             level: 'beginner',
                             score: '7',
                             category: 'transport',
@@ -130,7 +127,7 @@ action2l1 = Action.create({ title: 'Take train VS domestic flight',
 file2l1train = URI.open("https://images.unsplash.com/photo-1527295110-5145f6b148d0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1731&q=80")
 action2l1.photo.attach(io: file2l1train, filename: "train-intercity.jpg", content_type: "image/jpeg")
 
-action2l2 = Action.create({ title: 'Take train VS domestic flight',
+action2l2 = Action.create({ title: 'Take train VS flight',
                             level: 'intermediate',
                             score: '15',
                             category: 'transport',
@@ -144,9 +141,9 @@ action2l2 = Action.create({ title: 'Take train VS domestic flight',
 file2l2train = URI.open("https://images.unsplash.com/photo-1515165562839-978bbcf18277?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80")
 action2l2.photo.attach(io: file2l2train, filename: "train2.jpg", content_type: "image/jpeg")
 
-action2l3 = Action.create({ title: 'Take the sailing boat VS long-haul flight',
+action2l3 = Action.create({ title: 'Sailing boat VS flight',
                             level: 'advanced',
-                            score: '1000',
+                            score: '35',
                             category: 'transport',
                             description: 'If you have time, take a sailing boat',
                             explication: 'Taking a sailing boat instead of
@@ -218,7 +215,7 @@ action4l1.photo.attach(io: file4l1redmeat, filename: "redmeat.jpg", content_type
 # 100g white meat => 0,95kgC02e
 action4l2 = Action.create({ title: 'Red meat VS white meat',
                             level: 'intermediate',
-                            score: '10',
+                            score: '15',
                             category: 'food',
                             description: 'Replace red meat by eggs 2 times a week',
                             explication: "It's generate 40 kgCO2e/kg of red meat
@@ -232,7 +229,7 @@ action4l2.photo.attach(io: file4l2redmeat, filename: "redmeat2.jpg", content_typ
 
 action4l3 = Action.create({ title: 'Red Meat',
                             level: 'advanced',
-                            score: '15',
+                            score: '35',
                             category: 'food',
                             description: 'Replace red meat 5 times a week',
                             explication: "That generate 40 kgCO2e/kg of red meat by
@@ -389,5 +386,22 @@ user1_action8 = UserAction.create({ title: action4l2.title,
                                     score: action4l2.score,
                                     category: action4l2.category,
                                     carbongain: action4l2.carbongain })
+
+p 'Generate score for vincent'
+# score1 = Score.create({ user_id: user1,
+#                         transport_score: 21,
+#                         food_score: 7,
+#                         digital_score: 0,
+#                         household_score: 0,
+#                         total_score: 28 })
+
+score_user1 = user1.score
+
+score_user1.transport_score = 21
+score_user1.food_score = 7
+score_user1.digital_score = 0
+score_user1.household_score = 0
+score_user1.total_score = 28
+score_user1.save
 
 p 'Finished seeds'
