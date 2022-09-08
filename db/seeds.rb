@@ -246,7 +246,7 @@ action4l3.photo.attach(io: file4l3redmeat, filename: "redmeat3.jpg", content_typ
 # 5*100g mixed((1/3)*(4+2+0.5)) =>  1,085kgCO2e
 # 2,17 kgCO2e/k => 5 * 0,217
 
-# DIGITAL
+# numeric DIGITAL
 
 action5l1multiscreen = Action.create({ title: 'Adapt your video resolution to the screen',
                                         level: 'beginner',
@@ -289,20 +289,20 @@ file7l1email = URI.open('https://images.unsplash.com/photo-1643845892686-30c241c
 action7l1email.photo.attach(io: file7l1email, filename: 'notifemail.jpg', content_type: 'image/jpeg')
 
 
-household
-action7l1email = Action.create({ title: 'Better email management',
-  level: 'beginner',
-  score: '7',
-  category: 'numeric',
-  description: 'Regularly sort your mailbox',
-  explication: 'Delete sent messages, spam, junk mail. And empty your trash,
-                to avoid storing these useless emails in data centers.
-                For example, a French person receives an average of 936 newsletters per year,
-                (9 kgCO2e if we take into account their energy-intensive sending and storage).',
-  occurences: 1,
-  carbongain: 0 })
-file7l1email = URI.open('https://images.unsplash.com/photo-1643845892686-30c241c3938c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=776&q=80')
-action7l1email.photo.attach(io: file7l1email, filename: 'notifemail.jpg', content_type: 'image/jpeg')
+
+# action8l1secondhand = Action.create({ title: '',
+#                                 level: 'beginner',
+#                                 score: '7',
+#                                 category: 'home',
+#                                 description: 'Regularly sort your mailbox',
+#                                 explication: 'Delete sent messages, spam, junk mail. And empty your trash,
+#                                               to avoid storing these useless emails in data centers.
+#                                               For example, a French person receives an average of 936 newsletters per year,
+#                                               (9 kgCO2e if we take into account their energy-intensive sending and storage).',
+#                                 occurences: 1,
+#                                 carbongain: 0 })
+# file8l1secondhand = URI.open('https://images.unsplash.com/photo-1643845892686-30c241c3938c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=776&q=80')
+# action8l1secondhand.photo.attach(io: file8l1secondhand, filename: 'notifemail.jpg', content_type: 'image/jpeg')
 
 # action2 = Action.create({ title: 'household question', level: 'beginner', score: '7', category: 'household', description: "do some stuff for the planet", occurences: 1 })
 # action3 = Action.create({ title: 'numeric question', level: 'beginner', score: '7', category: 'digital', description: "do some stuff for the planet", occurences: 1 })
