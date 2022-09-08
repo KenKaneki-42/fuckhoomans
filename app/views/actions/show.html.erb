@@ -29,33 +29,33 @@
     <div class="w-100">
       <div class="d-flex justify-content-evenly align-items-center card-show-co2 w-100">
         <% if @action.category == 'transport' %>
-          <i class="fa-solid fa-leaf pe-2" style="color: rgb(216, 176, 77);"></i>
+          <i class="fa-solid fa-leaf pe-2 py-2" style="color: rgb(216, 176, 77);"></i>
           <p style="color: rgb(216, 176, 77);"><%= @action.carbongain.div(1_000_000) %> kgCO2e</p>
         <% elsif @action.category == 'food' %>
-          <i class="fa-solid fa-leaf pe-2" style="color: rgb(164, 198, 99);"></i>
+          <i class="fa-solid fa-leaf pe-2 py-2" style="color: rgb(164, 198, 99);"></i>
           <p style="color: rgb(164, 198, 99);"><%= @action.carbongain.div(1_000_000) %> kgCO2e</p>
         <% elsif @action.category == 'numeric' %>
-          <i class="fa-solid fa-leaf pe-2" style="color: rgb(125, 156, 183);"></i>
+          <i class="fa-solid fa-leaf pe-2 py-2" style="color: rgb(125, 156, 183);"></i>
           <p style="color: rgb(125, 156, 183);"><%= @action.carbongain.div(1_000_000) %> kgCO2e</p>
         <% elsif @action.category == 'household' %>
-          <i class="fa-solid fa-leaf pe-2" style="color: rgb(189, 96, 72);"></i>
+          <i class="fa-solid fa-leaf pe-2 py-2" style="color: rgb(189, 96, 72);"></i>
           <p style="color: rgb(189, 96, 72);"><%= @action.carbongain.div(1_000_000) %> kgCO2e</p>
         <% end %>
       </div>
       <% if @action.category == 'transport' %>
-        <div class="card-show-level mt-2 w-75 ms-auto" style="background-color: rgb(216, 176, 77);">
+        <div class="card-show-level mt-2 py-2 w-75 ms-auto d-flex justify-content-center align-items-center" style="background-color: rgb(216, 176, 77);">
           <p style="font-size: smaller; text-align: center;"><%= @action.score %> pts</p>
         </div>
       <% elsif @action.category == 'food' %>
-        <div class="card-show-level mt-2 w-75 ms-auto" style="background-color: rgb(164, 198, 99);">
+        <div class="card-show-level mt-2 py-2 w-75 ms-auto d-flex justify-content-center align-items-center" style="background-color: rgb(164, 198, 99);">
           <p style="font-size: smaller; text-align: center;"><%= @action.score %> pts</p>
         </div>
       <% elsif @action.category == 'numeric' %>
-        <div class="card-show-level mt-2 w-75 ms-auto" style="background-color: rgb(125, 156, 183);">
+        <div class="card-show-level mt-2 py-2 w-75 ms-auto d-flex justify-content-center align-items-center" style="background-color: rgb(125, 156, 183);">
           <p style="font-size: smaller; text-align: center;"><%= @action.score %> pts</p>
         </div>
       <% elsif @action.category == 'household' %>
-        <div class="card-show-level mt-2 w-75 ms-auto" style="background-color: rgb(189, 96, 72);">
+        <div class="card-show-level mt-2 py-2 w-75 ms-auto d-flex justify-content-center align-items-center" style="background-color: rgb(189, 96, 72);">
           <p style="font-size: smaller; text-align: center;"><%= @action.score %> pts</p>
         </div>
       <% end %>
