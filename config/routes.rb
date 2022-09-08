@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'users/registrations' }
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # Defines the root path route ("/")
   # root "articles#index"
@@ -18,4 +18,5 @@ Rails.application.routes.draw do
     resources :scores, only: %i[index show create]
   end
   get 'dashboard', to: "user_actions#dashboard", :as => :user_root
+  # devise_for :users, controllers: { registrations: 'users/sign_up' }
 end
