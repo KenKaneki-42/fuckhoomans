@@ -124,18 +124,6 @@
                 <p style="color: rgb(189, 96, 72);"><%= action.carbongain.div(1_000_000) %> kgCO2e</p>
               <% end %>
             </div>
-
-            <% if action.category == 'transport' %>
-              <div class="card-category-level d-flex justify-content-around isDisabled" style="background-color: rgb(216, 176, 77);">
-            <% elsif action.category == 'food' %>
-              <div class="card-category-level d-flex justify-content-around isDisabled" style="background-color: rgb(164, 198, 99);">
-            <% elsif action.category == 'numeric' %>
-              <div class="card-category-level d-flex justify-content-around isDisabled" style="background-color: rgb(125, 156, 183);">
-            <% elsif action.category == 'household' %>
-              <div class="card-category-level d-flex justify-content-around isDisabled" style="background-color: rgb(189, 96, 72);">
-            <% end %>
-                <p class="isDisabled"><%= action.level %></p>
-              </div>
           </div>
 
 
@@ -156,13 +144,13 @@
             <h1><strong><%= action.title %></strong></h1>
           <% end %>
         <% if action.category == 'transport' %>
-          <h4 style="color: rgb(216, 176, 77);"><%= action.occurences %> times / week</h4>
+          <h4 style="color: rgb(216, 176, 77);"><%= action.level %></h4>
         <% elsif action.category == 'food' %>
-          <h4 style="color: rgb(164, 198, 99);"><%= action.occurences %> times / week</h4>
+          <h4 style="color: rgb(164, 198, 99);"><%= action.level %></h4>
         <% elsif action.category == 'numeric' %>
-          <h4 style="color: rgb(125, 156, 183);"><%= action.occurences %> times / week</h4>
+          <h4 style="color: rgb(125, 156, 183);"><%= action.level %></h4>
         <% elsif action.category == 'household' %>
-          <h4 style="color: rgb(189, 96, 72);"><%= action.occurences %> times / week</h4>
+          <h4 style="color: rgb(189, 96, 72);"><%= action.level %></h4>
         <% end %>
           <div class="">
             <% if action.description.length > 150 %>
