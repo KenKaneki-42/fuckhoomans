@@ -143,8 +143,8 @@
           <h4 style="color: rgb(189, 96, 72);"><%= user_action.action.level %></h4>
         <% end %>
           <div>
-            <% if user_action.action.description.length > 150 %>
-              <p style="font-size: small; color: rgb(102, 102, 102);"><%= user_action.action.description[0..150] %> ...</p>
+            <% if user_action.action.description.length > 45 %>
+              <p style="font-size: small; color: rgb(102, 102, 102);"><%= user_action.action.description[0..45] %> ...</p>
             <% else %>
               <p style="font-size: small; color: rgb(102, 102, 102);"><%= user_action.action.description %></p>
             <% end %>

@@ -25,38 +25,38 @@
     <% if @user_action.action.carbongain.div(1_000_000)>= 100 %>
       <div class="d-flex col-4 justify-content-between">
     <% else %>
-      <div class="d-flex col-3 justify-content-between">
+      <div class="d-flex col-4 justify-content-between">
     <% end %>
     <div class="w-100">
-      <div class="d-flex justify-content-evenly align-items-center card-show-co2 w-100">
+      <div class="d-flex justify-content-evenly align-items-center card-show-co2 py-2 w-100">
         <% if @user_action.action.category == 'transport' %>
-          <i class="fa-solid fa-leaf pe-2" style="color: rgb(216, 176, 77);"></i>
-          <p style="color: rgb(216, 176, 77);"><%= @user_action.action.carbongain.div(1_000_000) %> kgCO2e</p>
+          <i class="fa-solid fa-leaf ps-2" style="color: rgb(216, 176, 77);"></i>
+          <p class="pe-2" style="color: rgb(216, 176, 77);"><%= @user_action.action.carbongain.div(1_000_000) %> kgCO2e</p>
         <% elsif @user_action.action.category == 'food' %>
-          <i class="fa-solid fa-leaf pe-2" style="color: rgb(164, 198, 99);"></i>
-          <p style="color: rgb(164, 198, 99);"><%= @user_action.action.carbongain.div(1_000_000) %> kgCO2e</p>
+          <i class="fa-solid fa-leaf ps-2" style="color: rgb(164, 198, 99);"></i>
+          <p class="pe-2" style="color: rgb(164, 198, 99);"><%= @user_action.action.carbongain.div(1_000_000) %> kgCO2e</p>
         <% elsif @user_action.action.category == 'numeric' %>
-          <i class="fa-solid fa-leaf pe-2" style="color: rgb(125, 156, 183);"></i>
-          <p style="color: rgb(125, 156, 183);"><%= @user_action.action.carbongain.div(1_000_000) %> kgCO2e</p>
+          <i class="fa-solid fa-leaf ps-2" style="color: rgb(125, 156, 183);"></i>
+          <p class="pe-2" style="color: rgb(125, 156, 183);"><%= @user_action.action.carbongain.div(1_000_000) %> kgCO2e</p>
         <% elsif @user_action.action.category == 'household' %>
-          <i class="fa-solid fa-leaf pe-2" style="color: rgb(189, 96, 72);"></i>
-          <p style="color: rgb(189, 96, 72);"><%= @user_action.action.carbongain.div(1_000_000) %> kgCO2e</p>
+          <i class="fa-solid fa-leaf ps-2" style="color: rgb(189, 96, 72);"></i>
+          <p class="pe-2" style="color: rgb(189, 96, 72);"><%= @user_action.action.carbongain.div(1_000_000) %> kgCO2e</p>
         <% end %>
       </div>
       <% if @user_action.action.category == 'transport' %>
-        <div class="card-show-level mt-2 w-75 ms-auto" style="background-color: rgb(216, 176, 77);">
+        <div class="card-show-level mt-2 py-2 w-75 ms-auto d-flex justify-content-center align-items-center" style="background-color: rgb(216, 176, 77);">
           <p style="font-size: smaller; text-align: center;"><%= @user_action.action.score %> pts</p>
         </div>
       <% elsif @user_action.action.category == 'food' %>
-        <div class="card-show-level mt-2 w-75 ms-auto" style="background-color: rgb(164, 198, 99);">
+        <div class="card-show-level mt-2 py-2 w-75 ms-auto d-flex justify-content-center align-items-center" style="background-color: rgb(164, 198, 99);">
           <p style="font-size: smaller; text-align: center;"><%= @user_action.action.score %> pts</p>
         </div>
       <% elsif @user_action.action.category == 'numeric' %>
-        <div class="card-show-level mt-2 w-75 ms-auto" style="background-color: rgb(125, 156, 183);">
+        <div class="card-show-level mt-2 py-2 w-75 ms-auto d-flex justify-content-center align-items-center" style="background-color: rgb(125, 156, 183);">
           <p style="font-size: smaller; text-align: center;"><%= @user_action.action.score %> pts</p>
         </div>
       <% elsif @user_action.action.category == 'household' %>
-        <div class="card-show-level mt-2 w-75 ms-auto" style="background-color: rgb(189, 96, 72);">
+        <div class="card-show-level mt-2 py-2 w-75 ms-auto d-flex justify-content-center align-items-center" style="background-color: rgb(189, 96, 72);">
           <p style="font-size: smaller; text-align: center;"><%= @user_action.action.score %> pts</p>
         </div>
       <% end %>
@@ -75,13 +75,7 @@
   <% end %>
   <strong><p class=" mb-1"> <%= @user_action.action.description %></p></strong>
   <p class="mb-4 ml-3" style="color: rgb(102, 102, 102);"><%= @user_action.action.explication %></p>
-  <%= simple_form_for [@action, @user_action], html: {class: "col-12 d-flex justify-content-between"} do |f| %>
-    <%= f.input :status, as: :hidden, input_html: {"value": "selected" } %>
-    <%= f.input :score, as: :hidden, input_html: {"value": @user_action.action.score } %>
-    <%= f.input :action_id, as: :hidden, input_html: {"value": @user_action.action.id } %>
-    <%= f.input :category, as: :hidden, input_html: {"value": @user_action.action.category } %>
-    <%= f.input :title, as: :hidden, input_html: {"value": @user_action.action.title } %>
-    <%= f.input :carbongain, as: :hidden, input_html: {"value": @user_action.action.carbongain } %>
-    <%= f.submit "Add this action", class: "col-10 btn btn-done " %>
+  <%= simple_form_for @user_action, html: {class: "col-12 d-flex justify-content-between"}, url: user_action_path(@user_action), method: :patch do |f| %>
+    <%= f.submit "Done", class: "col-10 btn btn-done " %>
   <% end %>
 </div>

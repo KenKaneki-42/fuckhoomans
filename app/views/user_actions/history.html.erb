@@ -1,10 +1,9 @@
 <div class="container pb-4">
-  <h3 class="text-center mt-4">Here is your validated actions </h3>
   <% total_carbon_gain = 0 %>
   <% @user_actions.each do |action|%>
     <% total_carbon_gain += action.action.carbongain.div(100_000) %>
   <% end %>
-  <h3 class="text-center"> your saved carbon <h3 class="text-center custom-co2" style="color: green; font-weight: bold; text-align: center;"><%= total_carbon_gain %>  kgCO2e <img src="https://cdn-icons-png.flaticon.com/512/7626/7626666.png" style="width: 50px; margin-right: -12px;" alt=""></h3></h3>
+  <h3 class="text-center mt-4">saved carbon <h3 class="text-center custom-co2" style="color: green; font-weight: bold; text-align: center;"><%= total_carbon_gain %>  kgCO2e <img src="https://cdn-icons-png.flaticon.com/512/7626/7626666.png" style="width: 50px; margin-right: -12px;" alt=""></h3></h3>
 </div>
 
 <hr class="w-100">
@@ -79,8 +78,8 @@
           <h4 style="color: rgb(189, 96, 72);"><%= user_action.action.level %></h4>
         <% end %>
           <div>
-            <% if user_action.action.description.length > 150 %>
-              <p style="font-size: small; color: rgb(102, 102, 102);"><%= user_action.action.description[0..150] %> ...</p>
+            <% if user_action.action.description.length > 45 %>
+              <p style="font-size: small; color: rgb(102, 102, 102);"><%= user_action.action.description[0..45] %> ...</p>
             <% else %>
               <p style="font-size: small; color: rgb(102, 102, 102);"><%= user_action.action.description %></p>
             <% end %>
