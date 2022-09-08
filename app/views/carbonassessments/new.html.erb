@@ -1,90 +1,104 @@
-<div class="container">
+<div class="bk-white">
+  <div id="header" class="d-flex justify-content-around align-items-center">
+  <%# ICON %>
+   <i class="fa-solid fa-leaf"></i>
+  <%# TITRE %>
+  <h1 class="title_landing">Fuckhoomans</h1>
+  </div>
+</div>
 
-<%= simple_form_for @carbon_assessment do |f| %>
-<%# Transport %>
-  <div class="icon-wrapper">
-    <%= link_to actions_path(category: "transport"), class:"icon-travel" do %>
-      <i class="fa-solid fa-plane fa-1x circle-icon"></i>
-    <% end %>
+<div class="container ">
+  <%= simple_form_for @carbon_assessment do |f| %>
+  <%# Transport %>
+    <div class="icon-wrapper">
+      <div class="card-bar-separator-form-plane" style="background-color: rgb(216, 176, 77);">
+        <%= link_to actions_path(category: "transport"), class:"icon-travel" do %>
+          <i class="fa-solid fa-plane fa-1x circle-icon"></i>
+        <% end %>
+    </div>
+    </br>
+    <%# <%= f.label("bike") %>
+    <div class="col-6 mx-auto">
+      <%= f.input :bike, input_html:{ type:"range", class:"form-range mx-2", min:"1", max:"3", id:"customRange2"}%>
+    </div>
+    <div class="col-6 mx-auto">
+      <%= f.input :bus, input_html:{ type:"range", class:"form-range mx-2", min:"1", max:"3", id:"customRange2"}%>
+    </div>
+    <div class="col-6 mx-auto">
+      <%= f.input :plane, input_html:{ type:"range", class:"form-range mx-2", min:"1", max:"3", id:"customRange2"}%>
+    </div>
+    <div class="col-6 mx-auto">
+      <%= f.input :car, input_html:{ type:"range", class:"form-range mx-2", min:"1", max:"3", id:"customRange2"}%>
+    </div>
   </div>
-  </br>
-  <%# <%= f.label("bike") %>
-  <div class="col-6 mx-auto">
-    <%= f.input :bike, input_html:{ type:"range", class:"form-range mx-2", min:"1", max:"3", id:"customRange2"}%>
-  </div>
-  <div class="col-6 mx-auto">
-    <%= f.input :bus, input_html:{ type:"range", class:"form-range mx-2", min:"1", max:"3", id:"customRange2"}%>
-  </div>
-  <div class="col-6 mx-auto">
-    <%= f.input :plane, input_html:{ type:"range", class:"form-range mx-2", min:"1", max:"3", id:"customRange2"}%>
-  </div>
-  <div class="col-6 mx-auto">
-    <%= f.input :car, input_html:{ type:"range", class:"form-range mx-2", min:"1", max:"3", id:"customRange2"}%>
-  </div>
-  </br>
-<%# Digital %>
-  <div class="icon-wrapper">
-    <%= link_to actions_path(category: "food"), class:"icon-food" do %>
-      <i class="fa-solid fa-carrot fa-1x circle-icon"></i>
-    <% end %>
-  </div>
-  </br>
-  <div class="col-6 mx-auto">
-    <%= f.input :email, input_html:{ type:"range", class:"form-range mx-2", min:"1", max:"3", id:"customRange2"}%>
-  </div>
-  <div class="col-6 mx-auto">
-    <%= f.input :streaming, input_html:{ type:"range", class:"form-range mx-2", min:"1", max:"3", id:"customRange2"}%>
-  </div>
-  <div class="col-6 mx-auto">
-    <%= f.input :devise, input_html:{ type:"range", class:"form-range mx-2", min:"1", max:"3", id:"customRange2"}%>
-  </div>
-  <div class="col-6 mx-auto">
-    <%= f.input :second_hand, input_html:{ type:"range", class:"form-range mx-2", min:"1", max:"3", id:"customRange2"}%>
-  </div>
-  </br>
-<%# Food %>
-  <div class="icon-wrapper">
-    <%= link_to actions_path(category: "digital"), class:"icon-tech" do %>
-      <i class="fa-solid fa-computer fa-1x circle-icon"></i>
-    <% end %>
-  </div>
-  </br>
-  <div class="col-6 mx-auto">
-    <%= f.input :red_meat, input_html:{ type:"range", class:"form-range mx-2", min:"1", max:"3", id:"customRange2"}%>
-  </div>
-  <div class="col-6 mx-auto">
-    <%= f.input :white_meat, input_html:{ type:"range", class:"form-range mx-2", min:"1", max:"3", id:"customRange2"}%>
-  </div>
-  <div class="col-6 mx-auto">
-    <%= f.input :oil, input_html:{ type:"range", class:"form-range mx-2", min:"1", max:"3", id:"customRange2"}%>
-  </div>
-  <div class="col-6 mx-auto">
-    <%= f.input :dairy, input_html:{ type:"range", class:"form-range mx-2", min:"1", max:"3", id:"customRange2"}%>
-  </div>
-  </br>
-<%# Household %>
-  <div class="icon-wrapper">
-    <%= link_to actions_path(category: "household"), class:"icon-home" do %>
-      <i class="fa-solid fa-house fa-1x circle-icon"></i>
-    <% end %>
-  </div>
-  </br>
-  <div class="col-6 mx-auto">
-    <%= f.input :house_size, input_html:{ type:"range", class:"form-range mx-2", min:"1", max:"3", id:"customRange2"}%>
-  </div>
-  <div class="col-6 mx-auto">
-    <%= f.input :house_heated, input_html:{ type:"range", class:"form-range mx-2", min:"1", max:"3", id:"customRange2"}%>
-  </div>
-  <div class="col-6 mx-auto">
-    <%= f.input :renewable_energy, input_html:{ type:"range", class:"form-range mx-2", min:"1", max:"3", id:"customRange2"}%>
-  </div>
-  <div class="col-6 mx-auto">
-    <%= f.input :people_number, input_html:{ type:"range", class:"form-range mx-2", min:"1", max:"3", id:"customRange2"}%>
-  </div>
-
-  <div class="d-flex justify-content-center">
-    <%= f.submit "generate my profil", class: "col-10 btn btn-done" %>
-  </div>
-<% end %>
-
+    </br>
+  <%# Digital %>
+    </br>
+    <div class="icon-wrapper">
+      <div class="card-bar-separator-form-tech mb-1" style="background-color: rgb(125, 156, 183);">
+        <%= link_to actions_path(category: "digital"), class:"icon-tech" do %>
+          <i class="fa-solid fa-computer fa-1x circle-icon"></i>
+        <% end %>
+      </div>
+      <div class="col-6 mx-auto mt-4">
+        <%= f.input :email, input_html:{ type:"range", class:"form-range mx-2", min:"1", max:"3", id:"customRange2"}%>
+      </div>
+      <div class="col-6 mx-auto">
+        <%= f.input :streaming, input_html:{ type:"range", class:"form-range mx-2", min:"1", max:"3", id:"customRange2"}%>
+      </div>
+      <div class="col-6 mx-auto">
+        <%= f.input :devise, input_html:{ type:"range", class:"form-range mx-2", min:"1", max:"3", id:"customRange2"}%>
+      </div>
+      <div class="col-6 mx-auto">
+        <%= f.input :second_hand, input_html:{ type:"range", class:"form-range mx-2", min:"1", max:"3", id:"customRange2"}%>
+      </div>
+    </div>
+    </br>
+    <%# Food %>
+    </br>
+    <div class="icon-wrapper">
+      <div class="card-bar-separator-form-food mb-1" style="background-color: rgb(164, 198, 99);">
+          <%= link_to actions_path(category: "food"), class:"icon-food" do %>
+            <i class="fa-solid fa-carrot fa-1x circle-icon"></i>
+        <% end %>
+      </div>
+      <div class="col-6 mx-auto mt-4">
+        <%= f.input :red_meat, input_html:{ type:"range", class:"form-range mx-2", min:"1", max:"3", id:"customRange2"}%>
+      </div>
+      <div class="col-6 mx-auto">
+        <%= f.input :white_meat, input_html:{ type:"range", class:"form-range mx-2", min:"1", max:"3", id:"customRange2"}%>
+      </div>
+      <div class="col-6 mx-auto">
+        <%= f.input :oil, input_html:{ type:"range", class:"form-range mx-2", min:"1", max:"3", id:"customRange2"}%>
+      </div>
+      <div class="col-6 mx-auto">
+        <%= f.input :dairy, input_html:{ type:"range", class:"form-range mx-2", min:"1", max:"3", id:"customRange2"}%>
+      </div>
+    </div>
+    </br>
+  <%# Household %>
+    </br>
+    <div class="icon-wrapper">
+      <div class="card-bar-separator-form-household mb-1" style="background-color: rgb(189, 96, 72);">
+          <%= link_to actions_path(category: "household"), class:"icon-household" do %>
+            <i class="fa-solid fa-home fa-1x circle-icon"></i>
+        <% end %>
+      </div>
+      <div class="col-6 mx-auto mt-4">
+        <%= f.input :house_size, input_html:{ type:"range", class:"form-range mx-2", min:"1", max:"3", id:"customRange2"}%>
+      </div>
+      <div class="col-6 mx-auto">
+        <%= f.input :house_heated, input_html:{ type:"range", class:"form-range mx-2", min:"1", max:"3", id:"customRange2"}%>
+      </div>
+      <div class="col-6 mx-auto">
+        <%= f.input :renewable_energy, input_html:{ type:"range", class:"form-range mx-2", min:"1", max:"3", id:"customRange2"}%>
+      </div>
+      <div class="col-6 mx-auto">
+        <%= f.input :people_number, input_html:{ type:"range", class:"form-range mx-2", min:"1", max:"3", id:"customRange2"}%>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center mt-5">
+      <%= f.submit "generate my profil", class: "col-10 btn btn-done" %>
+    </div>
+  <% end %>
 </div>
