@@ -30,7 +30,6 @@ user1 = User.create!({email: 'jean.jordan@gmail.com',
 file1 = URI.open("https://avatars.githubusercontent.com/u/86103386?v=4")
 user1.photo.attach(io: file1, filename: "user1.jpg", content_type: "image/jpeg")
 
-
 user2 = User.create!({email: 'jordan.jean@gmail.com',
                       password: '123456',
                       first_name: 'jordan',
@@ -43,8 +42,6 @@ user2 = User.create!({email: 'jordan.jean@gmail.com',
                       food_level: 'beginner'})
 file2 = URI.open("https://avatars.githubusercontent.com/u/108475328?v=4")
 user2.photo.attach(io: file2, filename: "user2.jpg", content_type: "image/jpeg")
-
-
 
 user3 = User.create!({email: 'rafa.icy@gmail.com',
                       password: '123456',
@@ -389,5 +386,13 @@ user1_action8 = UserAction.create({ title: action4l2.title,
                                     score: action4l2.score,
                                     category: action4l2.category,
                                     carbongain: action4l2.carbongain })
+
+p 'Generate score for jeanjordan'
+score1 = Score.create({ user_id: user1,
+                        transport_score: 21,
+                        food_score: 7,
+                        digital_score: 0,
+                        household_score: 0,
+                        total_score: 28 })
 
 p 'Finished seeds'
