@@ -11,7 +11,7 @@
 <div class="container mt-3">
   <% @user_actions.each do |user_action|%>
 
-    <div class="card-category-card mb-4" style="height: 30vh">
+    <div class="card-category-card mb-4" style="height: 200px">
       <%= link_to user_action_path(user_action) do %>
         <div class= "card-img p-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
             url('<%= cl_image_path user_action.action.photo.key, height: 300, crop: :fit%>')">
@@ -64,18 +64,18 @@
         <% end %>
         <div class="container">
           <% if user_action.title.length > 40 %>
-            <h1 style="font-size: small;"><strong><%= user_action.title %></strong></h1>
+            <h1 style="font-size: small; margin-top: 10px;"><strong><%= user_action.title %></strong></h1>
           <% else %>
-            <h1><strong><%= user_action.title %></strong></h1>
+            <h1 style=" margin-top: 10px;"><strong><%= user_action.title %></strong></h1>
           <% end %>
         <% if user_action.category == 'transport' %>
-          <h4 style="color: rgb(216, 176, 77);"><%= user_action.action.level %></h4>
+          <h4 style="color: rgb(216, 176, 77); margin-top: 8px;"><%= user_action.action.level %></h4>
         <% elsif user_action.category == 'food' %>
-          <h4 style="color: rgb(164, 198, 99);"><%= user_action.action.level %></h4>
+          <h4 style="color: rgb(164, 198, 99); margin-top: 8px;"><%= user_action.action.level %></h4>
         <% elsif user_action.category == 'numeric' %>
-          <h4 style="color: rgb(125, 156, 183);"><%= user_action.action.level %></h4>
+          <h4 style="color: rgb(125, 156, 183); margin-top: 8px;"><%= user_action.action.level %></h4>
         <% elsif user_action.category == 'household' %>
-          <h4 style="color: rgb(189, 96, 72);"><%= user_action.action.level %></h4>
+          <h4 style="color: rgb(189, 96, 72); margin-top: 8px;"><%= user_action.action.level %></h4>
         <% end %>
           <div>
             <% if user_action.action.description.length > 45 %>
