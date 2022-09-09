@@ -408,10 +408,10 @@ p 'Generate score for vincent'
 score_user1 = user1.score
 
 score_user1.transport_score = 21
-score_user1.food_score = 7
+score_user1.food_score = 14
 score_user1.digital_score = 0
 score_user1.household_score = 0
-score_user1.total_score = 28
+score_user1.total_score = 35
 score_user1.save
 
 p 'Finished seeds'
