@@ -147,7 +147,7 @@
     <div class="carousel-inner col-10 mx-auto">
       <div class="carousel-item active">
         <%= link_to user_action_path(@last_actions.first) do %>
-          <div class="card-category-card"   style="width: 70vw; height: 35vh;">
+          <div class="card-category-card"   style="width: 70vw; height: 230px;">
             <div class= "card-img p-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
               url('<%= cl_image_path @last_actions.first.action.photo.key, height: 300, crop: :fit%>')">
 
@@ -225,7 +225,7 @@
       <% @last_actions[1..].each do |user_action|%>
         <div class="carousel-item">
           <%= link_to user_action_path(user_action) do %>
-            <div class="card-category-card"   style="width: 70vw; height: 35vh"  >
+            <div class="card-category-card"   style="width: 70vw; height: 230px"  >
               <div class= "card-img p-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path user_action.action.photo.key, height: 300, crop: :fit%>')">
                 <% if user_action.category == 'transport' %>
                   <div class="card-icon-carousel" style="background-color: rgb(216, 176, 77);">
