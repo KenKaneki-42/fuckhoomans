@@ -1,10 +1,13 @@
 class ActionsController < ApplicationController
 
   def index
-    @actions = Action.includes(:user_actions).where(user_actions: { user_id: nil })
-    return unless params[:category].present?
 
-    @actions = @actions.where(category: define_category)
+    if params[:category].present?
+      @active_action = Action.includes(:user_actions).where(user_actions: { user_id: current_user.id })
+      @actions = Action.includes(:user_actions).where(level: define_actions_to_see).where(category: define_category) - @active_action
+    else
+      @actions = Action.includes(:user_actions).where(user_actions: { user_id: nil })
+    end
   end
 
   def show
@@ -15,7 +18,7 @@ class ActionsController < ApplicationController
   private
 
   def define_actions_to_see
-    case current_user.send("#{define_category}_level")
+    case current_user.public_send("#{define_category}_level")
     when "beginner"
       ["beginner"]
     when "intermediate"
