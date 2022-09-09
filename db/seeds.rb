@@ -368,14 +368,14 @@ user1_action5 = UserAction.create({ title: action2l2.title,
                                     category: action2l2.category,
                                     carbongain: action2l2.carbongain })
 
-user1_action6 = UserAction.create({ title: action3l2.title,
-                                    status: 'selected',
-                                    user_occurences: 0,
-                                    user_id: user1.id,
-                                    action_id: action3l2.id,
-                                    score: action3l2.score,
-                                    category: action3l2.category,
-                                    carbongain: action3l2.carbongain })
+# user1_action6 = UserAction.create({ title: action3l2.title,
+#                                     status: 'selected',
+#                                     user_occurences: 0,
+#                                     user_id: user1.id,
+#                                     action_id: action3l2.id,
+#                                     score: action3l2.score,
+#                                     category: action3l2.category,
+#                                     carbongain: action3l2.carbongain })
 
 # for the list of all his view we will attribute him an action from food category
 
