@@ -1,7 +1,6 @@
 class ActionsController < ApplicationController
 
   def index
-
     if params[:category].present?
       @active_action = Action.includes(:user_actions).where(user_actions: { user_id: current_user.id })
       @actions = Action.includes(:user_actions).where(level: define_actions_to_see).where(category: define_category) - @active_action
